@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		
+			<title>Developing enterprise products with Lean UX and JavaScript | Myplanet Digital</title>
+		
+		
+			<meta name="description" content="How we built an interactive dashboard for Savvis, a CenturyLink company, and grew a new practice area in the process.">
+		
+		<meta name="generator" content="DocPad v6.63.7" />
+		
+		<!--[if !IE]> -->
+		<link  rel="stylesheet" href="http://myplanetdigital.github.io/swat/styles/main.css" />
+		<!-- <![endif]-->
+		
+		<!--[if (IE 8) | (IE 9)]>
+		<link rel="stylesheet" href="http://myplanetdigital.github.io/swat/styles/site-ie8.css">				
+		<![endif]-->
+
+		<!--[if IE 8]>
+		<script src="http://myplanetdigital.github.io/swat/scripts/vendor/html5shiv.js"></script>
+		<script>
+			window.html5 = {
+				'elements': 'section article footer',
+				'shivCSS': false,
+				'shivMethods': false				
+			}
+			window.isIE8 = true;
+		</script> 
+		<![endif]-->
+		<link rel="icon" type="image/png" href="http://myplanetdigital.github.io/swat/favicon.png" />
+	</head>
+
+	<body class=" article ">
+		<div id="wrap">
+			<h1 id="logo">
+				<a href="http://myplanetdigital.github.io/swat/">Myplanet</a>
+			</h1>
+			<div id="viewport">
+				
+				<section id="main">
+					<div class="main-wrap">
+						
+					</div>
+				</section>
+				
+				<!--[if (!IE) | (gte IE 10)]> -->
+				<article id="article">					
+					<!-- Article goes here for modern browsers -->
+					
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+<div class="article-header" style="background-image: url(http://myplanetdigital.github.io/swat/images/default-covers/1.jpg)">
+	
+		<h1 class="article-title">
+			
+				
+				<span>Developing Products </span><span>With Lean UX </span><span>& JavaScript</span>
+			
+		</h1>
+	
+</div>
+
+
+
+
+<div class="article-body">
+	<div class="article-info">
+
+		
+
+
+		
+
+
+		
+
+		
+			<div class="author-info">
+
+				
+
+				
+					
+						<a class="author-name" href="http://myplanetdigital.github.io/swat/people/nate-archer">Nate Archer</a>
+					
+				
+
+
+				
+				
+					<span class="date">Friday, Feb 15, 2013<span>
+				
+
+			</div>
+		
+
+		
+		
+			<ul class="article-tags">
+				
+					<li><a href="http://myplanetdigital.github.io/swat/tags/technology">technology</a></li>
+				
+			</ul>
+		
+	</div>
+
+
+	
+
+	
+		<div class="article-content">
+			<h2 id="how-we-built-an-interactive-dashboard-for-savvis-a-centurylink-company-and-grew-a-new-practice-area-in-the-process-">How we built an interactive dashboard for Savvis, a CenturyLink company, and grew a new practice area in the process.</h2>
+<p>From our experience, there are typically two strategies that can drive success at a professional services firm like Myplanet: a) focusing your efforts so you can become really excellent at just a few things, and b) being responsive to your clients’ needs by introducing new services as you grow.</p>
+<p>We often struggle to find a balance between the two conflicting drives. Surely as we grow we have room for more specialists and new services, but how do we avoid being spread too thin? It was the incessant asking of this question that led us to conclude that rapid prototyping, a key element of product development, was important enough to our core mission to deserve a new team - driven, of course, by the very real needs of one of our clients, Savvis.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_1.jpg" alt=""></p>
+<p>For the last few months a small team of researchers, designers and developers at Myplanet have been busy developing a prototype designed to help Savvis customers build and manage cloud services.  Savvis delivers cloud, colocation and managed-hosting services over advanced networks, enabling its clients to focus on their core environments and meet new market opportunities. Savvis Symphony VPDC (Virtual Private Data Centre), one of its key product offerings, is managed and controlled through an administration dashboard. With the emergence of  standards-compliant browsers, Savvis wanted to improve its web interface, taking advantage of HTML5 and providing better support for mobile platforms.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_2.jpg" alt=""></p>
+<p>The project was ambitious, forcing us to lean out our typical process and move faster; when end users proved hard to source, the team pivoted to auditing the existing dashboard through heuristic evaluation. Interaction designer and usability expert Michael Keara led the evaluation along with Erik, our Creative Director and Kevin, our Operations Director (formerly a Product Owner, Kevin still gets sucked into the odd project). Through stakeholder interviews, they were able to understand the business perspective and also asks questions about users as a form of proxy interview. Having this input informed how they approached the product evaluation, identifying areas of the dashboard that led to usability issues for VPDC customers.</p>
+<p>They noted that the previous system failed to properly support user goals because it didn’t “translate” the salient details about the system into terms that match the various task-oriented mindsets of users. The points of failure fell into 2 main categories: “boundaries and openings” and “state.” As Michael Keara describes, “‘boundaries and openings’ is how a user builds an understanding of the properties, limits and capabilities of the system, and ‘state’ is how the user understands the state of the system and the state of the user interface.” They used examples to illustrate these points and made recommendations that were not tied to particular execution issues with the current system, but to a new interaction model that solves core problems and avoids bad execution habits.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_3.jpg" alt=""></p>
+<p>From this point the team dove into how they might design a solution that rectifies these issues; focusing on proper affordances and feedback, a high degree of contextual awareness, and a UI that is tailored to user mindsets with consistent UI behaviors and predictable interactions. The team identified the user goals for the VPDC dashboard and grouped them using Story Mapping to get a feel for the sequence and priority of tasks. This led to the Design Studio, where they had a chance to ideate design solutions, iterate on them and develop interesting ways to achieve these tasks and avoid the pitfalls of the current solution.</p>
+<p>Our initial solutions were fully documented along with the audit, research and recommendations. After presenting the findings back to Savvis, it was clear to Savvis stakeholders that these issues needed to be addressed, but rather than building a fully functional product, prototyping was a more appropriate direction. Prototyping would allow the team to test and validate ideas, prior to committing to a particular solution.</p>
+<p>Prototyping began at a very basic level. Erik continued developing the visual language for the new dashboard, while Michael Keara focused on fine tuning the interaction model. Initial low fidelity mockups were tested with users to validate these directions with revisions being added to help tailor the experience.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_4.jpg" alt=""></p>
+<p>While the design side was coming together, Yashar, Myplanet’s Technical Director and Arvin, a developer, were evaluating the product from a technical perspective. With context on the existing system and its technical limitations as they related to user goals, the two developed a new approach that would make use of the lightweight JavaScript library Backbone.js.  This library was an ideal solution for this front-end heavy application because it allowed the team to test ideas closer to production fidelity and it provides a fast UI that is easy to extend into mobile.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_5.jpg" alt=""></p>
+<p>Next, the initial concepts were tested through sketches. Wireframes were polished and turned into compositions, allowing developers to start building a simple, clickable visual prototype. The designers and developers worked side by side as progress continued, each informing the other as they moved forward. This staggered process was “key to the project’s success,” according to Erik. While development happened on one area of the prototype, designs would be created for another area and testing would continue for something else. Colocation was a big contributor to successfully making this work. Working closely together meant that the team could be really agile, instantly shifting priority when necessary and learning from each other.</p>
+<p>One key challenge that confronted the team during the project was finding a balance between further iterations on existing ideas or developing completely new ideas. As Erik points out, “There is a continual fight between breadth and depth when prototyping, testing not only the usefulness of ideas but also ensuring their usability.” In the case of this project, the team placed most of the emphasis on prototyping multiple iterations of the VPDC workspace, one of the dashboard’s most important features, while spending less time designing and developing other features and areas.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_6.jpg" alt=""></p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_7.jpg" alt=""></p>
+<p>On the technical side, developers explored the limits of Backbone.js to ensure the system could handle the anticipated volume and complexity common to many Savvis end users. They opted to use randomly generating objects to stress test the architecture and also measured scaling and table performance that was handled in jsPlumb. Few large scale apps of this kind make use of Backbone.js, so developing ways to adapt and implement the library for this project was perhaps one of the most groundbreaking steps within the process.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_8.jpg" alt=""></p>
+<p>At the end of the project, the team had (if we may say so) a pretty darn impressive interactive prototype that enables users to try out the VPDC workspace and explore a variety of related tasks. On top of this, there were also lower fidelity mockups that explored more of the dashboard’s breadth, showcasing design solutions that didn’t need to be made fully interactive to validate. The combination of these different prototypes have different functions, but all serve to validate design ideas: the essence of prototyping. These results proved instrumental to Savvis and are currently being expanded to other areas of the Savvis user dashboard, as well as being further developed to be production-ready.</p>
+<p>As a model for enterprise product development, this was an interesting project. It demonstrated that the “Lean Startup” philosophy promoted by authors like Eric Ries and Steve Blank, so popular among Silicon Valley startups, can be applied to transforming existing products at large companies. And for us, it led to the development of a brand new practice area that is one of our fastest-growing ever: product prototyping.</p>
+
+
+			
+			<div class="article-footer">
+				<div class="footer-doodle careers"></div>
+			</div>
+		</div>
+	
+
+</div>
+					
+				</article>
+				<!-- <![endif]-->
+
+				<!--[if (IE 8) | (IE 9)]>
+				
+				<article id="article">										
+					
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+<div class="article-header" style="background-image: url(http://myplanetdigital.github.io/swat/images/default-covers/1.jpg)">
+	
+		<h1 class="article-title">
+			
+				
+				<span>Developing Products </span><span>With Lean UX </span><span>& JavaScript</span>
+			
+		</h1>
+	
+</div>
+
+
+
+
+<div class="article-body">
+	<div class="article-info">
+
+		
+
+
+		
+
+
+		
+
+		
+			<div class="author-info">
+
+				
+
+				
+					
+						<a class="author-name" href="http://myplanetdigital.github.io/swat/people/nate-archer">Nate Archer</a>
+					
+				
+
+
+				
+				
+					<span class="date">Friday, Feb 15, 2013<span>
+				
+
+			</div>
+		
+
+		
+		
+			<ul class="article-tags">
+				
+					<li><a href="http://myplanetdigital.github.io/swat/tags/technology">technology</a></li>
+				
+			</ul>
+		
+	</div>
+
+
+	
+
+	
+		<div class="article-content">
+			<h2 id="how-we-built-an-interactive-dashboard-for-savvis-a-centurylink-company-and-grew-a-new-practice-area-in-the-process-">How we built an interactive dashboard for Savvis, a CenturyLink company, and grew a new practice area in the process.</h2>
+<p>From our experience, there are typically two strategies that can drive success at a professional services firm like Myplanet: a) focusing your efforts so you can become really excellent at just a few things, and b) being responsive to your clients’ needs by introducing new services as you grow.</p>
+<p>We often struggle to find a balance between the two conflicting drives. Surely as we grow we have room for more specialists and new services, but how do we avoid being spread too thin? It was the incessant asking of this question that led us to conclude that rapid prototyping, a key element of product development, was important enough to our core mission to deserve a new team - driven, of course, by the very real needs of one of our clients, Savvis.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_1.jpg" alt=""></p>
+<p>For the last few months a small team of researchers, designers and developers at Myplanet have been busy developing a prototype designed to help Savvis customers build and manage cloud services.  Savvis delivers cloud, colocation and managed-hosting services over advanced networks, enabling its clients to focus on their core environments and meet new market opportunities. Savvis Symphony VPDC (Virtual Private Data Centre), one of its key product offerings, is managed and controlled through an administration dashboard. With the emergence of  standards-compliant browsers, Savvis wanted to improve its web interface, taking advantage of HTML5 and providing better support for mobile platforms.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_2.jpg" alt=""></p>
+<p>The project was ambitious, forcing us to lean out our typical process and move faster; when end users proved hard to source, the team pivoted to auditing the existing dashboard through heuristic evaluation. Interaction designer and usability expert Michael Keara led the evaluation along with Erik, our Creative Director and Kevin, our Operations Director (formerly a Product Owner, Kevin still gets sucked into the odd project). Through stakeholder interviews, they were able to understand the business perspective and also asks questions about users as a form of proxy interview. Having this input informed how they approached the product evaluation, identifying areas of the dashboard that led to usability issues for VPDC customers.</p>
+<p>They noted that the previous system failed to properly support user goals because it didn’t “translate” the salient details about the system into terms that match the various task-oriented mindsets of users. The points of failure fell into 2 main categories: “boundaries and openings” and “state.” As Michael Keara describes, “‘boundaries and openings’ is how a user builds an understanding of the properties, limits and capabilities of the system, and ‘state’ is how the user understands the state of the system and the state of the user interface.” They used examples to illustrate these points and made recommendations that were not tied to particular execution issues with the current system, but to a new interaction model that solves core problems and avoids bad execution habits.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_3.jpg" alt=""></p>
+<p>From this point the team dove into how they might design a solution that rectifies these issues; focusing on proper affordances and feedback, a high degree of contextual awareness, and a UI that is tailored to user mindsets with consistent UI behaviors and predictable interactions. The team identified the user goals for the VPDC dashboard and grouped them using Story Mapping to get a feel for the sequence and priority of tasks. This led to the Design Studio, where they had a chance to ideate design solutions, iterate on them and develop interesting ways to achieve these tasks and avoid the pitfalls of the current solution.</p>
+<p>Our initial solutions were fully documented along with the audit, research and recommendations. After presenting the findings back to Savvis, it was clear to Savvis stakeholders that these issues needed to be addressed, but rather than building a fully functional product, prototyping was a more appropriate direction. Prototyping would allow the team to test and validate ideas, prior to committing to a particular solution.</p>
+<p>Prototyping began at a very basic level. Erik continued developing the visual language for the new dashboard, while Michael Keara focused on fine tuning the interaction model. Initial low fidelity mockups were tested with users to validate these directions with revisions being added to help tailor the experience.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_4.jpg" alt=""></p>
+<p>While the design side was coming together, Yashar, Myplanet’s Technical Director and Arvin, a developer, were evaluating the product from a technical perspective. With context on the existing system and its technical limitations as they related to user goals, the two developed a new approach that would make use of the lightweight JavaScript library Backbone.js.  This library was an ideal solution for this front-end heavy application because it allowed the team to test ideas closer to production fidelity and it provides a fast UI that is easy to extend into mobile.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_5.jpg" alt=""></p>
+<p>Next, the initial concepts were tested through sketches. Wireframes were polished and turned into compositions, allowing developers to start building a simple, clickable visual prototype. The designers and developers worked side by side as progress continued, each informing the other as they moved forward. This staggered process was “key to the project’s success,” according to Erik. While development happened on one area of the prototype, designs would be created for another area and testing would continue for something else. Colocation was a big contributor to successfully making this work. Working closely together meant that the team could be really agile, instantly shifting priority when necessary and learning from each other.</p>
+<p>One key challenge that confronted the team during the project was finding a balance between further iterations on existing ideas or developing completely new ideas. As Erik points out, “There is a continual fight between breadth and depth when prototyping, testing not only the usefulness of ideas but also ensuring their usability.” In the case of this project, the team placed most of the emphasis on prototyping multiple iterations of the VPDC workspace, one of the dashboard’s most important features, while spending less time designing and developing other features and areas.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_6.jpg" alt=""></p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_7.jpg" alt=""></p>
+<p>On the technical side, developers explored the limits of Backbone.js to ensure the system could handle the anticipated volume and complexity common to many Savvis end users. They opted to use randomly generating objects to stress test the architecture and also measured scaling and table performance that was handled in jsPlumb. Few large scale apps of this kind make use of Backbone.js, so developing ways to adapt and implement the library for this project was perhaps one of the most groundbreaking steps within the process.</p>
+<p><img src="/associated-files/article/developing-enterprise-products-with-lean-ux-and-javascript/body_8.jpg" alt=""></p>
+<p>At the end of the project, the team had (if we may say so) a pretty darn impressive interactive prototype that enables users to try out the VPDC workspace and explore a variety of related tasks. On top of this, there were also lower fidelity mockups that explored more of the dashboard’s breadth, showcasing design solutions that didn’t need to be made fully interactive to validate. The combination of these different prototypes have different functions, but all serve to validate design ideas: the essence of prototyping. These results proved instrumental to Savvis and are currently being expanded to other areas of the Savvis user dashboard, as well as being further developed to be production-ready.</p>
+<p>As a model for enterprise product development, this was an interesting project. It demonstrated that the “Lean Startup” philosophy promoted by authors like Eric Ries and Steve Blank, so popular among Silicon Valley startups, can be applied to transforming existing products at large companies. And for us, it led to the development of a brand new practice area that is one of our fastest-growing ever: product prototyping.</p>
+
+
+			
+			<div class="article-footer">
+				<div class="footer-doodle careers"></div>
+			</div>
+		</div>
+	
+
+</div>
+
+				</article>
+				
+				<![endif]-->
+				
+			</div>
+
+			<!-- MENU GOES HERE -->
+			<div id="menu">
+	<ul class="nav navbar-nav">
+		
+			
+				<li class="all">
+					<a href="http://myplanetdigital.github.io/swat/"><span>All articles</span></a>
+				</li>
+			
+		
+			
+				<li class="people">
+					<a href="http://myplanetdigital.github.io/swat/tags/people"><span>Our People</span></a>
+				</li>
+			
+		
+			
+				<li class="careers">
+					<a href="http://myplanetdigital.github.io/swat/tags/careers"><span>Careers Opps</span></a>
+				</li>
+			
+		
+			
+				<li class="design">
+					<a href="http://myplanetdigital.github.io/swat/tags/design"><span>Design Thinking</span></a>
+				</li>
+			
+		
+			
+				<li class="technology">
+					<a href="http://myplanetdigital.github.io/swat/tags/technology"><span>Tech Thinking</span></a>
+				</li>
+			
+		
+			
+				<li class="business">
+					<a href="http://myplanetdigital.github.io/swat/tags/business"><span>Business Thinking</span></a>
+				</li>
+			
+		
+		<li class="contact page"><a href="#footer"><span>Contact Us</span></a></li>
+	</ul>
+</div>
+
+<!--[if (!IE) | (gte IE 10)]> -->
+<button id="menu-toggle">Show Menu</button>
+<!-- <![endif]-->
+
+		</div>
+
+		<footer id="footer">
+	<div class="contact-info">
+		<span>hello@myplanet.io</span>
+		<span>866-546-2345</span>
+	</div>
+	<div class="additional-info">
+		<div class="contact">
+			<h3>Myplanet</h3>
+			<span>866-232-7456</span>
+			<span>hello@myplanet.io</span>
+			<ul class="social-media-footer">
+				<li><a class="twitter" href="">Twitter</a></li>
+				<li><a class="facebook" href="">Facebook</a></li>
+				<li><a class="dribbble" href="">Dribbble</a></li>
+				<li><a class="drupal" href="">Drupal</a></li>
+				<li><a class="linkedin" href="">Linkedin</a></li>
+			</ul>
+		</div>
+		<div class="address toronto">
+			<h3>Toronto</h3>
+			<span>252 Adelaide St E</span>
+			<span>Toronto, Ontario</span>
+			<span>M5A 1N1</span>
+		</div>
+		<div class="address vancouver">
+			<h3>Vancouver</h3>
+			<span>312-510 West Hastings</span>
+			<span>Vancouver, BC</span>
+			<span>V6B 1L8</span>
+		</div>
+		<div class="address chernihiv">
+			<h3>Chernihiv</h3>
+			<span>TBD</span>
+		</div>
+	</div>
+</footer>
+		<!--[if IE 8]>
+		<script src="http://myplanetdigital.github.io/swat/scripts/vendor/jquery-1.11.0.min.js"></script> 
+		<![endif]-->
+		<!--[if (!IE) | (gte IE 9)]> -->
+		<script src="http://myplanetdigital.github.io/swat/scripts/vendor/jquery-2.1.0.min.js"></script>
+		<!-- <![endif]-->
+		<script >(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+ga('create', 'UA-16401713-2');
+ga('send', 'pageview');</script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/isotope-beta2.pkgd.min.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/main.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/pollyfill.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/scrollfix.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/modules/tiles.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/modules/menu.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/main.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/animator.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/fastclick.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/init.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/prism.js"></script>
+	</body>
+</html>

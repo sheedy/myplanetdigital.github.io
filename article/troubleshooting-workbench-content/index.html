@@ -1,0 +1,203 @@
+
+
+
+
+
+
+	
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+<div class="article-header" style="background-image: url(http://myplanetdigital.github.io/swat/associated-files/article/troubleshooting-workbench/cover.jpg)">
+	
+		<h1 class="article-title">
+			
+				
+				<span>Troubleshooting </span><span>Workbench in Drupal</span>
+			
+		</h1>
+	
+</div>
+
+
+
+
+<div class="article-body">
+	<div class="article-info">
+
+		
+
+
+		
+			<div class="author-picture">
+				
+					<a href="http://myplanetdigital.github.io/swat/people/anna-sunko">
+						<img src="http://myplanetdigital.github.io/swat/associated-files/people/anna-sunko/avatar.jpg" alt="Author Picture" />
+					</a>
+				
+			</div>
+		
+
+
+		
+
+		
+			<div class="author-info">
+
+				
+
+				
+					
+						<a class="author-name" href="http://myplanetdigital.github.io/swat/people/anna-sunko">Anna Sunko</a>
+					
+				
+
+
+				
+				
+					<span class="date">Friday, Apr 12, 2013<span>
+				
+
+			</div>
+		
+
+		
+		
+			<ul class="article-tags">
+				
+					<li><a href="http://myplanetdigital.github.io/swat/tags/technology">technology</a></li>
+				
+			</ul>
+		
+	</div>
+
+
+	
+
+	
+		<div class="article-content">
+			<h2 id="a-handy-guide-to-some-of-the-common-problems-encountered-when-trying-to-set-up-workbench-in-drupal-">A handy guide to some of the common problems encountered when trying to set up Workbench in Drupal.</h2>
+<h3 id="intro-to-workbench">Intro to Workbench</h3>
+<p>Before explaining the problems we&#39;ve encountered while implementing Workbench, I&#39;d like to describe the use-case for Workbench and list its major features.</p>
+<p>Content administrators need a friendly interface to quickly find, sort, and modify content. But the Drupal content management interface, while functional, lacks some of the convenience that Workbench offers. It&#39;s also often desirable to distinguish between users and/or roles which have different permissions through the publishing workflow. For example, users in one role may need to moderate revisions of only their own content while users of another role may need to manage all revisions and have authority to publish. Drupal&#39;s core modules don&#39;t enable this publishing workflow exactly, though Drupal supports content revisions. Based on this concept of revisions, a package of modules were created to flesh out this functionality and provide content administrators a robust content management and publishing interface -- that package includes Workbench, Workbench Access, and Workbench Moderation.</p>
+<p>After enabling Workbench module, any user with &quot;Access My Workbench&quot; permission gets access to a new admin-menu item called &quot;My Workbench&quot;, and content owned or modified by the current user is available in sub-menu item called &quot;My Content&quot;.</p>
+<p>Drupal provides permissions for adding, editing, and deleting content -– that is to add/edit/delete one&#39;s own content as well as another&#39;s content. Workbench Access module extends these permissions to provide editorial access controls based on what Workbench calls &quot;sections&quot;. Sections of content correspond to the hierarchal placement of that content via taxonomy or menu and users can be assigned to specific sections so they can add or moderate content within them. While creating and editing content, a user can associate their content to a specific section and Workbench Access module then helps control who can collaborate on that piece of content -- who can see, edit, approve, publish, etc.</p>
+<p>The Workbench Access module settings page provides the ability to indicate which Drupal hierarchical data structures will be used as sections and for which content types Workbench Access restrictions will be imposed. As well, this module provides a UI so you can assign users or roles to specific sections.</p>
+<p>In Drupal, every content revision is in one of two states: published or unpublished. The Workbench Moderation module provides more states for unpublished content so it can be reviewed and approved before being published. For a content type to support moderation states you need to &quot;Enable moderation of revisions&quot; on the content type settings page, and disable immediate publication of content on its creation. On the settings page of this module you can specify additional moderation states and transitions but the standards are &quot;draft&quot;, &quot;needs review&quot;, and &quot;published&quot;. Workbench Moderation module generates separate permissions based on all transitions to control which roles/users can transition the content from one state to another. For the &quot;node/%nid&quot; page, the modules provide an additional tab called &quot;Moderate&quot; where node revision history is available and you can change moderation state for the active revision.</p>
+<h3 id="are-you-using-workbench-and-field-collection-modules-">Are you using Workbench and Field Collection modules?</h3>
+<p>First, regardless of Workbench integration, we had to solve a problem with Field Collection module whereby fields of the field collection type couldn&#39;t be deleted thoroughly -- i.e: if you create a field of the field collection type and then delete it, tables containing <em>values</em> of this field were removed (data table and revision table), but meta-information <em>about</em> the deleted field still exists in <code>field_config_instance</code>, <code>field_config</code> and <code>field_collection_item</code> tables.</p>
+<p>This problem led to errors while running cron –- the system would encounter information about the deleted field collection field in <code>field_config_instance</code>, then would try to form an instance of that field, then of course encounter errors. To solve this problem we wrote a <code>hook_update</code> to delete all artifacts of the offending field collection fields.</p>
+<h3 id="-hook_update-code"><code>hook_update</code> code</h3>
+<pre><code>$instances = field_read_instances(array(&#39;deleted&#39; =&gt; 1),
+             array(&#39;include_deleted&#39; =&gt; 1));
+// Array of fields that should be deleted
+$deleted = array(&#39;field_some_field_collection_field&#39;);
+foreach ((array) $instances as $key =&gt; $instance) {
+    if (in_array($instance[&#39;field_name&#39;], $deleted)) {
+        // Removing record related with field
+        // from field_config_instance table
+        field_purge_instance($instance);
+        $field = field_info_field_by_id($instance[&#39;field_id&#39;]);
+        // Removing record related with field
+        // from field_config table
+        field_purge_field($field);
+        // Removing record related with field
+        // from field_collection_item table
+        db_delete(&#39;field_collection_item&#39;)-&gt;condition(
+          &#39;field_name&#39;, $instance[&#39;field_name&#39;])-&gt;execute();
+    }
+}
+</code></pre><p>Expected behavior of nodes moderated via Workbench workflow:</p>
+<ul>
+<li>after saving draft of node, none of changes should appear on the &quot;View published&quot; page</li>
+<li>after saving draft of node, all changes should be saved as a part of draft and could be changed within the draft</li>
+<li>the draft could be published and all its changes would be shown on the &quot;View published&quot; page</li>
+</ul>
+<p>But the field collection module, including version &quot;field_collection 7.x-1.0-beta4&quot;, doesn&#39;t support field revisions. This means that when a user clicks to save a draft of their node, all field collection fields associated with that node are published immediately (without respecting Workbench&#39;s moderation status). The full implementation of a revision system for field collection has existed since version &quot;7.x-1.0-beta5&quot;, and at the time of this writing it is the current stable version of this module.</p>
+<p>However, while using &quot;7.x-1.0-beta5&quot; version of the module, a serious problem was discovered wherein a node would simultaneously exist in a published and unpublished state -- go figure!?! After deleting one of the multiple field collection fields and moving node to published state using Workbench&#39;s &quot;Moderate&quot; tab, the node status in the node table became &quot;unpublished&quot;, while the Workbench Moderation module would add a record that the node had been published to its own table. We were able to fix it with this <a href="http://drupal.org/files/field_collection_with_workbench_moderation-1807460-1.patch">patch</a>.</p>
+<h3 id="workbench-moderation-with-views-3-5-and-content-access-modules">Workbench moderation with Views 3.5 and Content Access modules</h3>
+<p>The specificity of using these modules together is that their combination leads to a problem of excluding unpublished nodes from results of Workbench views &quot;My Content&quot;, &quot;My Drafts&quot;, &quot;Needs Review&quot; for the user who has permissions for creating and editing unpublished content, except for cases when the user has the &#39;Bypass content access control&#39; permission set. It means that the user creates a node draft and can&#39;t find it on &quot;My Drafts&quot; page.</p>
+<p>The description of this problem can be found <a href="http://drupal.org/node/1925096">here</a>. We were able to solve this problem by installing an additional module &#39;<a href="http://drupal.org/project/view_unpublished">view_unpublished</a>&#39;.</p>
+<h3 id="symptom">Symptom</h3>
+<p>A user who has created drafts of nodes cannot find said drafts on Workbench&#39;s &quot;My Drafts&quot; page.</p>
+<h3 id="explanation-of-cause">Explanation of Cause</h3>
+<p>When using these versions of the modules together (Workbench Moderation, Views 3.5, and Content Access), unpublished nodes would be excluded from the result set while viewing &quot;My Content&quot;, &quot;My Drafts&quot;, &quot;Needs Review&quot; by any user who has permissions for creating and editing unpublished content -- except for cases when a user may have &#39;Bypass content access control&#39; permission.</p>
+<p>Tip: <em>Read that again!</em></p>
+<h4 id="solution">Solution</h4>
+<p>A complete description of this problem can be found at <a href="http://drupal.org/node/1925096">drupal.org/node/1925096</a>. We were able to solve this problem by installing and configuring the <a href="http://drupal.org/project/view_unpublished">view_unpublished</a> module.</p>
+<h3 id="workbench-moderation-and-scheduler-modules">Workbench Moderation and Scheduler modules</h3>
+<p>The Scheduler module doesn&#39;t play nice with the Workbench Moderation module. When Scheduler publishes or unpublishes a node on a specified date it changes the node status in the &quot;node&quot; table. <em>Period.</em></p>
+<p>For example, if a node was in an unpublished state and the Scheduler module publishes it, the node page will display a discrepancy. The Node module will show that node is published but the Workbench Moderation module will display its previous state as &quot;draft&quot; or &quot;needs review&quot;.</p>
+<p>If you are using Workbench Moderation and Scheduler together, it&#39;s essential that Workbench be informed of this change. When a node status is changed from &quot;draft&quot; to &quot;published&quot; or vice versa, a new record must be added to the &quot;workbench_moderation_node_history&quot;. For Workbench Moderation module to interact with Scheduler module you should install <a href="http://drupal.org/project/scheduler_workbench">Scheduler Workbench Integration</a> module.</p>
+<h3 id="workbench-moderation-and-views-modules">Workbench moderation and Views modules</h3>
+<p>The expected behavior of Views while displaying information about a node on the node view page is:</p>
+<ul>
+<li>On the &quot;View Draft&quot; page (<code>node/%nid/draft</code>), Views should display data from current unpublished revision</li>
+<li>On the <code>node/%nid</code> page, Views should display data from the current published revision (if there is one, otherwise it should display data from current unpublished revision -- same as the &quot;View Draft&quot; page)</li>
+<li>On the <code>node/%nid/revisions/%revision_id/view</code> page, Views should display data from revision passed as <code>%revision_id</code> in the url.</li>
+</ul>
+<p>For Views to fulfill the above requirements:</p>
+<ul>
+<li>Change the base table of the view from &quot;node&quot; to &quot;node_revision&quot; (when creating a view on <code>admin/structure/views/add</code> page there is a field called &quot;Show&quot; where we can choose the instance to be shown in the view. For our purposes, set this field to &quot;Content revisions&quot;)</li>
+<li>The view should derive content from fields revision tables (marked as &quot;Content historical data&quot;)</li>
+</ul>
+<!-- * Set an argument for the view to get argument from current "vid", not from "nid" (in the "Contextual filters" area add "Content revision: Vid" argument). The type of this argument should be "PHP Code". In the "PHP contextual filter code" set custom a function that determines the correct node revision vid:
+
+        function get_node_revision_by_nid($nid = NULL) {
+            if (arg(0) == 'node' && $nid == NULL) {
+                $nid = arg(1);
+            }
+            if (is_numeric($nid)) {
+                $node = node_load($nid);
+                if (!empty($node)) {
+                    // getting vid on the
+                    // node/%nid page
+                    $vid = $node->vid;
+                    if (arg(2) == 'draft' &&
+                            isset($node->workbench_moderation['current']->vid) &&
+                            ($node->vid != $node->workbench_moderation['current']->vid)) {
+                        // getting vid on the node/%nid/draft page
+                        $vid = $node->workbench_moderation['current']->vid;
+                    }
+                    if (arg(2) == 'revisions' && is_numeric(arg(3))) {
+                        // getting vid on the
+                        // node/%nid/revisions/%revision_id/view page
+                        $vid = arg(3);
+                    }
+                }
+                return $vid;
+            }
+        } -->   
+
+<p>I&#39;m Anna and I approve this message ;)</p>
+
+
+			
+			<div class="article-footer">
+				<div class="footer-doodle careers"></div>
+			</div>
+		</div>
+	
+
+</div>
+
