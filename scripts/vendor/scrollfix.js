@@ -70,6 +70,7 @@
                 obj.fixed[len].noBounce = true;
             }
         }
+
         if(! hasAddedListeners) {
             window.addEventListener('resize', function (event) {
                 var len = scrollable.length;

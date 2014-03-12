@@ -1,10 +1,21 @@
-(function initialize () {
-	'use strict';
+(function init () {
+  'use strict';
 
-	if(!window.isSinglePageApp) {
-		return;
-	}
+  if(!window.isSinglePageApp) {
+    return;
+  }
 
-	window.FastClick.attach(document.body);
+  var $body = $('body');
+
+  window.FastClick.attach(document.body);
+
+  History.Adapter.bind(window,'statechange',function (){
+       $body.trigger('page-change', [History.getState()]);
+    });
+
+  /*  History.Adapter.bind(window,'hashchange', function (){
+      //debugger;
+      $body.trigger('hash-change', [History.getState()]);
+    });*/
 
 }());

@@ -16,13 +16,15 @@
 		queue = [],
 		layerQueue = [],
 		finishFlush,
-		$hiddenTiles,
-		$body = $('body'),
-		$articleContainer = $('#article');
+		$hiddenTiles;
 
 	function initializePage() {
+		if(!window.isTileView) {
+			return;
+		}
+
 		$hiddenTiles = window.tiles.items.filter(function (tile) {
-			if(tile.position.y + topOffset < scrollData.bottom ) {
+			if(tile.position.y + topOffset < (window.pageYOffset + window.pageHeight)) {
 				tile.element.style.opacity = '0.99';
 				return false;
 			} else {
@@ -39,6 +41,7 @@
 		hasHiddenTiles = $hiddenTiles.length;
 		firstEventTimeout = null;
 	}
+	window.initializePage = initializePage;
 
 	function removeLayer(item) {
 		item.classList.remove('reveal');
@@ -62,30 +65,35 @@
 		while(len--){
 			removeLayer($hiddenTiles[len].element);
 		}
+		$hiddenTiles = [];
 		len = queue.length;
 		while(len--){
 			removeLayer(queue[len]);
 		}
+		queue = [];
 		len = layerQueue.length;
 		while(len--){
 			removeLayer(queue[len]);
 		}
+		layerQueue = [];
 	}
+	window.removeAllLayers = removeAllLayers;
 
 	function flushQueue() {
 		var len = queue.length,
 			item,
 			count = 0;
+
 		while(len--) {
 			item = queue[len];
 			item.tile.classList.add(queue[len].klass);
 			queue.splice(len, 1);
 			if(++count === 3 && queue.length) {
-				return flushingTimeout = window.setTimeout(finishFlush, 50);
+				return flushingTimeout = window.setTimeout(finishFlush, 60);
 			}
 		}
 		if(queue.length) {
-			return flushingTimeout = window.setTimeout(finishFlush, 50);
+			return flushingTimeout = window.setTimeout(finishFlush, 60);
 		}
 		flushingTimeout = null;
 	}
@@ -93,6 +101,9 @@
 	finishFlush = window.requestAnimationFrame.bind(null, flushQueue);
 
 	function onScroll() {
+		if(!$hiddenTiles) {
+			return;
+		}
 		var tile,
 			len = $hiddenTiles.length,
 			added = false;
@@ -115,12 +126,18 @@
 		}
 
 		if(added && !flushingTimeout) {
-			window.requestAnimationFrame(flushQueue);
+			window.setTimeout(function () {
+				window.requestAnimationFrame(flushQueue);
+			}, 0);
 		}
 		throttleTimeout = null;
 	}
 
 	function handleScroll(e, data) {
+		if(data.isFinalEvent) {
+			scrollData = data;
+			return onScroll();
+		}
 		if(!hasHiddenTiles || throttleTimeout) {
 			return;
 		}
@@ -136,37 +153,84 @@
 		if(!e.target.classList.contains('tile')) {
 			return;
 		}
+
+		//initial fade in
 		if (!e.target.classList.contains('show') && !e.target.classList.contains('reveal')) {
 			return removeLayer(e.target);
 		}
+
+		//remove the layer after scrolling
 		if(! window.isScrolling) {
 			window.requestAnimationFrame(removeLayer.bind(null, e.target));
 		} else {
 			layerQueue.push(e.target);
 		}
 	}
-	//only attach desktop events if the device is capable of showing desktop
+
+	//only attach events if the device is capable of showing desktop
 	$window.on('deviceCapabilities', function (e, data) {
 		if(data.desktopCapable) {
 			$window.on('pageScroll', handleScroll);
 			$window.on('after-scrolling', window.requestAnimationFrame.bind(null, removeLayers));
 			$wrap.on('transitionend webkitTransitionEnd', transitionEnd);
-			$window.on('article', removeAllLayers);
-
+			$window.on('article menu', removeAllLayers);
 			scrollData = data;
 			firstEventTimeout = window.setTimeout(initializePage, 750);
 		}
 	});
 
-	//Article loading
-	//Temporary, Proof of concept
-	$wrap.on('click', 'a.tile-image, a.tile-title', function(e) {
-		e.preventDefault();
-		$window.trigger('article');
-		window.requestAnimationFrame(function () {
-			$body.toggleClass('article');
-		});
-		$articleContainer.load(this.href + '-content');
+	$window.on('tiles-init', function () {
+		window.initializeTiles();
+		initializePage();
+
+
+		// Filter by the current tag
+		var currentTag = $('.nav li.active');
+		if (currentTag.length === 0) {
+			currentTag = 'home';
+		}
+		else {
+			currentTag = currentTag.attr('class');
+			var classes = currentTag.split(' ');
+			for (var i = 0; i < classes.length; i++) {
+				if (classes[i] != 'active') {
+					currentTag = classes[i];
+					break;
+				}
+			}
+		}
+		// Now that the tag is found, show the tiles for that tag
+		window.tiles.arrange({filter: '.' + currentTag});
+		window.removeAllLayers();
+			window.revealAll();
+
+		// Loading the home tiles.
+		$window.trigger('filter');
 	});
+
+	window.tileTagSort = function() {
+		// Filter by the current tag
+		var currentTag = $('.nav li.active');
+		if (currentTag.length === 0) {
+			currentTag = 'home';
+		}
+		else {
+			currentTag = currentTag.attr('class');
+			var classes = currentTag.split(' ');
+			for (var i = 0; i < classes.length; i++) {
+				if (classes[i] != 'active') {
+					currentTag = classes[i];
+					break;
+				}
+			}
+		}
+		// Now that the tag is found, show the tiles for that tag
+		window.tiles.arrange({filter: '.' + currentTag});
+		window.removeAllLayers();
+		window.revealAll();
+
+		// Loading the home tiles.
+		$window.trigger('filter');
+	};
 
 }());

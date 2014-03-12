@@ -1,8 +1,8 @@
 (function polyfill() {
-	'use strict';
+    'use strict';
 
     var s = document.body.style;
-    window.isSinglePageApp = window.history && window.history.pushState && (s.MozTransition=='' || s.WebkitTransition=='' || s.OTransition=='' || s.transition=='');
+    window.isSinglePageApp = window.history && window.history.pushState && (s.MozTransition === '' || s.WebkitTransition === '' || s.OTransition === '' || s.transition === '');
 
     if (window.isSinglePageApp) {
 
@@ -91,9 +91,9 @@
 
             plugin.css = function(key, value) {
                 if (key === 'transition') {
-                	value = value.replace('transform', prefix + '-transform');
+                    value = value.replace('transform', prefix + '-transform');
                 } else if (key && key.transition) {
-                	key.transition = key.transition.replace('transform',  prefix + '-transform');
+                    key.transition = key.transition.replace('transform',  prefix + '-transform');
                 }
 
                 return cssFn.apply(this, arguments);
@@ -126,7 +126,6 @@
               jQuery.fn[sr] = function(fn){  return fn ? this.bind('resize', window.debounce(fn)) : this.trigger(sr); };
 
             })(jQuery,'smartresize');
-
         }
 
     }
