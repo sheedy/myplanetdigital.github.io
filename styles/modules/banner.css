@@ -1,0 +1,23 @@
+/*  colour: Grayscale */
+/*colour: Color*/
+/*global: Main*/
+.banner {
+  margin: -128px -10px 30px -10px;
+  color: white;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 120px 0 120px;
+  font-family: "Palantin";
+  font-weight: bold;
+  font-size: 2.8em;
+  background-color: #f15b29;
+}
+.banner .banner-text {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 70px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}

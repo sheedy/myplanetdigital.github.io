@@ -2,6 +2,39 @@
 
 	'use strict';
 
+	/**
+	 * Initialize the tiles when the page loads.
+	 */
+	window.initializeTiles = function() {
+		var tag = 'home';
+		var $articles = $('.articles');
+		if ($articles.length >= 0) {
+			tag = $articles.data('tag');
+		}
+		window.tiles = new Isotope( '.main-wrap', {
+		  itemSelector: '.tile',
+		  filter: '.' + tag,
+		  masonry: {
+		    columnWidth: '.grid-size'
+		  },
+		  transitionDuration: 0
+		});
+
+		var loadingGif = new Image();
+		loadingGif.src = "/images/loading.gif";
+		loadingGif.onload = function () {
+			if('ontouchstart' in window) {
+			    var els = document.querySelectorAll('.tile'),
+			        len = els.length;
+			    while(len--) {
+			        els[len].style.opacity = 1;
+			    }
+			}
+		};
+
+	}
+	$(document).ready(window.initializeTiles);
+
 	if(!window.isSinglePageApp) {
 		return;
 	}
@@ -520,38 +553,5 @@
 	window.requestAnimationFrame(function () {
 		$body.addClass('loaded');
 	});
-
-	/**
-	 * Initialize the tiles when the page loads.
-	 */
-	window.initializeTiles = function() {
-		var tag = 'home';
-		var $articles = $('.articles');
-		if ($articles.length >= 0) {
-			tag = $articles.data('tag');
-		}
-		window.tiles = new Isotope( '.main-wrap', {
-		  itemSelector: '.tile',
-		  filter: '.' + tag,
-		  masonry: {
-		    columnWidth: '.grid-size'
-		  },
-		  transitionDuration: 0
-		});
-
-		var loadingGif = new Image();
-		loadingGif.src = "/images/loading.gif";
-		loadingGif.onload = function () {
-			if('ontouchstart' in window) {
-			    var els = document.querySelectorAll('.tile'),
-			        len = els.length;
-			    while(len--) {
-			        els[len].style.opacity = 1;
-			    }
-			}
-		};
-
-	}
-	$(document).ready(window.initializeTiles);
 	
 }());

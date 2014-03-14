@@ -43,6 +43,7 @@
 			</h1>
 			<div id="viewport">
 
+				<!--[if (!IE) | (gte IE 10)]> -->
 				<section id="main" style="transition: none; -webkit-transition: none; position: absolute;">
 					<div class="main-wrap" style="position: relative;">
 						
@@ -65,11 +66,11 @@
 		<div class="contact">
 			<h3>Connect with us</h3>
 			<ul class="social-media-footer">
-				<li><a class="twitter" href="">Twitter</a></li>
-				<li><a class="facebook" href="">Facebook</a></li>
-				<li><a class="dribbble" href="">Dribbble</a></li>
-				<li><a class="drupal" href="">Drupal</a></li>
-				<li><a class="linkedin" href="">Linkedin</a></li>
+				<li><a class="twitter" href="http://twitter.com/myplanetHQ" target="_blank">Twitter</a></li>
+				<li><a class="facebook" href="http://www.facebook.com/myplanetHQ" target="_blank">Facebook</a></li>
+				<li><a class="dribbble" href="http://dribbble.com/myplanet" target="_blank">Dribbble</a></li>
+				<li><a class="drupal" href="http://drupal.org/node/1121200" target="_blank">Drupal</a></li>
+				<li><a class="linkedin" href="http://www.linkedin.com/company/701891" target="_blank">Linkedin</a></li>
 			</ul>
 		</div>
 		<div class="address toronto">
@@ -100,20 +101,16 @@
 </footer>
 
 				</section>
-
-				<!--[if (!IE) | (gte IE 10)]> -->
+				
 				<article id="article" style="position: static; margin-left: 100%;">
 					<div id="article-inner"  class="reveal">
+												
 						
-						<!-- Article goes here for modern browsers -->
-						
 
 
 
 
 	
-
-
 
 
 
@@ -131,7 +128,8 @@
 
 
 
-<div class="article-banner"  style="background-image: url(http://myplanetdigital.github.io/swat/images/default-covers/6.jpg);">
+<div class="article-banner" style="background-image: url(http://myplanetdigital.github.io/swat/images/default-covers/2.jpg);" >
+	<img src="http://myplanetdigital.github.io/swat/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -222,9 +220,10 @@
 				<!-- <![endif]-->
 
 				<!--[if (IE 8) | (IE 9)]>
-				
+								
 				<article id="article">
-					
+					<div id="article-inner" >				
+						
 
 
 
@@ -238,8 +237,6 @@
 
 
 
-
-
 	
 	
 	
@@ -249,7 +246,8 @@
 
 
 
-<div class="article-banner"  style="background-image: url(http://myplanetdigital.github.io/swat/images/default-covers/6.jpg);">
+<div class="article-banner" style="background-image: url(http://myplanetdigital.github.io/swat/images/default-covers/2.jpg);" >
+	<img src="http://myplanetdigital.github.io/swat/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -330,8 +328,58 @@
 	
 
 </div>
+				
+					</div>
+					<footer class="footer" id="contact">
+	<div class="contact-info">
+		<div class="email-us">
+			<h3>e-mail us</h3>
+			<p>hello@myplanet.io</p>
+		</div>
+		<div class="call-us">
+			<h3>call us</h3>
+			<p>1-866-232-7456</p>
+		</div>
+	</div>
+	<div class="additional-info">
+		<div class="contact">
+			<h3>Connect with us</h3>
+			<ul class="social-media-footer">
+				<li><a class="twitter" href="http://twitter.com/myplanetHQ" target="_blank">Twitter</a></li>
+				<li><a class="facebook" href="http://www.facebook.com/myplanetHQ" target="_blank">Facebook</a></li>
+				<li><a class="dribbble" href="http://dribbble.com/myplanet" target="_blank">Dribbble</a></li>
+				<li><a class="drupal" href="http://drupal.org/node/1121200" target="_blank">Drupal</a></li>
+				<li><a class="linkedin" href="http://www.linkedin.com/company/701891" target="_blank">Linkedin</a></li>
+			</ul>
+		</div>
+		<div class="address toronto">
+			<h3>Toronto</h3>
+			<span>252 Adelaide St E</span>
+			<span>Toronto, Ontario</span>
+			<span>M5A 1N1</span>
+		</div>
+		<div class="address vancouver">
+			<h3>Vancouver</h3>
+			<span>312-510 West Hastings</span>
+			<span>Vancouver, BC</span>
+			<span>V6B 1L8</span>
+		</div>
+		<div class="address chernihiv">
+			<h3>Chernihiv</h3>
+			<span>21a Voiniv-Internatsionalistiv St</span>
+			<span>Chernihiv, Ukraine</span>
+			<span>14000</span>
+		</div>
+		<div class="address chicago">
+			<h3>Chicago</h3>
+			<span>155 North Wacker Dr.</span>
+			<span>Chicago, IL</span>
+			<span>60606</span>
+		</div>
+	</div>
+</footer>
 
-				</article>
+				</article>				
 				
 				<![endif]-->
 
@@ -475,6 +523,7 @@
 		</div>
 		<!--[if IE 8]>
 		<script src="http://myplanetdigital.github.io/swat/scripts/vendor/jquery-1.11.0.min.js"></script>
+		<script src="http://myplanetdigital.github.io/swat/scripts/menu-ie8.js"></script>
 		<![endif]-->
 		<!--[if (!IE) | (gte IE 9)]> -->
 		<script src="http://myplanetdigital.github.io/swat/scripts/vendor/jquery-2.1.0.min.js"></script>
@@ -485,5 +534,8 @@ m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-16401713-2');
 ga('send', 'pageview');</script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/pollyfill.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/scrollfix.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/modules/menu.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/modules/tiles.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/modules/elevator.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/main.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/fastclick.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/history.min.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/init.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/prism.js"></script><script defer="defer"  src="http://myplanetdigital.github.io/swat/scripts/vendor/isotope-beta2.pkgd.min.js"></script>
+		<!--[if (IE 8) | (IE 9)]>		
+		<script src="http://myplanetdigital.github.io/swat/scripts/menu-ie8.js"></script>
+		<![endif]-->
 	</body>
 </html>
