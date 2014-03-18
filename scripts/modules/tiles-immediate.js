@@ -4,7 +4,9 @@ window.tiles = new Isotope( '.main-wrap', {
   masonry: {
     columnWidth: '.grid-size'
   },
-  transitionDuration: 0
+  transitionDuration: 0,
+  visibleStyle: {},
+  hiddenStyle: {}
 });
 
 var loadingGif = new Image();

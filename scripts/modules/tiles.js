@@ -7,6 +7,7 @@
 	}
 	var $window = $(window),
 		$wrap = $('#main .main-wrap'),
+		$menu = $('#menu'),
 		topOffset = parseInt($wrap.css('margin-top').replace(/px/, ''), 10),
 		scrollData,
 		firstEventTimeout = null,
@@ -41,7 +42,6 @@
 		hasHiddenTiles = $hiddenTiles.length;
 		firstEventTimeout = null;
 	}
-	window.initializePage = initializePage;
 
 	function removeLayer(item) {
 		item.classList.remove('reveal');
@@ -61,6 +61,9 @@
 	}
 
 	function removeAllLayers() {
+		if(!$hiddenTiles) {
+			return;
+		}
 		var len = $hiddenTiles.length;
 		while(len--){
 			removeLayer($hiddenTiles[len].element);
@@ -73,11 +76,10 @@
 		queue = [];
 		len = layerQueue.length;
 		while(len--){
-			removeLayer(queue[len]);
+			removeLayer(layerQueue[len]);
 		}
 		layerQueue = [];
 	}
-	window.removeAllLayers = removeAllLayers;
 
 	function flushQueue() {
 		var len = queue.length,
@@ -160,11 +162,11 @@
 		}
 
 		//remove the layer after scrolling
-		if(! window.isScrolling) {
-			window.requestAnimationFrame(removeLayer.bind(null, e.target));
-		} else {
+		//if(! window.isScrolling) {
+		//	window.requestAnimationFrame(removeLayer.bind(null, e.target));
+		//} else {
 			layerQueue.push(e.target);
-		}
+		//}
 	}
 
 	//only attach events if the device is capable of showing desktop
@@ -179,35 +181,45 @@
 		}
 	});
 
+	$window.on('filter', function(e, tag, immediate, scroll) {
+		var first = true;
+		//window.setTimeout(function() {
+			window.tiles.items.map(function (tile) {
+				var $tile = $(tile.element).removeClass('reveal revealed show hidden').css({
+					opacity: immediate ? 1 : 0.01,
+					transition: 'none'
+				});
+
+				if(immediate) {
+					return;
+				}
+
+				window.setTimeout(function() {
+					if(first){
+						window.scroll(0, 0);
+						first = false;
+					}
+					var $tile = this;
+					window.requestAnimationFrame(function() {
+						$tile.css({
+							opacity: '0.99',
+							transition: ''
+						});
+					});
+				}.bind($tile), 0);
+			});
+		//}, 0);
+	});
+
+	$window.on('same-page', function() {
+		if(window.responsiveState !== 'mobile' || !window.mobileMenuIsOpen) {
+			$window.trigger('scroll-top');
+		}
+	});
+
 	$window.on('tiles-init', function () {
 		window.initializeTiles();
 		initializePage();
-		window.tileTagSort();
 	});
-
-	window.tileTagSort = function() {
-		// Filter by the current tag
-		var currentTag = $('.nav li.active');
-		if (currentTag.length === 0) {
-			currentTag = 'home';
-		}
-		else {
-			currentTag = currentTag.attr('class');
-			var classes = currentTag.split(' ');
-			for (var i = 0; i < classes.length; i++) {
-				if (classes[i] != 'active') {
-					currentTag = classes[i];
-					break;
-				}
-			}
-		}
-		// Now that the tag is found, show the tiles for that tag
-		window.tiles.arrange({filter: '.' + currentTag});
-		window.removeAllLayers();
-		window.revealAll();
-
-		// Loading the home tiles.
-		$window.trigger('filter');
-	};
 
 }());

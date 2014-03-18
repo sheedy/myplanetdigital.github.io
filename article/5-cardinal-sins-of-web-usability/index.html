@@ -15,15 +15,15 @@
 		
 		<meta name="generator" content="DocPad v6.64.0" />
 		<!--[if !IE]> -->
-		<link  rel="stylesheet" href="/swat/styles/main.css" />
+		<link  rel="stylesheet" href="/styles/main.css" />
 		<!-- <![endif]-->
 
 		<!--[if (IE 8) | (IE 9)]>
-		<link rel="stylesheet" href="/swat/styles/site-ie8.css">
+		<link rel="stylesheet" href="/styles/site-ie8.css">
 		<![endif]-->
 
 		<!--[if IE 8]>
-		<script src="/swat/scripts/vendor/html5shiv.js"></script>
+		<script src="/scripts/vendor/html5shiv.js"></script>
 		<script>
 			window.html5 = {
 				'elements': 'section article footer',
@@ -33,24 +33,73 @@
 			window.isIE8 = true;
 		</script>
 		<![endif]-->
-		<link rel="icon" type="image/png" href="/swat/favicon.png" />
+		<link rel="icon" type="image/png" href="/favicon.png" />
 	</head>
 
 	<body class="article ">
 		<div id="wrap">
 			<h1 id="logo">
-				<a href="/swat/">Myplanet</a>
+				<a href="/">Myplanet</a>
 			</h1>
+			<!--[if (!IE) | (gte IE 10)]> -->
+			<div id="banner-bg">
+				<div id="banner-doodle"></div>
+			</div>
+			<!-- <![endif]-->
 			<div id="viewport">
 
 				<!--[if (!IE) | (gte IE 10)]> -->
 				<section id="main" style="transition: none; -webkit-transition: none; position: absolute;">
-				
-						
+
+					
 
 
 					<div class="main-wrap" style="position: relative;">
 						
+						<script src="/scripts/vendor/isotope-beta2.pkgd.min.js"></script>
+						<script>
+						
+							window.initializeTiles = function(){
+						
+						    window.tiles = new Isotope( '.main-wrap', {
+  itemSelector: '.tile',
+  filter: '.visible',
+  masonry: {
+    columnWidth: '.grid-size'
+  },
+  transitionDuration: 0,
+  visibleStyle: {},
+  hiddenStyle: {}
+});
+
+var loadingGif = new Image();
+  loadingGif.src = "/images/loading.gif";
+  loadingGif.onload = function () {
+    if('ontouchstart' in window) {
+        var els = document.querySelectorAll('.tile'),
+            len = els.length;
+        while(len--) {
+            els[len].style.opacity = 1;
+        }
+    }
+  };
+
+// Create predefined groups of tiles, based on their tags
+// window.tileTaggedGroups = {'careers': [TileDomEl1, TileDomEl2 ... ],  ... }
+/*
+window.tileTaggedGroups = {};
+if('forEach' in []) {
+  [].forEach.call(document.querySelectorAll('.tile'), function(tile) {
+      tile.getAttribute('data-tags').split(/\s+/).forEach(function(usedTag) {
+          window.tileTaggedGroups[usedTag] = window.tileTaggedGroups[usedTag] || [];
+          window.tileTaggedGroups[usedTag].push(tile);
+      });
+  });
+}*/
+						
+							};
+						
+						</script>
 					</div>
 					<div class="loading-overlay-tiles" >
 						<div class="loading-spinner"></div>
@@ -79,36 +128,45 @@
 		</div>
 		<div class="address toronto">
 			<h3>Toronto</h3>
-			<span>252 Adelaide St E</span>
-			<span>Toronto, Ontario</span>
-			<span>M5A 1N1</span>
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+				<span>252 Adelaide St E</span>
+				<span>Toronto, Ontario</span>
+				<span>M5A 1N1</span>
+			</a>
 		</div>
 		<div class="address vancouver">
 			<h3>Vancouver</h3>
-			<span>312-510 West Hastings</span>
-			<span>Vancouver, BC</span>
-			<span>V6B 1L8</span>
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+
+				<span>312-510 West Hastings</span>
+				<span>Vancouver, BC</span>
+				<span>V6B 1L8</span>
+			</a>
 		</div>
 		<div class="address chernihiv">
 			<h3>Chernihiv</h3>
-			<span>21a Voiniv-Internatsionalistiv St</span>
-			<span>Chernihiv, Ukraine</span>
-			<span>14000</span>
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+				<span>21a Voiniv-Internatsionalistiv St</span>
+				<span>Chernihiv, Ukraine</span>
+				<span>14000</span>
+			</a>
 		</div>
 		<div class="address chicago">
 			<h3>Chicago</h3>
-			<span>155 North Wacker Dr.</span>
-			<span>Chicago, IL</span>
-			<span>60606</span>
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+				<span>155 North Wacker Dr.</span>
+				<span>Chicago, IL</span>
+				<span>60606</span>
+			</a>
 		</div>
 	</div>
 </footer>
 
 				</section>
-				
+
 				<article id="article" style="position: static; margin-left: 100%;">
 					<div id="article-inner"  class="reveal">
-												
+						
 						
 
 
@@ -138,8 +196,8 @@
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/3.jpg);" >
-	<img src="/swat/images/default-covers/3.jpg" style="display:none; visibility:hidden;" />
+<div class="article-banner" style="background-image: url(/images/default-covers/2.jpg);" >
+	<img src="/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -164,8 +222,8 @@
 		
 			<div class="author-picture">
 				
-					<a href="/swat/people/cara-tsang">
-						<img src="/swat/associated-files/people/cara-tsang/avatar.jpg" alt="Author Picture" />
+					<a href="/people/cara-tsang">
+						<img src="/associated-files/people/cara-tsang/avatar.jpg" alt="Author Picture" />
 					</a>
 				
 			</div>
@@ -181,7 +239,7 @@
 
 				
 					
-						<a class="author-name" href="/swat/people/cara-tsang">Cara Tsang</a>
+						<a class="author-name" href="/people/cara-tsang">Cara Tsang</a>
 					
 				
 
@@ -196,7 +254,7 @@
 		
 			<ul class="article-tags">
 				
-					<li><a href="/swat/tags/design">design</a></li>
+					<li><a href="/tags/design">design</a></li>
 				
 			</ul>
 		
@@ -281,9 +339,9 @@
 				<!-- <![endif]-->
 
 				<!--[if (IE 8) | (IE 9)]>
-								
+				
 				<article id="article">
-					<div id="article-inner" >				
+					<div id="article-inner" >
 						
 
 
@@ -313,8 +371,8 @@
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/3.jpg);" >
-	<img src="/swat/images/default-covers/3.jpg" style="display:none; visibility:hidden;" />
+<div class="article-banner" style="background-image: url(/images/default-covers/2.jpg);" >
+	<img src="/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -339,8 +397,8 @@
 		
 			<div class="author-picture">
 				
-					<a href="/swat/people/cara-tsang">
-						<img src="/swat/associated-files/people/cara-tsang/avatar.jpg" alt="Author Picture" />
+					<a href="/people/cara-tsang">
+						<img src="/associated-files/people/cara-tsang/avatar.jpg" alt="Author Picture" />
 					</a>
 				
 			</div>
@@ -356,7 +414,7 @@
 
 				
 					
-						<a class="author-name" href="/swat/people/cara-tsang">Cara Tsang</a>
+						<a class="author-name" href="/people/cara-tsang">Cara Tsang</a>
 					
 				
 
@@ -371,7 +429,7 @@
 		
 			<ul class="article-tags">
 				
-					<li><a href="/swat/tags/design">design</a></li>
+					<li><a href="/tags/design">design</a></li>
 				
 			</ul>
 		
@@ -446,7 +504,7 @@
 	
 
 </div>
-				
+
 					</div>
 					<footer class="footer" id="contact">
 	<div class="contact-info">
@@ -472,32 +530,41 @@
 		</div>
 		<div class="address toronto">
 			<h3>Toronto</h3>
-			<span>252 Adelaide St E</span>
-			<span>Toronto, Ontario</span>
-			<span>M5A 1N1</span>
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+				<span>252 Adelaide St E</span>
+				<span>Toronto, Ontario</span>
+				<span>M5A 1N1</span>
+			</a>
 		</div>
 		<div class="address vancouver">
 			<h3>Vancouver</h3>
-			<span>312-510 West Hastings</span>
-			<span>Vancouver, BC</span>
-			<span>V6B 1L8</span>
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+
+				<span>312-510 West Hastings</span>
+				<span>Vancouver, BC</span>
+				<span>V6B 1L8</span>
+			</a>
 		</div>
 		<div class="address chernihiv">
 			<h3>Chernihiv</h3>
-			<span>21a Voiniv-Internatsionalistiv St</span>
-			<span>Chernihiv, Ukraine</span>
-			<span>14000</span>
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+				<span>21a Voiniv-Internatsionalistiv St</span>
+				<span>Chernihiv, Ukraine</span>
+				<span>14000</span>
+			</a>
 		</div>
 		<div class="address chicago">
 			<h3>Chicago</h3>
-			<span>155 North Wacker Dr.</span>
-			<span>Chicago, IL</span>
-			<span>60606</span>
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+				<span>155 North Wacker Dr.</span>
+				<span>Chicago, IL</span>
+				<span>60606</span>
+			</a>
 		</div>
 	</div>
 </footer>
 
-				</article>				
+				</article>
 				
 				<![endif]-->
 
@@ -506,18 +573,22 @@
 			<!-- MENU GOES HERE -->
 			<div id="menu">
 	<ul class="nav navbar-nav">
+		<a href="/people/arvin-singla">ARTICLE LINK</a>
 		
 			
 
 				
 				
 
-				<li class="all">
-					<a
-						href="/swat/"
+				<li class="home">
+					<a  
+						href="/"
 						
 							data-banner="&lt;p&gt;Hello, we're myplanet&lt;/p&gt;&lt;p&gt;We &lt;em&gt;empower&lt;/em&gt; organizations to deliver great digital &lt;em&gt;products&lt;/em&gt;&lt;/p&gt;"
-						>
+						
+						data-menu-colour="#f16838"
+						data-menu-doodle="bannerdoodle.png"
+					>
 						<span>
 							All articles
 						</span>
@@ -531,9 +602,12 @@
 				
 
 				<li class="what-we-do">
-					<a
-						href="/swat/article/what-we-do"
-						>
+					<a  
+						href="/article/what-we-do"
+						
+						data-menu-colour="#f16838"
+						data-menu-doodle="bannerdoodle.png"
+					>
 						<span>
 							What We Do
 						</span>
@@ -547,11 +621,14 @@
 				
 
 				<li class="people">
-					<a
-						href="/swat/tags/people"
+					<a  
+						href="/tags/people"
 						
 							data-banner="&lt;p&gt;Tired of herding wild cats, we let them organize themselves. It worked pretty well. Meet our team.&lt;/p&gt;"
-						>
+						
+						data-menu-colour="#f16838"
+						data-menu-doodle="bannerdoodle.png"
+					>
 						<span>
 							People
 						</span>
@@ -565,11 +642,14 @@
 				
 
 				<li class="careers">
-					<a
-						href="/swat/tags/careers"
+					<a  
+						href="/tags/careers"
 						
 							data-banner="&lt;p&gt;Join our merry band of designers, technologists, business folk and shameless pug lovers.&lt;/p&gt;"
-						>
+						
+						data-menu-colour="#f16838"
+						data-menu-doodle="bannerdoodle.png"
+					>
 						<span>
 							Careers
 						</span>
@@ -583,11 +663,14 @@
 				
 
 				<li class="contact page">
-					<a
+					<a  data-attr=contact-link
 						href="#contact"
 						
 							data-banner="&lt;p&gt;The &quot;why&quot; we build - in discovery, we seek to understand what problem we are solving and for whom.&lt;/p&gt;"
-						>
+						
+						data-menu-colour="#f16838"
+						data-menu-doodle="bannerdoodle.png"
+					>
 						<span>
 							Contact
 						</span>
@@ -601,11 +684,14 @@
 				
 
 				<li class="design">
-					<a
-						href="/swat/tags/design"
+					<a  
+						href="/tags/design"
 						
 							data-banner="&lt;p&gt;And now, our thoughts on design.&lt;/p&gt;"
-						>
+						
+						data-menu-colour="#f16838"
+						data-menu-doodle="bannerdoodle.png"
+					>
 						<span>
 							Design
 						</span>
@@ -619,11 +705,14 @@
 				
 
 				<li class="technology">
-					<a
-						href="/swat/tags/technology"
+					<a  
+						href="/tags/technology"
 						
 							data-banner="&lt;p&gt;Some thoughts on technology.&lt;/p&gt;"
-						>
+						
+						data-menu-colour="#f16838"
+						data-menu-doodle="bannerdoodle.png"
+					>
 						<span>
 							Technology
 						</span>
@@ -640,20 +729,20 @@
 
 		</div>
 		<!--[if IE 8]>
-		<script src="/swat/scripts/vendor/jquery-1.11.0.min.js"></script>
-		<script src="/swat/scripts/menu-ie8.js"></script>
+		<script src="/scripts/vendor/jquery-1.11.0.min.js"></script>
+		<script src="/scripts/menu-ie8.js"></script>
 		<![endif]-->
 		<!--[if (!IE) | (gte IE 9)]> -->
-		<script src="/swat/scripts/vendor/jquery-2.1.0.min.js"></script>
+		<script src="/scripts/vendor/jquery-2.1.0.min.js"></script>
 		<!-- <![endif]-->
 		<script >(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-16401713-2');
-ga('send', 'pageview');</script><script defer="defer"  src="/swat/scripts/pollyfill.js"></script><script defer="defer"  src="/swat/scripts/vendor/scrollfix.js"></script><script defer="defer"  src="/swat/scripts/modules/menu.js"></script><script defer="defer"  src="/swat/scripts/modules/tiles.js"></script><script defer="defer"  src="/swat/scripts/modules/elevator.js"></script><script defer="defer"  src="/swat/scripts/modules/banner.js"></script><script defer="defer"  src="/swat/scripts/main.js"></script><script defer="defer"  src="/swat/scripts/vendor/fastclick.js"></script><script defer="defer"  src="/swat/scripts/vendor/history.min.js"></script><script defer="defer"  src="/swat/scripts/init.js"></script><script defer="defer"  src="/swat/scripts/vendor/prism.js"></script><script defer="defer"  src="/swat/scripts/vendor/isotope-beta2.pkgd.min.js"></script>
-		<!--[if (IE 8) | (IE 9)]>		
-		<script src="/swat/scripts/menu-ie8.js"></script>
+ga('send', 'pageview');</script><script defer="defer"  src="/scripts/pollyfill.js"></script><script defer="defer"  src="/scripts/vendor/scrollfix.js"></script><script defer="defer"  src="/scripts/modules/menu.js"></script><script defer="defer"  src="/scripts/modules/tiles.js"></script><script defer="defer"  src="/scripts/modules/elevator.js"></script><script defer="defer"  src="/scripts/modules/banner.js"></script><script defer="defer"  src="/scripts/main.js"></script><script defer="defer"  src="/scripts/vendor/fastclick.js"></script><script defer="defer"  src="/scripts/vendor/history.min.js"></script><script defer="defer"  src="/scripts/init.js"></script><script defer="defer"  src="/scripts/vendor/prism.js"></script>
+		<!--[if (IE 8) | (IE 9)]>
+		<script src="/scripts/menu-ie8.js"></script>
 		<![endif]-->
 	</body>
 </html>

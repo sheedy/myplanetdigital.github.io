@@ -74,6 +74,12 @@
          -o-transition: -o-transform @transformArg, @arg;
             transition: transform @transformArg, @arg;
 }
+.transition-transform(@transformArg, @arg, @arg2) {
+    -webkit-transition: -webkit-transform @transformArg, @arg, @arg2;
+       -moz-transition: -moz-transform @transformArg, @arg, @arg2;
+         -o-transition: -o-transform @transformArg, @arg, @arg2;
+            transition: transform @transformArg, @arg, @arg2;
+}
 .box-shadow(@string) {
     -webkit-box-shadow: @string;
        -moz-box-shadow: @string;

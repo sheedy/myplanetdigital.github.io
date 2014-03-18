@@ -10,14 +10,15 @@
 		$body = $('body'),
 		$wrap = $('#wrap'),
 		$menu = $('#menu'),
+		$menuGhost = $('<div data-role="menu-ghost"></div>'),
+		$logo = $('#logo'),
 		$viewport = $('#viewport'),
-		$indicator = $('<span data-role="menu-indicator" />'),
+		$indicator = $('<span data-role="menu-indicator"></span>'),
 		$active = $menu.find('.active'),
 		$mainWrap = $('.main-wrap'),
 		curScrollTop,
 		curMouseTop,
 		lastMouseMove = new Date(),
-		mobileMenuIsOpen = false,
 		mobileMenuIsTransitioning = false,
 		indicatorOffset,
 		desktopMenuState,
@@ -26,13 +27,13 @@
 		mouseMoveDelta = 0,
 		scrollDelta = 0,
 		pageHasLoaded = false,
+		enteredMenu = false,
 		desktopMenuRafTimeout,
-		isWebkitMobileNotIOS,
 		HEADER_HEIGHT = 127,
 		MENU_WIDTH = 250,
 		SCROLL_UP_THRESHOLD = 20,
 		MOUSE_MOVE_THRESHOLD = 50,
-		DESKTOP_MENU_BREAKPOINT =  17, //parseInt($viewport.css('padding-top').replace(/px/,''), 10) - $menu.outerHeight(true),
+		DESKTOP_MENU_BREAKPOINT =  16, //parseInt($viewport.css('padding-top').replace(/px/,''), 10) - $menu.outerHeight(true),
 		MOUSE_MOVE_THROTTLE_THRESHOLD = 25;
 
 	function setIndicator(item, transition) {
@@ -46,14 +47,12 @@
 	}
 
 	//active an item in the menu
-	function activateLink (item) {
+	function activateLink ($item) {
 		window.requestAnimationFrame(function () {
-			var $item = $(item);
 			if(window.responsiveState !== 'mobile') {
-				setIndicator(item);
-			} else if(mobileMenuIsOpen) {
-				$body.removeClass('menu');
-				mobileMenuIsOpen = false;
+				setIndicator($item[0]);
+			} else if(window.mobileMenuIsOpen) {
+				window.setTimeout(closeMenu, 50);
 			}
 			$active.removeClass('active');
 			$active = $item.addClass('active');
@@ -83,7 +82,7 @@
 
 	function initMobileMenu() {
 		window.afterScrollFixOrientationChange = function() {
-			$menu.css('height',  window.innerHeight + (isWebkitMobileNotIOS ? 58 : 2));
+			$menu.css('height',  window.innerHeight + 2);
 		};
 		window.afterScrollFixOrientationChange();
 
@@ -95,7 +94,7 @@
 			if(mobileMenuIsTransitioning) {
 				return;
 			}
-			if(mobileMenuIsOpen && e.originalEvent.touches[0].clientX < window.innerWidth - MENU_WIDTH) {
+			if(window.mobileMenuIsOpen && e.originalEvent.touches[0].clientX < window.innerWidth - MENU_WIDTH) {
 				closeMenu();
 				return false;
 			}
@@ -105,7 +104,7 @@
 
 	function showLargeMenu() {
 		if(desktopMenuState !== 'large-menu') {
-			desktopMenuState = 'large-menu'
+			desktopMenuState = 'large-menu';
 			window.requestAnimationFrame(function () {
 				desktopMenuOffset = 0;
 				desktopMenuRafTimeout = null;
@@ -124,13 +123,13 @@
 
 	function stickLargeMenu(top, returningToTileView) {
 		var doTransition,
-			transition
+			transition;
 		if(window.responsiveState === 'mobile') {
 			return;
 		}
+		top = top || window.pageYOffset;
 		doTransition = returningToTileView || !window.isTileView || top > (HEADER_HEIGHT + DESKTOP_MENU_BREAKPOINT);
 		transition = 'transform ' + getMenuTransitionTime() + 's ease';
-		top = top || window.pageYOffset;
 		desktopMenuOffset = window.isTileView ? (returningToTileView ? 0 : -Math.min(top - DESKTOP_MENU_BREAKPOINT, HEADER_HEIGHT - 1)) : -HEADER_HEIGHT + 1;
 		desktopMenuState = 'sticky';
 		setIndicator(null, returningToTileView ? transition : (doTransition ? '' : 'none'));
@@ -138,11 +137,12 @@
 			transform: 'translate3d(0,' + desktopMenuOffset + 'px, 0)',
 			transition: returningToTileView ? transition : (doTransition ? '' : 'none')
 		});
+
 	}
 
 	function hideLargeMenu(e, data) {
 		var transitionTime;
-		if(window.responsiveState === 'mobile') {
+		if(window.responsiveState === 'mobile' || desktopMenuState === 'hidden') {
 			return;
 		}
 		transitionTime = getMenuTransitionTime();
@@ -156,32 +156,35 @@
 	}
 
 	function closeMenu(immediate) {
-		if(!mobileMenuIsTransitioning  && mobileMenuIsOpen) {
+		if(!mobileMenuIsTransitioning  && window.mobileMenuIsOpen) {
 			mobileMenuIsTransitioning = true;
-			mobileMenuIsOpen = false;
 			//window.location.hash = '';
 			window.requestAnimationFrame(function() {
+				window.mobileMenuIsOpen = false;
 				$body.removeClass('menu');
 			});
 		}
 	}
 
 	function openMenu(dontPushState) {
-		if(!mobileMenuIsTransitioning  && !mobileMenuIsOpen) {
+		if(!mobileMenuIsTransitioning  && !window.mobileMenuIsOpen) {
 			if(window.hasTouchEvents) {
 				window.afterScrollFixOrientationChange();
 			}
 			mobileMenuIsTransitioning = true;
-			mobileMenuIsOpen = true;
-			mobileMenuYOffset = window.pageYOffset;
-			if(dontPushState !== true) {
-		//		window.location.hash = 'menu-open';
-			}
+			window.mobileMenuIsOpen = true;
+			mobileMenuYOffset = window.curScrollTop = window.pageYOffset;
 
 			$window.trigger('menu');
-			window.requestAnimationFrame(function () {
+
+			window.setTimeout(window.requestAnimationFrame.bind(null, function () {
+				if(window.isTileView) {
+					return $body.addClass('menu');
+				}
+
 				$viewport.css({
-					transform:'translateZ(0)'
+					transform:'translateZ(0)',
+					transition: ''
 				});
 				window.setTimeout(function() {
 					window.requestAnimationFrame(function() {
@@ -191,7 +194,7 @@
 						$body.addClass('menu');
 					});
 				}, 0);
-			});
+			}), 0);
 		} else if(window.desktopCapable) {
 			closeMenu();
 		}
@@ -200,45 +203,27 @@
 	function handleScroll (e, data) {
 		var top,
 			doTransition;
-		if(window.isBusy || data.isFinalEvent || window.responsiveState === 'mobile' ) {
+		if(window.isBusy || data.isFinalEvent || enteredMenu || window.responsiveState === 'mobile' ) {
 			return;
 		}
-
 		top = Math.max(data.top, 0);
-		if(!pageHasLoaded || top <= curScrollTop || (window.isTileView && top <= DESKTOP_MENU_BREAKPOINT)) {
+		if(!pageHasLoaded || (window.isTileView && (top <= curScrollTop || top <= DESKTOP_MENU_BREAKPOINT))) {
 			scrollDelta += curScrollTop - top;
 			if(scrollDelta > SCROLL_UP_THRESHOLD) {
 				showLargeMenu();
 				scrollDelta = 0;
 			}
 		} else if(-desktopMenuOffset < HEADER_HEIGHT) {
-			stickLargeMenu(top);
+			if(window.isTileView) {
+				stickLargeMenu(top);
+			} else {
+				hideLargeMenu();
+			}
+
 			scrollDelta = 0;
 		}
 		curScrollTop = top;
 		mouseMoveDelta = 0;
-	}
-
-	function handleMouseMove(e) {
-		if(window.isBusy) {
-			return;
-		}
-		var y,
-			now = new Date();
-		if(window.responsiveState === 'mobile' || (now - MOUSE_MOVE_THROTTLE_THRESHOLD <= lastMouseMove)) {
-			return lastMouseMove = now;
-		}
-
-		if((y = e.clientY) < curMouseTop) {
-			mouseMoveDelta += curMouseTop - y;
-			if((y < (HEADER_HEIGHT * 1.5)) || mouseMoveDelta >= MOUSE_MOVE_THRESHOLD) {
-				showLargeMenu();
-				mouseMoveDelta = 0;
-			}
-		}
-		scrollDelta = 0;
-		curMouseTop = y;
-		lastMouseMove = now;
 	}
 
 	//handle the mobile menu toggle button being pressed
@@ -250,19 +235,22 @@
 			return;
 		}
 		if(window.responsiveState === 'mobile') {
-			if(isWebkitMobileNotIOS) {
-				window.requestAnimationFrame(function () {
+			if(window.isWebkitMobileNotIOS) {
+				//window.requestAnimationFrame(function () {
 					$wrap.css({
-						position: mobileMenuIsOpen ? 'fixed' : '',
-						top: mobileMenuIsOpen ? -mobileMenuYOffset : ''
+						position: window.mobileMenuIsOpen ? 'fixed' : '',
+						top: window.mobileMenuIsOpen ? -mobileMenuYOffset : ''
 					});
-					if(!mobileMenuIsOpen) {
-						window.scrollTo(0, mobileMenuYOffset);
+					if(!window.justClosedMenu) {
+						if(!window.mobileMenuIsOpen) {
+							window.scroll(0, mobileMenuYOffset);
+						}
 					}
-				});
+					window.justClosedMenu = false;
+				//});
 			} else if(window.hasTouchEvents) {
 				$menu.css({
-					top: mobileMenuIsOpen ? 0 : ''
+					top: window.mobileMenuIsOpen ? 0 : ''
 				});
 			}
 			mobileMenuIsTransitioning = false;
@@ -271,29 +259,58 @@
 
 	//only attach desktop events if the device is capable of showing desktop
 	$window.on('deviceCapabilities', function (e, data) {
+
 		if(data.desktopCapable) {
 			$window.on('pageScroll', handleScroll);
-			$body.on('mousemove', handleMouseMove);
+			//$body.on('mousemove', handleMouseMove);
 			$wrap.append($indicator);
 			$menu.on('mouseenter mouseleave', 'li', function() {
 				$(this).toggleClass('hover');
 			});
+
+			$('#menu, #logo').on('mouseenter', function() {
+				enteredMenu = true;
+			});
+			$menuGhost.on('mouseenter', function() {
+				if (window.isTileView && window.curScrollTop <= DESKTOP_MENU_BREAKPOINT) {
+					return;
+				}
+				if(!enteredMenu && desktopMenuState !== 'large-menu') {//} && (!window.isBusy || window.isTileView)) {
+					showLargeMenu();
+				} else if(enteredMenu) {
+					enteredMenu = false;
+				}
+			});
+			$menuGhost.on('mouseleave', function(e) {
+				window.setTimeout(function() {
+					if (window.isTileView && window.curScrollTop <= DESKTOP_MENU_BREAKPOINT) {
+						return;
+					}
+					if(!enteredMenu && desktopMenuState === 'large-menu' && e.clientY > DESKTOP_MENU_BREAKPOINT && !window.isBusy) {
+						hideLargeMenu();
+					}
+				}, 0);
+				enteredMenu = false;
+			});
+
 			if(!window.isTileView) {
 				window.setTimeout(function () {
 					window.requestAnimationFrame(hideLargeMenu);
-				}, 100);
+				}, 200);
 			}
 			$(initDesktopMenu);
-
-			//sred: [8 hours] animated gif in browser
-			//window.prepareAnimatedIcon('menu-hover', $menu, 3, -136, -40, 0, -41);
-			//	window.animateIcon('menu-hover', 160);
 		} else if (data.hasTouchEvents) {
-			isWebkitMobileNotIOS = !data.isIOS; //meh
 			$(initMobileMenu);
 		}
 		if($active.length) {
 			$menu.attr('data-active', $active.text());
+		}
+	});
+
+	$wrap.append($menuGhost);
+	$menuGhost.on('click', function() {
+		if(window.responsiveState === 'mobile') {
+			$window.trigger('scroll-top');
 		}
 	});
 
@@ -313,26 +330,27 @@
 			}
 		});
 	});
-
+	window.mobileMenuIsOpen = false;
 	$window.on('page-change', function (e, data) {
-		if(mobileMenuIsOpen) {
-			closeMenu();
-		}
+	//	if(mobileMenuIsOpen) {
+	//		closeMenu();
+	//	}
+		enteredMenu = false;
 		mouseMoveDelta = 0;
 		scrollDelta = 0;
+	});
+
+	$window.on('same-page same-filter elevator-done', closeMenu);
+	$window.on('filter',function (e, tag) {
+		activateLink($menu.find('li.' + tag));
 	});
 
 	$window.on('article-transition', hideLargeMenu);
 
 	$window.on('tiles-transition', function(e, data) {
-		if((curScrollTop = data.top) <= HEADER_HEIGHT) {
+		if(window.responsiveState !== 'mobile' && (curScrollTop = data.top) <= HEADER_HEIGHT) {
 			stickLargeMenu(curScrollTop, true);
 		}
-	});
-
-	//DEMO CODE todo: remove
-	$menu.on('click', 'li', function() {
-		activateLink(this);
 	});
 
 }());
