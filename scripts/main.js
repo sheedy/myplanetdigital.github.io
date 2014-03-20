@@ -123,7 +123,7 @@
         if (isTileView) {
             if ($mainWrap.find('.tile').length === 0) {
                 isLoading = true;
-                $ajaxer = $.get('/index-content-tiles/index.html', function(data){
+                $ajaxer = $.get(window.baseUrl + 'index-content-tiles/index.html', function(data){
                     $ajaxer = null;
                     window.setTimeout(function () {
                         window.requestAnimationFrame(function () {
@@ -222,7 +222,7 @@
         if (isTagUrl) {
             filterTag = isTagUrl[1];
         }
-        if (pageUrl === '/') {
+        if (pageUrl === window.baseUrl) {
             filterTag = 'home';
         }
 
@@ -524,7 +524,7 @@
 
 
     SPINNER_HEIGHT = window.isIOS ? 25 : SPINNER_HEIGHT;
-    pageUrl = pageUrl || '/';
+    pageUrl = pageUrl || window.baseUrl;
 
     if(window.desktopCapable) {
         $body.addClass('desktop-capable');

@@ -190,8 +190,8 @@ if('forEach' in []) {
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/4.jpg);" >
-	<img src="/swat/images/default-covers/4.jpg" style="display:none; visibility:hidden;" />
+<div class="article-banner" style="background-image: url(/swat/images/default-covers/2.jpg);" >
+	<img src="/swat/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -263,16 +263,23 @@ if('forEach' in []) {
 <p>The <a href="http://www.smartcentres.com/">SmartCentres</a> project was built using an &quot;<a href="http://drupal.org/developing/distributions">installation profile</a>&quot; development strategy.</p>
 <p>For those who are not familiar with it, the brief summary mentions a cleaner, leaner codebase resulting in a more stable development process that is reproducible from team member to team member. Many <a href="http://drupal.org/">Drupal</a> teams are using this process and this is fantastic step forward.</p>
 <p>The <a href="https://github.com/sebsebseb123/custom_config">Custom Config module</a> can be found on <a href="https://github.com/sebsebseb123/custom_config">github</a> and aims to build on top of the &quot;installation profile&quot; development strategy.</p>
-<p>1) <strong>A faster way to update.</strong>
+<ol>
+<li><p><strong>A faster way to update.</strong>
 <em>hook_update_N</em> is a great place for database alters, data migration, or other larger tasks. In our workflow, however, we&#39;ve been using <em>hook_update_N</em> to execute single lines such as <em>module_enable(&#39;some_module&#39;)</em> or <em>variable_set(&#39;some_var&#39;, 123)</em>. This leads to install files being way larger and uglier than they should be. &quot;Run Install Hooks&quot;, and &quot;Run Post Install&quot; are introduced to replace the need for <em>hook_update_N</em>. Hitting the &quot;Run Install Hooks&quot; or &quot;Run Post Install&quot; callback pages will use the module&#39;s own <em>custom_config_module_implements</em> function to find hooks and install files only from our custom or features modules. In order for this to happen, custom and features modules must use the folder structure convention of modules/custom or modules/features. But, all other contrib install hooks are ignored, so we&#39;re free to safely hit the &quot;Run Post Install&quot; page without worry of contrib modules.</p>
-<p>2) <strong>Helper functions.</strong>
+</li>
+<li><p><strong>Helper functions.</strong>
 If you&#39;re creating or updating blocks, running queries, or adding terms, Custom Config is there to help. We&#39;ve got a small handful of hooks you can implement to do most of these setup tasks. Checkout custom_config.api.php to find out how to implement these.</p>
-<p>3) <strong>The ever exciting post-install phase.</strong>
+</li>
+<li><p><strong>The ever exciting post-install phase.</strong>
 Block modifications, queries, and terms are all executed after the entire site is built. Using <em>hook_init</em> and a custom variable, the module is able to tell if this is the first time a page is being hit after installing. This is important if you need to ensure that features modules are installed and have properly setup their respective blocks, vocabularies, or some other requirement is met. Also, using <em>hook_postinstall</em> you can run any commands after ensuring that the entire site is installed and configured.</p>
-<p>4) <strong>A place for custom configuration.</strong>
+</li>
+<li><p><strong>A place for custom configuration.</strong>
 From time to time, a project requires a custom configuration form. The question eventually pops up, where does this page live? There&#39;s never a single good answer to this, <em>custom_config</em> tries to help by creating a menu item where custom configuration forms should live. Also, that page has two tabs by default &quot;Run Install Hooks&quot;, and &quot;Run Post Install&quot; which simply serve as callbacks</p>
-<p>5) <strong>Drush integration.</strong>
+</li>
+<li><p><strong>Drush integration.</strong>
 If you&#39;re into drush, and I don&#39;t know why you wouldn&#39;t be, then you&#39;ll be happy to hear that both callbacks to run the install and post-install hooks are available as drush commands: <em>drush cc-ri</em> and <em>drush cc-rpi</em></p>
+</li>
+</ol>
 <p>So, the next time you&#39;re starting a project as an installation profile, give custom_config a look over, and think about how it might help you!</p>
 
 
@@ -326,8 +333,8 @@ If you&#39;re into drush, and I don&#39;t know why you wouldn&#39;t be, then you
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/4.jpg);" >
-	<img src="/swat/images/default-covers/4.jpg" style="display:none; visibility:hidden;" />
+<div class="article-banner" style="background-image: url(/swat/images/default-covers/2.jpg);" >
+	<img src="/swat/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -399,16 +406,23 @@ If you&#39;re into drush, and I don&#39;t know why you wouldn&#39;t be, then you
 <p>The <a href="http://www.smartcentres.com/">SmartCentres</a> project was built using an &quot;<a href="http://drupal.org/developing/distributions">installation profile</a>&quot; development strategy.</p>
 <p>For those who are not familiar with it, the brief summary mentions a cleaner, leaner codebase resulting in a more stable development process that is reproducible from team member to team member. Many <a href="http://drupal.org/">Drupal</a> teams are using this process and this is fantastic step forward.</p>
 <p>The <a href="https://github.com/sebsebseb123/custom_config">Custom Config module</a> can be found on <a href="https://github.com/sebsebseb123/custom_config">github</a> and aims to build on top of the &quot;installation profile&quot; development strategy.</p>
-<p>1) <strong>A faster way to update.</strong>
+<ol>
+<li><p><strong>A faster way to update.</strong>
 <em>hook_update_N</em> is a great place for database alters, data migration, or other larger tasks. In our workflow, however, we&#39;ve been using <em>hook_update_N</em> to execute single lines such as <em>module_enable(&#39;some_module&#39;)</em> or <em>variable_set(&#39;some_var&#39;, 123)</em>. This leads to install files being way larger and uglier than they should be. &quot;Run Install Hooks&quot;, and &quot;Run Post Install&quot; are introduced to replace the need for <em>hook_update_N</em>. Hitting the &quot;Run Install Hooks&quot; or &quot;Run Post Install&quot; callback pages will use the module&#39;s own <em>custom_config_module_implements</em> function to find hooks and install files only from our custom or features modules. In order for this to happen, custom and features modules must use the folder structure convention of modules/custom or modules/features. But, all other contrib install hooks are ignored, so we&#39;re free to safely hit the &quot;Run Post Install&quot; page without worry of contrib modules.</p>
-<p>2) <strong>Helper functions.</strong>
+</li>
+<li><p><strong>Helper functions.</strong>
 If you&#39;re creating or updating blocks, running queries, or adding terms, Custom Config is there to help. We&#39;ve got a small handful of hooks you can implement to do most of these setup tasks. Checkout custom_config.api.php to find out how to implement these.</p>
-<p>3) <strong>The ever exciting post-install phase.</strong>
+</li>
+<li><p><strong>The ever exciting post-install phase.</strong>
 Block modifications, queries, and terms are all executed after the entire site is built. Using <em>hook_init</em> and a custom variable, the module is able to tell if this is the first time a page is being hit after installing. This is important if you need to ensure that features modules are installed and have properly setup their respective blocks, vocabularies, or some other requirement is met. Also, using <em>hook_postinstall</em> you can run any commands after ensuring that the entire site is installed and configured.</p>
-<p>4) <strong>A place for custom configuration.</strong>
+</li>
+<li><p><strong>A place for custom configuration.</strong>
 From time to time, a project requires a custom configuration form. The question eventually pops up, where does this page live? There&#39;s never a single good answer to this, <em>custom_config</em> tries to help by creating a menu item where custom configuration forms should live. Also, that page has two tabs by default &quot;Run Install Hooks&quot;, and &quot;Run Post Install&quot; which simply serve as callbacks</p>
-<p>5) <strong>Drush integration.</strong>
+</li>
+<li><p><strong>Drush integration.</strong>
 If you&#39;re into drush, and I don&#39;t know why you wouldn&#39;t be, then you&#39;ll be happy to hear that both callbacks to run the install and post-install hooks are available as drush commands: <em>drush cc-ri</em> and <em>drush cc-rpi</em></p>
+</li>
+</ol>
 <p>So, the next time you&#39;re starting a project as an installation profile, give custom_config a look over, and think about how it might help you!</p>
 
 
@@ -684,7 +698,7 @@ If you&#39;re into drush, and I don&#39;t know why you wouldn&#39;t be, then you
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 ga('create', 'UA-16401713-2');
-ga('send', 'pageview');</script><script defer="defer"  src="/swat/scripts/pollyfill.js"></script><script defer="defer"  src="/swat/scripts/vendor/scrollfix.js"></script><script defer="defer"  src="/swat/scripts/modules/menu.js"></script><script defer="defer"  src="/swat/scripts/modules/tiles.js"></script><script defer="defer"  src="/swat/scripts/modules/elevator.js"></script><script defer="defer"  src="/swat/scripts/modules/banner.js"></script><script defer="defer"  src="/swat/scripts/main.js"></script><script defer="defer"  src="/swat/scripts/vendor/fastclick.js"></script><script defer="defer"  src="/swat/scripts/vendor/history.min.js"></script><script defer="defer"  src="/swat/scripts/init.js"></script><script defer="defer"  src="/swat/scripts/vendor/prism.js"></script>
+ga('send', 'pageview');</script><script defer="defer"  src="/swat/scripts/pollyfill.js"></script><script defer="defer"  src="/swat/scripts/vendor/scrollfix.js"></script><script defer="defer"  src="/swat/scripts/variables.js"></script><script defer="defer"  src="/swat/scripts/modules/menu.js"></script><script defer="defer"  src="/swat/scripts/modules/tiles.js"></script><script defer="defer"  src="/swat/scripts/modules/elevator.js"></script><script defer="defer"  src="/swat/scripts/modules/banner.js"></script><script defer="defer"  src="/swat/scripts/main.js"></script><script defer="defer"  src="/swat/scripts/vendor/fastclick.js"></script><script defer="defer"  src="/swat/scripts/vendor/history.min.js"></script><script defer="defer"  src="/swat/scripts/init.js"></script><script defer="defer"  src="/swat/scripts/vendor/prism.js"></script>
 		<!--[if (IE 8) | (IE 9)]>
 		<script src="/swat/scripts/menu-ie8.js"></script>
 		<![endif]-->
