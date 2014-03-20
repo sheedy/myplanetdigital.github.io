@@ -58,7 +58,7 @@
             state = width >= FULL_WIDTH ? 'full' : (width >= DESKTOP_WIDTH ? 'desktop' : 'mobile');
 
         window.pageHeight = $window.height();
-
+        $body.css('min-height', window.pageHeight + 1);
         if(window.responsiveState === state) {
             return;
         }
@@ -102,6 +102,7 @@
                     isLoading = false;
                     $loadgif.hide();
                     $articlein.addClass('reveal');
+                    $body.css('height', '');
                     $article.css('height', '');
                     window.setTimeout(function () {
                         if(isTransitioning || isTransitionEnding) {
@@ -127,7 +128,6 @@
                     window.setTimeout(function () {
                         window.requestAnimationFrame(function () {
                             $mainWrap.html(data);
-
                             $window.trigger('tiles-init');
                             window.requestAnimationFrame(function() {
                                 hasLoadedTiles = true;
@@ -139,6 +139,7 @@
                                 if(isTransitioning || isTransitionEnding) {
                                     return;
                                 }
+                                $body.css('height', '');
                                 $main.css('height', '');
                                 window.setTimeout(function () {
                                     window.isBusy = false;
@@ -164,10 +165,10 @@
                     } else {
                         finishArticleLoad(data);
                     }
-                }, 100);
+                }, 1000);
             });
         }
-        $body.removeClass('animating').css('height', '');
+        $body.removeClass('animating');
     }
 
     function abortAjax() {
@@ -180,8 +181,10 @@
         window.isBusy = false;
         if(window.isTileView) {
             window.currentTag = '';
+            $main.css('height', '');
         } else {
             lastArticleUrl = '';
+            $article.css('height', '');
         }
 
     }

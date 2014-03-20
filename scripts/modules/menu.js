@@ -38,7 +38,7 @@
 
 	function setIndicator(item, transition) {
 		if(item) {
-			indicatorOffset = item.offsetLeft - (window.responsiveState === 'full' ? $wrap[0].offsetLeft + $mainWrap[0].offsetLeft : 0);
+			indicatorOffset = (item.offsetLeft - 14) - (window.responsiveState === 'full' ? $wrap[0].offsetLeft + $mainWrap[0].offsetLeft : 0);
 		}
 		$indicator.css({
 			transform: 'translate3d(' + indicatorOffset + 'px, ' + desktopMenuOffset + 'px, 0)',
