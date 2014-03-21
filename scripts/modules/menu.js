@@ -31,9 +31,9 @@
 		desktopMenuRafTimeout,
 		HEADER_HEIGHT = 127,
 		MENU_WIDTH = 250,
-		SCROLL_UP_THRESHOLD = 20,
+		SCROLL_UP_THRESHOLD = 40,
 		MOUSE_MOVE_THRESHOLD = 50,
-		DESKTOP_MENU_BREAKPOINT =  16, //parseInt($viewport.css('padding-top').replace(/px/,''), 10) - $menu.outerHeight(true),
+		DESKTOP_MENU_BREAKPOINT =  440, //parseInt($viewport.css('padding-top').replace(/px/,''), 10) - $menu.outerHeight(true),
 		MOUSE_MOVE_THROTTLE_THRESHOLD = 25;
 
 	function setIndicator(item, transition) {

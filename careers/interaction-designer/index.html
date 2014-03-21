@@ -38,21 +38,20 @@
 
 	<body class="article ">
 		<div id="wrap">
+
 			<h1 id="logo">
 				<a href="/swat/">Myplanet</a>
 			</h1>
-			<!--[if (!IE) | (gte IE 10)]> -->
-			<div id="banner-bg">
-				<div id="banner-doodle"></div>
-			</div>
-			<!-- <![endif]-->
 			<div id="viewport">
 
 				<!--[if (!IE) | (gte IE 10)]> -->
 				<section id="main" style="transition: none; -webkit-transition: none; position: absolute;">
 
-					
-
+					<div id="banner" class="">
+						<div class="banner-text">
+						
+						</div>
+					</div>
 
 					<div class="main-wrap" style="position: relative;">
 						
@@ -190,8 +189,8 @@ if('forEach' in []) {
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/1.jpg);" >
-	<img src="/swat/images/default-covers/1.jpg" style="display:none; visibility:hidden;" />
+<div class="article-banner" style="background-image: url(/swat/images/default-covers/2.jpg);" >
+	<img src="/swat/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -363,8 +362,8 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/1.jpg);" >
-	<img src="/swat/images/default-covers/1.jpg" style="display:none; visibility:hidden;" />
+<div class="article-banner" style="background-image: url(/swat/images/default-covers/2.jpg);" >
+	<img src="/swat/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -567,11 +566,15 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 			</div>
 
 			<!-- MENU GOES HERE -->
-			<div id="menu">
+			
+
+
+<div id="menu">
 	<ul class="nav navbar-nav">
 		
 			
 
+				
 				
 				
 
@@ -581,11 +584,12 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 						
 							data-banner="&lt;p&gt;Hello, we're myplanet&lt;br/&gt;We &lt;em&gt;empower&lt;/em&gt; organizations to deliver great digital &lt;em&gt;products&lt;/em&gt;&lt;/p&gt;"
 						
-						data-menu-colour="#f16838"
+						data-menu-colour="#f05a28"
 						data-menu-doodle="bannerdoodle.png"
+						data-tag="home"
 					>
 						<span>
-							All articles
+							Home
 						</span>
 					</a>
 				</li>
@@ -595,15 +599,17 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 
 				
 				
+				
 
 				<li class="company">
 					<a  
 						href="/swat/tags/company"
 						
-							data-banner="&lt;p&gt;We believe that building great products depends fundamentally on an intimate connection and conversation between design and development.&lt;/p&gt;"
+							data-banner="&lt;p&gt;We provide UX &amp; technology solutions to build the right thing, fast.(We also do bar mitzvahs.)&lt;/p&gt;"
 						
 						data-menu-colour="#f05a28"
-						data-menu-doodle="Banner-Doodle-Top.png"
+						data-menu-doodle="banner-doodle-what-we-do.png"
+						data-tag="company"
 					>
 						<span>
 							What We Do
@@ -616,6 +622,7 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 
 				
 				
+				
 
 				<li class="people">
 					<a  
@@ -624,7 +631,8 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 							data-banner="&lt;p&gt;Tired of herding wild cats, we let them organize themselves. It worked pretty well. Meet our team.&lt;/p&gt;"
 						
 						data-menu-colour="#f05a28"
-						data-menu-doodle="Banner-Doodle-Top.png"
+						data-menu-doodle="banner-doodle-what-we-do.png"
+						data-tag="people"
 					>
 						<span>
 							People
@@ -637,15 +645,17 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 
 				
 				
+				
 
-				<li class="careers">
+				<li class="careers active">
 					<a  
 						href="/swat/tags/careers"
 						
 							data-banner="&lt;p&gt;Join our merry band of designers, technologists, business folk and shameless pug lovers.&lt;/p&gt;"
 						
 						data-menu-colour="#f05a28"
-						data-menu-doodle="Banner-Doodle-Top.png"
+						data-menu-doodle="banner-doodle-what-we-do.png"
+						data-tag="careers"
 					>
 						<span>
 							Careers
@@ -658,6 +668,7 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 
 				
 				
+				
 
 				<li class="contact page">
 					<a  data-attr=contact-link
@@ -667,6 +678,7 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 						
 						data-menu-colour="#f16838"
 						data-menu-doodle="bannerdoodle.png"
+						data-tag="contact page"
 					>
 						<span>
 							Contact
@@ -679,6 +691,7 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 
 				
 				
+				
 
 				<li class="design">
 					<a  
@@ -687,7 +700,8 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 							data-banner="&lt;p&gt;And now, our thoughts on design.&lt;/p&gt;"
 						
 						data-menu-colour="#5f5ca9"
-						data-menu-doodle="Banner-Doodle-Top.png"
+						data-menu-doodle="banner-doodle-design.png"
+						data-tag="design"
 					>
 						<span>
 							Design
@@ -700,6 +714,7 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 
 				
 				
+				
 
 				<li class="technology">
 					<a  
@@ -708,7 +723,8 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 							data-banner="&lt;p&gt;Some thoughts on technology.&lt;/p&gt;"
 						
 						data-menu-colour="#58c0a2"
-						data-menu-doodle="Banner-Doodle-Top.png"
+						data-menu-doodle="banner-doodle-design.png"
+						data-tag="technology"
 					>
 						<span>
 							Technology
@@ -721,6 +737,7 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 
 				
 				
+				
 
 				<li class="community">
 					<a  
@@ -729,7 +746,8 @@ Pulling insights from academic HCI research or trying out a new wireframing app 
 							data-banner="&lt;p&gt;More than just software, open source is a philosophy - one of openness and community.&lt;/p&gt;"
 						
 						data-menu-colour="#ea3d67"
-						data-menu-doodle="Banner-Doodle-Top.png"
+						data-menu-doodle="banner-doodle-design.png"
+						data-tag="community"
 					>
 						<span>
 							Community

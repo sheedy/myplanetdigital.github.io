@@ -240,7 +240,6 @@
             if(wasLinkClick || doArticleAjax) {
                 articleScrollTop = 0;
             }
-            $('#banner-bg').css({'opacity': 0.01});
             $window.trigger('article');
 
             $article.css({
@@ -356,7 +355,7 @@
                 noTransition = true;
             }
 
-            if (filterTag && hasLoadedTiles && window.currentTag !== filterTag) {
+            if (filterTag && hasLoadedTiles && window.currentTag !== filterTag) { //article to tile view on different tag
                 window.tiles.arrange({filter: '.' + filterTag});
                 $window.trigger('filter', [filterTag, !noTransition]);
                 window.currentTag = filterTag;
@@ -368,7 +367,7 @@
                 window.scroll(0, 0);
                 $wrap.css('top', 0);
             }
-        } else if(filterTag && window.isTileView && window.currentTag !== filterTag) {
+        } else if(filterTag && window.isTileView && window.currentTag !== filterTag) { //change tag on tile view
             window.tiles.arrange({filter: '.' + filterTag});
             $window.trigger('filter', [filterTag]);
             window.currentTag = filterTag;

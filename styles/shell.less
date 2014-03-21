@@ -84,7 +84,7 @@ body {
 		min-height:100%;
 		width:100%;
 		position:relative;
-		padding:@menu-height 10px 0;
+		padding:0;
 		@media screen and (min-width: 1024px) {
 			padding: inherit 0;
 		}
@@ -92,7 +92,7 @@ body {
 
 		> .main-wrap {
 			max-width:@max-width;
-			margin:0 auto @footer-height;
+			margin:-38px auto @footer-height;
 			min-height:100%;
 		}
 	}
@@ -217,10 +217,10 @@ body.article {
 
 .footer {
 	position: relative;
-	margin:0 -11px;
+	margin:0;
 	z-index: 1;
 	bottom: -10px;
-	border-left:1px solid #eee;
+	border-left:1px solid black;
 
 	@media screen and (max-width: 768px) {
 		margin-top:-80px !important;
@@ -248,7 +248,7 @@ a[href^=tel]{
 	}
 	#viewport {
 		#main, #article {
-			padding-top:@ipad-menu-height + 10;
+			padding-top:@ipad-menu-height;
 		}
 		#article {
 			padding-top:@ipad-menu-height;
@@ -328,7 +328,7 @@ a[href^=tel]{
 	}
 	#viewport {
 		#main, #article {
-			padding-top:@mobile-menu-height + 10;
+			padding-top:@mobile-menu-height;
 		}
 		#article {
 			padding-top:@mobile-menu-height;
