@@ -7,7 +7,6 @@
 	var $window = $(window),
 		$body = $('body'),
 		$viewport = $('#viewport'),
-		isElevating = false,
 		MOBILE_MENU_WIDTH = '-249px',
 		curOffset;
 
@@ -38,7 +37,7 @@
 					transform: 'translate3d(' + (isMobileMenuOpen ? MOBILE_MENU_WIDTH : '0') + ',' + delta + 'px, 0)',
 					transition: 'transform ' + (isMobileMenuOpen ? '0.6s' : '0.825s')
 				});
-				isElevating = true;
+				window.isElevating = true;
 			}), 0);
 		});
 	});
@@ -63,11 +62,10 @@
 					transform: 'translate3d(' + (isMobileMenuOpen ? MOBILE_MENU_WIDTH : '0') +  ',' + -delta + 'px, 0)',
 					transition: 'transform ' + (isMobileMenuOpen ? '0.6s' : '0.825s')
 				});
-				isElevating = true;
+				window.isElevating = true;
 			}), 0);
 		});
 	});
-
 
 	function finishTransitionEnd () {
 		$viewport.css({
@@ -76,15 +74,14 @@
 		});
 		$body.removeClass('animating');
 		$window.trigger('elevator-done');
+		window.isElevating = false;
 	}
 
 	$viewport.on('transitionend webkitTransitionEnd', function(e) {
-		if (!isElevating || e.target !== $viewport[0]) {
+		if (!window.isElevating || e.target !== $viewport[0]) {
 			return;
 		}
 		var isMobileMenuOpen = window.responsiveState === 'mobile' && window.mobileMenuIsOpen;
-
-		isElevating = false;
 
 		window.setTimeout(window.requestAnimationFrame.bind(null, function() {
 			$viewport.css({

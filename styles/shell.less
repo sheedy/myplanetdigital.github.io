@@ -9,8 +9,8 @@ html, body {
    -ms-text-size-adjust: 100%;
 }
 
-a:focus, a:active{
-  outline:0;
+a, a:focus, a:active{
+  outline:0 !important;
 }
 
 body {
@@ -137,10 +137,10 @@ body.article {
 }
 
 #logo {
-	height:80px;
-	width:80px;
+	height:81px;
+	width:81px;
 	font-size:0;
-	background:url('../images/spritempd.png') no-repeat 0 -121px;
+	background:url('../images/spritempd.png') no-repeat 0 -120px;
 	background-size:434px auto;
 	position:fixed;
 	.translateZ();
@@ -155,7 +155,7 @@ body.article {
 	}
 	@media only screen and (min-width : 1173px) {
 		&:hover {
-			background-position:0 -38px;
+			background-position:0 -37px;
 		}
 	}
 	a {
@@ -163,6 +163,63 @@ body.article {
 		width: 100%;
 		text-decoration: none;
 		display: inline-block;
+	}
+}
+
+body {
+	#back {
+		height: 80px;
+		width: 80px;
+		font-size:0;
+		background:url('../images/spritempd.png') no-repeat 0 -284px;
+		background-size:434px auto;
+		position: fixed;
+		.translateZ();
+		.user-select();
+		z-index:3;
+		top:17px;
+		right: 50%;
+		margin-right:-(@max-width/2 + @logo-width + @logo-gutter-width);
+		display: none;
+		opacity: 0;
+		.transition(none);
+		&.reveal {
+			opacity: 0.99;
+			.transition(opacity 0.7s);
+		}
+		a {
+			height: 100%;
+			width: 100%;
+			text-decoration: none;
+			display: inline-block;
+		}
+		@media only screen and (max-width : 1324px) {
+			right:@logo-gutter-width;
+			margin-right:0;
+		}
+		@media only screen and (max-width :  1174px) {
+			top: 10px;
+			right: 74px;
+			width: 52px;
+			height: 52px;
+			margin-right: 0;
+			background-size: 300px;
+			background-position: 0px -196px;
+		}
+		@media only screen and (max-width : 767px) {
+			top: 8px;
+			right: 61px;
+			width: 44px;
+			height: 44px;
+			margin-right: 0;
+			background-size: 250px;
+			background-position: 0px -163px;
+		}
+	}
+	&.article {
+		#back {
+			display: block;
+		}
 	}
 }
 
@@ -242,13 +299,16 @@ a[href^=tel]{
 		}
 		&.desktop-capable {
 			#logo:hover {
-				background-position: 0px -42px;
+				background-position: 0px -132px;
 			}
 		}
 	}
 	#viewport {
 		#main, #article {
 			padding-top:@ipad-menu-height;
+			> .main-wrap {
+				margin-top: 10px;
+			}
 		}
 		#article {
 			padding-top:@ipad-menu-height;
@@ -260,8 +320,8 @@ a[href^=tel]{
 		left: 20px;
 		height: 90px;
 		width: 90px;
-		background-size: 478px auto;
-		background-position: 0 -133px;
+		background-size: 482px auto;
+		background-position: 0 -40px;
 	}
 	#logo, #menu, #menu-toggle {
 		.transition-transform();
@@ -313,13 +373,13 @@ a[href^=tel]{
 		top: 7px;
 		height: 67px;
 		width: 67px;
-		background-size: 364px auto;
-		background-position: 0 -101px;
+		background-size: 360px auto;
+		background-position: 0 -30px;
 	}
 	body.desktop-capable {
 		#logo {
 			&:hover {
-				background-position: 0 -32px;
+				background-position: 0 -99px;
 			}
 		}
 	}
@@ -329,6 +389,10 @@ a[href^=tel]{
 	#viewport {
 		#main, #article {
 			padding-top:@mobile-menu-height;
+
+			> .main-wrap {
+				margin-top: 10px;
+			}
 		}
 		#article {
 			padding-top:@mobile-menu-height;

@@ -184,6 +184,9 @@
 	$window.on('filter', function(e, tag, immediate, scroll) {
 		var first = true;
 		//window.setTimeout(function() {
+			if(window.responsiveState === 'mobile' && window.mobileMenuIsOpen) {
+		      immediate = true;
+		    }
 			window.tiles.items.map(function (tile) {
 				var $tile = $(tile.element).removeClass('reveal revealed show hidden').css({
 					opacity: immediate ? 1 : 0.01,

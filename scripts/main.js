@@ -9,6 +9,8 @@
     var $window = $(window),
         $body = $('body'),
         $article = $('#article'),
+        $back = $('#back'),
+        $backlink = $('#back a'),
         $viewport = $('#viewport'),
         $articlein = $('#article-inner'),
         $wrap = $('#wrap'),
@@ -21,6 +23,7 @@
         $articleFooter,
         $ajaxer = null,
         popped = false,
+        fromTiles = false,
         hasLoadedTiles,
         filterTag,
         isLoading =  false,
@@ -102,6 +105,7 @@
                     isLoading = false;
                     $loadgif.hide();
                     $articlein.addClass('reveal');
+                    $back.addClass('reveal');
                     $body.css('height', '');
                     $article.css('height', '');
                     window.setTimeout(function () {
@@ -151,7 +155,6 @@
             }
         }
         else {
-            $articlein.removeClass('reveal');
             isLoading = true;
             $ajaxer = $.get(removeTrailingSlash(window.location.href) + '-content/index.html', function(data) {
                 $ajaxer = null;
@@ -166,6 +169,14 @@
                         finishArticleLoad(data);
                     }
                 }, 1000);
+                if (!fromTiles) {
+                    var tag = $(data).closest('.article-body').attr('data-tag') || $(data).closest('.profile-body').attr('data-tag'),
+                        href = tag === 'home'? '/' : '/tags/' + tag;
+                    debugger;
+                    console.log(href);
+                    $backlink.attr('href', href);
+                    $window.trigger('article-to-article', [tag]);
+                }
             });
         }
         $body.removeClass('animating');
@@ -226,9 +237,10 @@
             filterTag = 'home';
         }
 
-        if(isArticleUrl && window.isTileView) {
+        if(isArticleUrl && window.isTileView) { // Going to article view from tile view
             window.isTileView = false;
             window.isBusy = true;
+            fromTiles = true;
 
             if(!wasCancelled) {
                 tileScrollTop = window.curScrollTop;
@@ -281,6 +293,7 @@
         }  else if(isArticleUrl && !window.isTileView) { // article view to article view transition
             window.isBusy = true;
             doArticleAjax = true;
+            fromTiles = false;
             articleScrollTop = 0;
             lastArticleUrl = data.url;
 
@@ -288,6 +301,7 @@
                 window.requestAnimationFrame(function () {
                     if(doArticleAjax) {
                         $article.css('height', window.pageHeight + (window.isIOS ? IOS_CHROME_HEIGHT : 0));
+                        $back.removeClass('reveal');
                         $loadgif.find('.loading-spinner').css('top', window.pageHeight / 2 - SPINNER_HEIGHT);
                         $loadgif.show();
                         window.requestAnimationFrame(loadViaAjax);
@@ -295,7 +309,7 @@
                 });
             }, timeoutLen);
 
-        } else if(!isArticleUrl && !window.isTileView) {
+        } else if(!isArticleUrl && !window.isTileView) { // Article view back to tile view
             window.isTileView = true;
             window.isBusy = true;
             if(!wasCancelled) {
@@ -308,6 +322,7 @@
             }
 
             $window.trigger('tiles');
+            $back.removeClass('reveal');
 
             $main.css({
                 transform: !overridePopstateScrollmove || wasLinkClick ? 'translate3d(-100%, ' + (top - tileScrollTop) + 'px, 0)' : '',
@@ -343,6 +358,7 @@
                         top: tileScrollTop
                     }]);
                     $body.removeClass('article');
+
                     if(noTransition){
                         window.setTimeout(window.requestAnimationFrame.bind(null, function() {
                             handleTransitionEnd();
@@ -404,6 +420,11 @@
             window.setTimeout(window.requestAnimationFrame.bind(null, function () {
                 cleanupTransition();
                 window.isBusy = false;
+                if (!window.isTileView && !doArticleAjax) {
+                    window.setTimeout(function() {
+                        $back.addClass('reveal');
+                    }, 0);
+                }
             }), 0);
         }
     }
@@ -545,6 +566,8 @@
         if(!isExternalUrl(url)) {
             if(e.currentTarget.getAttribute('data-attr') === 'contact-link') {
                 $window.trigger('scroll-to', [window.isTileView ? $footer.offset().top - 90 : $articleFooter.offset().top - 90]);
+            } else if (e.currentTarget.getAttribute('data-attr') === 'back' && fromTiles) {
+                History.back();
             } else if(url === pageUrl) {
                 $window.trigger('same-page');
             } else {
@@ -557,6 +580,7 @@
     });
 
     $article.append($articleFooter = $footer.clone());
+    window.currentTag = $('#menu').find('li.active').attr('class').split(' ')[0];
     $window.on('page-change', handlePageChange);
     $article.on('transitionend webkitTransitionEnd', handleTransitionEnd);
 
@@ -597,6 +621,9 @@
     window.setTimeout(function() {
         if(!window.isTileView) {
             $articlein.addClass('reveal');
+            $back.addClass('reveal');
+            // set link to return to primary tag on landing on article
+            $backlink.attr('href', window.currentTag === 'home'? '/': '/tags/' + window.currentTag);
             articleScrollTop = window.curScrollTop;
         } else {
             tileScrollTop = window.curScrollTop;

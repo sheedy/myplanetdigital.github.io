@@ -37,7 +37,9 @@
 		MOUSE_MOVE_THROTTLE_THRESHOLD = 25;
 
 	function setIndicator(item, transition) {
-		if(item) {
+		if ($(item).is('.home')) {
+			indicatorOffset = -150; //@fix: calculate properly
+		} else if(item) {
 			indicatorOffset = (item.offsetLeft - 14) - (window.responsiveState === 'full' ? $wrap[0].offsetLeft + $mainWrap[0].offsetLeft : 0);
 		}
 		$indicator.css({
@@ -203,7 +205,7 @@
 	function handleScroll (e, data) {
 		var top,
 			doTransition;
-		if(window.isBusy || data.isFinalEvent || enteredMenu || window.responsiveState === 'mobile' ) {
+		if(window.isBusy || window.isElevating || data.isFinalEvent || enteredMenu || window.responsiveState === 'mobile' ) {
 			return;
 		}
 		top = Math.max(data.top, 0);
@@ -342,6 +344,9 @@
 
 	$window.on('same-page same-filter elevator-done', closeMenu);
 	$window.on('filter',function (e, tag) {
+		activateLink($menu.find('li.' + tag));
+	});
+	$window.on('article-to-article', function (e, tag) {
 		activateLink($menu.find('li.' + tag));
 	});
 

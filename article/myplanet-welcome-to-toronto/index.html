@@ -39,10 +39,12 @@ Myplanet, Welcome to Vancouver | Myplanet Digital</title>
 
 	<body class="article ">
 		<div id="wrap">
-
 			<h1 id="logo">
 				<a href="/swat/">Myplanet</a>
 			</h1>
+			<div id="back">
+				<a href="/swat/" data-attr="back">Back</a>
+			</div>
 			<div id="viewport">
 
 				<!--[if (!IE) | (gte IE 10)]> -->
@@ -73,29 +75,21 @@ Myplanet, Welcome to Vancouver | Myplanet Digital</title>
 });
 
 var loadingGif = new Image();
-  loadingGif.src = "/images/loading.gif";
-  loadingGif.onload = function () {
-    if('ontouchstart' in window) {
-        var els = document.querySelectorAll('.tile'),
-            len = els.length;
-        while(len--) {
-            els[len].style.opacity = 1;
-        }
-    }
-  };
 
-// Create predefined groups of tiles, based on their tags
-// window.tileTaggedGroups = {'careers': [TileDomEl1, TileDomEl2 ... ],  ... }
-/*
-window.tileTaggedGroups = {};
-if('forEach' in []) {
-  [].forEach.call(document.querySelectorAll('.tile'), function(tile) {
-      tile.getAttribute('data-tags').split(/\s+/).forEach(function(usedTag) {
-          window.tileTaggedGroups[usedTag] = window.tileTaggedGroups[usedTag] || [];
-          window.tileTaggedGroups[usedTag].push(tile);
-      });
-  });
-}*/
+loadingGif.src = "/images/loading.gif";
+loadingGif.onload = function () {
+  if('ontouchstart' in window) {
+      var els = document.querySelectorAll('.tile'),
+          len = els.length;
+      while(len--) {
+          els[len].style.opacity = 1;
+      }
+  }
+};
+
+window.currentTag = function() {
+  return $('#menu').find('li.active').attr('class').split(' ')[0];
+};
 						
 							};
 						
@@ -253,6 +247,11 @@ if('forEach' in []) {
 
 
 
+
+
+
+
+
 <div class="article-banner" style="background-image: url(/swat/associated-files/article/myplanet-welcome-to-toronto/cover.jpg);" >
 	<img src="/swat/associated-files/article/myplanet-welcome-to-toronto/cover.jpg" style="display:none; visibility:hidden;" />
 </div>
@@ -270,7 +269,7 @@ if('forEach' in []) {
 
 
 
-<div class="article-body">
+<div class="article-body" data-tag="community">
 	<div class="article-info">
 
 		
@@ -361,8 +360,6 @@ if('forEach' in []) {
   <a href="/article/what-we-do" title="Previous Post: We build the right thing, fast" class="navlinks-prev">&laquo; We build the right thing, fast</a>
   <a href="/people/yashar-rassoulli" title="Next Post: Yashar Rassoulli" class="navlinks-next">Yashar Rassoulli &raquo;</a>
 </div>
-				
-				
 				<div class="footer-doodle community"></div>
 			</div>
 		</div>
@@ -468,6 +465,11 @@ if('forEach' in []) {
 
 
 
+
+
+
+
+
 <div class="article-banner" style="background-image: url(/swat/associated-files/article/myplanet-welcome-to-toronto/cover.jpg);" >
 	<img src="/swat/associated-files/article/myplanet-welcome-to-toronto/cover.jpg" style="display:none; visibility:hidden;" />
 </div>
@@ -485,7 +487,7 @@ if('forEach' in []) {
 
 
 
-<div class="article-body">
+<div class="article-body" data-tag="community">
 	<div class="article-info">
 
 		
@@ -576,8 +578,6 @@ if('forEach' in []) {
   <a href="/article/what-we-do" title="Previous Post: We build the right thing, fast" class="navlinks-prev">&laquo; We build the right thing, fast</a>
   <a href="/people/yashar-rassoulli" title="Next Post: Yashar Rassoulli" class="navlinks-next">Yashar Rassoulli &raquo;</a>
 </div>
-				
-				
 				<div class="footer-doodle community"></div>
 			</div>
 		</div>
@@ -755,7 +755,7 @@ if('forEach' in []) {
 				
 				
 
-				<li class="contact page">
+				<li class="contact">
 					<a  data-attr=contact-link
 						href="#contact"
 						
@@ -763,7 +763,7 @@ if('forEach' in []) {
 						
 						data-menu-colour="#f16838"
 						data-menu-doodle="bannerdoodle.png"
-						data-tag="contact page"
+						data-tag="contact"
 					>
 						<span>
 							Contact
@@ -828,7 +828,7 @@ if('forEach' in []) {
 					<a  
 						href="/swat/tags/community"
 						
-							data-banner="&lt;p&gt;More than just software, open source is a philosophy - one of openness and community.&lt;/p&gt;"
+							data-banner="&lt;p&gt;More than just software, open source is a philosophy — one of openness and community.&lt;/p&gt;"
 						
 						data-menu-colour="#ea3d67"
 						data-menu-doodle="banner-doodle-design.png"

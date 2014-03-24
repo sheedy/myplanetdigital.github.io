@@ -38,10 +38,12 @@
 
 	<body class="article ">
 		<div id="wrap">
-
 			<h1 id="logo">
 				<a href="/swat/">Myplanet</a>
 			</h1>
+			<div id="back">
+				<a href="/swat/" data-attr="back">Back</a>
+			</div>
 			<div id="viewport">
 
 				<!--[if (!IE) | (gte IE 10)]> -->
@@ -72,29 +74,21 @@
 });
 
 var loadingGif = new Image();
-  loadingGif.src = "/images/loading.gif";
-  loadingGif.onload = function () {
-    if('ontouchstart' in window) {
-        var els = document.querySelectorAll('.tile'),
-            len = els.length;
-        while(len--) {
-            els[len].style.opacity = 1;
-        }
-    }
-  };
 
-// Create predefined groups of tiles, based on their tags
-// window.tileTaggedGroups = {'careers': [TileDomEl1, TileDomEl2 ... ],  ... }
-/*
-window.tileTaggedGroups = {};
-if('forEach' in []) {
-  [].forEach.call(document.querySelectorAll('.tile'), function(tile) {
-      tile.getAttribute('data-tags').split(/\s+/).forEach(function(usedTag) {
-          window.tileTaggedGroups[usedTag] = window.tileTaggedGroups[usedTag] || [];
-          window.tileTaggedGroups[usedTag].push(tile);
-      });
-  });
-}*/
+loadingGif.src = "/images/loading.gif";
+loadingGif.onload = function () {
+  if('ontouchstart' in window) {
+      var els = document.querySelectorAll('.tile'),
+          len = els.length;
+      while(len--) {
+          els[len].style.opacity = 1;
+      }
+  }
+};
+
+window.currentTag = function() {
+  return $('#menu').find('li.active').attr('class').split(' ')[0];
+};
 						
 							};
 						
@@ -189,8 +183,13 @@ if('forEach' in []) {
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/6.jpg);" >
-	<img src="/swat/images/default-covers/6.jpg" style="display:none; visibility:hidden;" />
+
+
+
+
+
+<div class="article-banner" style="background-image: url(/swat/images/default-covers/4.jpg);" >
+	<img src="/swat/images/default-covers/4.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -206,7 +205,7 @@ if('forEach' in []) {
 
 
 
-<div class="article-body">
+<div class="article-body" data-tag="careers">
 	<div class="article-info">
 
 		
@@ -289,11 +288,9 @@ You&#39;ll be tasked with building important systems for interesting clients, wi
 			
 			<div class="article-footer">
 				<div class="navlinks">
-  <a href="/careers/scrum-master" title="Previous Post: Join Myplanet as a Scrum Master" class="navlinks-prev">&laquo; Join Myplanet as a Scrum Master</a>
-  <a href="/careers/product-owner" title="Next Post: Myplanet is seeking a seasoned Product Owner" class="navlinks-next">Myplanet is seeking a seasoned Product Owner &raquo;</a>
+  <a href="/careers/qa-specialist" title="Previous Post: Join our team as a QA Specialist" class="navlinks-prev">&laquo; Join our team as a QA Specialist</a>
+  <a href="/careers/scrum-master" title="Next Post: Join Myplanet as a Scrum Master" class="navlinks-next">Join Myplanet as a Scrum Master &raquo;</a>
 </div>
-				
-				
 				<div class="footer-doodle careers"></div>
 			</div>
 		</div>
@@ -336,8 +333,13 @@ You&#39;ll be tasked with building important systems for interesting clients, wi
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/6.jpg);" >
-	<img src="/swat/images/default-covers/6.jpg" style="display:none; visibility:hidden;" />
+
+
+
+
+
+<div class="article-banner" style="background-image: url(/swat/images/default-covers/4.jpg);" >
+	<img src="/swat/images/default-covers/4.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -353,7 +355,7 @@ You&#39;ll be tasked with building important systems for interesting clients, wi
 
 
 
-<div class="article-body">
+<div class="article-body" data-tag="careers">
 	<div class="article-info">
 
 		
@@ -436,11 +438,9 @@ You&#39;ll be tasked with building important systems for interesting clients, wi
 			
 			<div class="article-footer">
 				<div class="navlinks">
-  <a href="/careers/scrum-master" title="Previous Post: Join Myplanet as a Scrum Master" class="navlinks-prev">&laquo; Join Myplanet as a Scrum Master</a>
-  <a href="/careers/product-owner" title="Next Post: Myplanet is seeking a seasoned Product Owner" class="navlinks-next">Myplanet is seeking a seasoned Product Owner &raquo;</a>
+  <a href="/careers/qa-specialist" title="Previous Post: Join our team as a QA Specialist" class="navlinks-prev">&laquo; Join our team as a QA Specialist</a>
+  <a href="/careers/scrum-master" title="Next Post: Join Myplanet as a Scrum Master" class="navlinks-next">Join Myplanet as a Scrum Master &raquo;</a>
 </div>
-				
-				
 				<div class="footer-doodle careers"></div>
 			</div>
 		</div>
@@ -618,7 +618,7 @@ You&#39;ll be tasked with building important systems for interesting clients, wi
 				
 				
 
-				<li class="contact page">
+				<li class="contact">
 					<a  data-attr=contact-link
 						href="#contact"
 						
@@ -626,7 +626,7 @@ You&#39;ll be tasked with building important systems for interesting clients, wi
 						
 						data-menu-colour="#f16838"
 						data-menu-doodle="bannerdoodle.png"
-						data-tag="contact page"
+						data-tag="contact"
 					>
 						<span>
 							Contact
@@ -691,7 +691,7 @@ You&#39;ll be tasked with building important systems for interesting clients, wi
 					<a  
 						href="/swat/tags/community"
 						
-							data-banner="&lt;p&gt;More than just software, open source is a philosophy - one of openness and community.&lt;/p&gt;"
+							data-banner="&lt;p&gt;More than just software, open source is a philosophy — one of openness and community.&lt;/p&gt;"
 						
 						data-menu-colour="#ea3d67"
 						data-menu-doodle="banner-doodle-design.png"

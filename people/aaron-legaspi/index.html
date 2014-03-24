@@ -38,10 +38,12 @@
 
 	<body class="article ">
 		<div id="wrap">
-
 			<h1 id="logo">
 				<a href="/swat/">Myplanet</a>
 			</h1>
+			<div id="back">
+				<a href="/swat/" data-attr="back">Back</a>
+			</div>
 			<div id="viewport">
 
 				<!--[if (!IE) | (gte IE 10)]> -->
@@ -72,29 +74,21 @@
 });
 
 var loadingGif = new Image();
-  loadingGif.src = "/images/loading.gif";
-  loadingGif.onload = function () {
-    if('ontouchstart' in window) {
-        var els = document.querySelectorAll('.tile'),
-            len = els.length;
-        while(len--) {
-            els[len].style.opacity = 1;
-        }
-    }
-  };
 
-// Create predefined groups of tiles, based on their tags
-// window.tileTaggedGroups = {'careers': [TileDomEl1, TileDomEl2 ... ],  ... }
-/*
-window.tileTaggedGroups = {};
-if('forEach' in []) {
-  [].forEach.call(document.querySelectorAll('.tile'), function(tile) {
-      tile.getAttribute('data-tags').split(/\s+/).forEach(function(usedTag) {
-          window.tileTaggedGroups[usedTag] = window.tileTaggedGroups[usedTag] || [];
-          window.tileTaggedGroups[usedTag].push(tile);
-      });
-  });
-}*/
+loadingGif.src = "/images/loading.gif";
+loadingGif.onload = function () {
+  if('ontouchstart' in window) {
+      var els = document.querySelectorAll('.tile'),
+          len = els.length;
+      while(len--) {
+          els[len].style.opacity = 1;
+      }
+  }
+};
+
+window.currentTag = function() {
+  return $('#menu').find('li.active').attr('class').split(' ')[0];
+};
 						
 							};
 						
@@ -171,10 +165,10 @@ if('forEach' in []) {
 
   
     
-        
+    
   
     
-        
+    
   
 
 
@@ -184,7 +178,7 @@ if('forEach' in []) {
   <img src="/swat/associated-files/people/aaron-legaspi/cover.jpg" style="display:none; visibility:hidden;" />
 </div>
 
-<div class="profile-body">
+<div class="profile-body" data-tag="people">
   <div class="profile-content">
 
     
@@ -228,8 +222,6 @@ if('forEach' in []) {
   <a href="/people/carolyn-jin" title="Previous Post: Carolyn Jin" class="navlinks-prev">&laquo; Carolyn Jin</a>
   <a href="/article/developing-enterprise-products-lean-ux-and-javascript" title="Next Post: Developing enterprise products with Lean UX and JavaScript" class="navlinks-next">Developing enterprise products with Lean UX and JavaScript &raquo;</a>
 </div>
-      
-      
       <div class="footer-doodle people"></div>
     </div>
 
@@ -253,10 +245,10 @@ if('forEach' in []) {
 
   
     
-        
+    
   
     
-        
+    
   
 
 
@@ -266,7 +258,7 @@ if('forEach' in []) {
   <img src="/swat/associated-files/people/aaron-legaspi/cover.jpg" style="display:none; visibility:hidden;" />
 </div>
 
-<div class="profile-body">
+<div class="profile-body" data-tag="people">
   <div class="profile-content">
 
     
@@ -310,8 +302,6 @@ if('forEach' in []) {
   <a href="/people/carolyn-jin" title="Previous Post: Carolyn Jin" class="navlinks-prev">&laquo; Carolyn Jin</a>
   <a href="/article/developing-enterprise-products-lean-ux-and-javascript" title="Next Post: Developing enterprise products with Lean UX and JavaScript" class="navlinks-next">Developing enterprise products with Lean UX and JavaScript &raquo;</a>
 </div>
-      
-      
       <div class="footer-doodle people"></div>
     </div>
 
@@ -488,7 +478,7 @@ if('forEach' in []) {
 				
 				
 
-				<li class="contact page">
+				<li class="contact">
 					<a  data-attr=contact-link
 						href="#contact"
 						
@@ -496,7 +486,7 @@ if('forEach' in []) {
 						
 						data-menu-colour="#f16838"
 						data-menu-doodle="bannerdoodle.png"
-						data-tag="contact page"
+						data-tag="contact"
 					>
 						<span>
 							Contact
@@ -561,7 +551,7 @@ if('forEach' in []) {
 					<a  
 						href="/swat/tags/community"
 						
-							data-banner="&lt;p&gt;More than just software, open source is a philosophy - one of openness and community.&lt;/p&gt;"
+							data-banner="&lt;p&gt;More than just software, open source is a philosophy — one of openness and community.&lt;/p&gt;"
 						
 						data-menu-colour="#ea3d67"
 						data-menu-doodle="banner-doodle-design.png"

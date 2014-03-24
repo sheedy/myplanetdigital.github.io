@@ -1,1 +1,310 @@
-@media only screen and (min-width:1175px){body #menu{-webkit-tap-highlight-color:transparent;-webkit-highlight:none;-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-transform:translateZ(0);-moz-transform:translateZ(0);-ms-transform:translateZ(0);-o-transform:translateZ(0);transform:translateZ(0);-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-backface-visibility:hidden;-webkit-perspective:1000;-moz-perspective:1000;perspective:1000;-webkit-transition:-webkit-transform .4s;-moz-transition:-moz-transform .4s;-o-transition:-o-transform .4s;transition:transform .4s;position:fixed;left:0;text-align:center;overflow:hidden}body.small-menu #menu{-webkit-transform:translate3d(0, -94px, 0);-moz-transform:translate3d(0, -94px, 0);-ms-transform:translate3d(0, -94px, 0);-o-transform:translate3d(0, -94px, 0);transform:translate3d(0, -94px, 0);-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-backface-visibility:hidden;-webkit-perspective:1000;-moz-perspective:1000;perspective:1000}body.small-menu ul li:after{-webkit-transform:translate3d(0, -94px, 0) scale(.98);-moz-transform:translate3d(0, -94px, 0) scale(.98);-ms-transform:translate3d(0, -94px, 0) scale(.98);-o-transform:translate3d(0, -94px, 0) scale(.98);transform:translate3d(0, -94px, 0) scale(.98)}body.small-menu #menu ul>li{-webkit-transform:translate3d(0, 30px, 0);-moz-transform:translate3d(0, 30px, 0);-ms-transform:translate3d(0, 30px, 0);-o-transform:translate3d(0, 30px, 0);transform:translate3d(0, 30px, 0);-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-backface-visibility:hidden;-webkit-perspective:1000;-moz-perspective:1000;perspective:1000}}#menu{color:#000;background:#fff;font-size:0}#menu>ul{margin:0;padding:0;list-style:none}#menu ul>li{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;text-align:center;vertical-align:top;display:inline-block;font-family:TradeGothic;font-size:13px;letter-spacing:-0.03em;list-style:none;text-transform:lowercase;height:128px;line-height:168px;width:100px;position:relative;color:black}#menu ul>li a{display:inline-block;height:100%;position:relative;z-index:1}#menu ul>li.active{background:#fff;color:#000}@media only screen and (max-width:1174px){#menu ul>li{font-size:15px}#menu ul>li:last-of-type{border-bottom:0}}@media only screen and (min-width:1175px){#menu ul>li{height:128px;margin-top:-11px;background:transparent}#menu ul>li.home{display:none}#menu ul>li a{color:inherit;text-decoration:none;-webkit-transition:-webkit-transform .4s;-moz-transition:-moz-transform .4s;-o-transition:-o-transform .4s;transition:transform .4s}#menu ul>li a>span{z-index:1;position:relative;top:-17px}#menu ul>li:before{content:'';position:absolute;top:44px;left:28px;width:42px;height:48px;opacity:0.2;background:url('../images/spritempd.png') 0 0 no-repeat;background-size:533px;-webkit-transition:-webkit-transform .4s,opacity .4s;-moz-transition:-moz-transform .4s,opacity .4s;-o-transition:-o-transform .4s,opacity .4s;transition:transform .4s,opacity .4s}#menu ul>li.company:before,#menu ul>li.what-we-do:before{background-position:-427px -53px;background-size:550px}#menu ul>li.people:before{background-position:-303px -54px;background-size:525px}#menu ul>li.careers:before{background-position:-107px -48px;top:38px}#menu ul>li.contact{margin-right:300px}#menu ul>li.contact:before{background-position:-362px -54px}#menu ul>li.design:before{opacity:0.01;background-position:-146px -49px;background-size:510px}#menu ul>li.design:after{content:'thoughts';position:absolute;font-family:TradeGothic;font-size:13px;letter-spacing:-0.03em;font-weight:bold;width:70px;text-align:left;top:-17px;left:-65px;background:url('../images/spritempd.png') -468px 10px no-repeat;background-size:533px}#menu ul>li.technology:before{opacity:0.01;background-position:-202px -51px;background-size:520px}#menu ul>li.community:before{opacity:0.01;background-position:-252px -50px;background-size:520px}#menu ul>li.hover a,#menu ul>li.active a{-webkit-transform:translateY(28px);-moz-transform:translateY(28px);-ms-transform:translateY(28px);-o-transform:translateY(28px);transform:translateY(28px)}#menu ul>li.hover:before,#menu ul>li.active:before{opacity:1}}[data-role="menu-indicator"]{display:none}@media only screen and (min-width:1175px){#menu{box-shadow:0 1px 2px rgba(0,0,0,0.125)}[data-role="menu-indicator"]{-webkit-transition:-webkit-transform .4s;-moz-transition:-moz-transform .4s;-o-transition:-o-transform .4s;transition:transform .4s;-webkit-transform:translateZ(0);-moz-transform:translateZ(0);-ms-transform:translateZ(0);-o-transform:translateZ(0);transform:translateZ(0);-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-backface-visibility:hidden;-webkit-perspective:1000;-moz-perspective:1000;perspective:1000;display:inline-block;border-left:10px solid transparent;border-right:10px solid transparent;border-top:10px solid #ddd;top:117px;position:fixed;left:50%;margin-left:-457px;z-index:2}[data-role="menu-indicator"]:after{position:absolute;content:'';display:block;border-left:8px solid transparent;border-right:8px solid transparent;border-top:8px solid #fff;margin:-10px 0 0 -8px}.menu-hover{position:absolute;width:30px;height:43px;background:url('../images/spritempd.png') no-repeat -140px 0;background-size:533px;margin:40px 0 0 30px;-webkit-transform:translateZ(0);-moz-transform:translateZ(0);-ms-transform:translateZ(0);-o-transform:translateZ(0);transform:translateZ(0);-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-backface-visibility:hidden;-webkit-perspective:1000;-moz-perspective:1000;perspective:1000}}@media only screen and (max-width:1174px){#menu{color:#fff;background:#000}#menu>ul{font-size:0;margin:0;padding:0}#menu ul>li{text-align:left;padding:0 30px;display:inline-block;height:52px;line-height:53px;border-bottom:1px solid #333;width:100%;color:white}#menu ul>li a{min-width:300px;text-decoration:none;color:inherit}}@media only screen and (min-width:1175px) and (max-width:1324px){#menu{border:1px solid #fff;border-width:0 0 0 150px;text-align:left !important}[data-role="menu-indicator"]{left:0;margin-left:206px}}
+/*  colour: Grayscale */
+/*colour: Color*/
+/*global: Main*/
+@media only screen and (min-width: 1175px) {
+  body #menu {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-highlight: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
+    -webkit-transition: -webkit-transform 0.4s;
+    -moz-transition: -moz-transform 0.4s;
+    -o-transition: -o-transform 0.4s;
+    transition: transform 0.4s;
+    position: fixed;
+    left: 0;
+    text-align: center;
+    overflow: hidden;
+  }
+  body.small-menu #menu {
+    -webkit-transform: translate3d(0, -94px, 0);
+    -moz-transform: translate3d(0, -94px, 0);
+    -ms-transform: translate3d(0, -94px, 0);
+    -o-transform: translate3d(0, -94px, 0);
+    transform: translate3d(0, -94px, 0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
+  }
+  body.small-menu ul li:after {
+    -webkit-transform: translate3d(0, -94px, 0) scale(0.98);
+    -moz-transform: translate3d(0, -94px, 0) scale(0.98);
+    -ms-transform: translate3d(0, -94px, 0) scale(0.98);
+    -o-transform: translate3d(0, -94px, 0) scale(0.98);
+    transform: translate3d(0, -94px, 0) scale(0.98);
+  }
+  body.small-menu #menu ul > li {
+    -webkit-transform: translate3d(0, 30px, 0);
+    -moz-transform: translate3d(0, 30px, 0);
+    -ms-transform: translate3d(0, 30px, 0);
+    -o-transform: translate3d(0, 30px, 0);
+    transform: translate3d(0, 30px, 0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
+  }
+}
+#menu {
+  color: #000;
+  background: #fff;
+  font-size: 0;
+}
+#menu > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#menu ul > li {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: top;
+  display: inline-block;
+  font-family: TradeGothic;
+  font-size: 13px;
+  letter-spacing: -0.03em;
+  list-style: none;
+  text-transform: lowercase;
+  height: 128px;
+  line-height: 168px;
+  width: 100px;
+  position: relative;
+  color: black;
+}
+#menu ul > li a {
+  display: inline-block;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+#menu ul > li.active {
+  background: #fff;
+  color: #000;
+}
+@media only screen and (max-width: 1174px) {
+  #menu ul > li {
+    font-size: 15px;
+  }
+  #menu ul > li:last-of-type {
+    border-bottom: 0;
+  }
+}
+@media only screen and (min-width: 1175px) {
+  #menu ul > li {
+    height: 128px;
+    margin-top: -11px;
+    background: transparent;
+  }
+  #menu ul > li.home {
+    display: none;
+  }
+  #menu ul > li a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-transition: -webkit-transform 0.4s;
+    -moz-transition: -moz-transform 0.4s;
+    -o-transition: -o-transform 0.4s;
+    transition: transform 0.4s;
+  }
+  #menu ul > li a > span {
+    z-index: 1;
+    position: relative;
+    top: -17px;
+  }
+  #menu ul > li:before {
+    content: '';
+    position: absolute;
+    top: 44px;
+    left: 28px;
+    width: 44px;
+    height: 48px;
+    opacity: 0.2;
+    background: url('../images/spritempd.png') 0 0 no-repeat;
+    background-size: 533px;
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.4s;
+    -moz-transition: -moz-transform 0.4s, opacity 0.4s;
+    -o-transition: -o-transform 0.4s, opacity 0.4s;
+    transition: transform 0.4s, opacity 0.4s;
+  }
+  #menu ul > li.company:before,
+  #menu ul > li.what-we-do:before {
+    background-position: -436px -53px;
+    background-size: 550px;
+  }
+  #menu ul > li.people:before {
+    background-position: -313px -54px;
+    background-size: 525px;
+  }
+  #menu ul > li.careers:before {
+    background-position: -117px -48px;
+    top: 38px;
+  }
+  #menu ul > li.contact {
+    margin-right: 20%;
+  }
+  #menu ul > li.contact:before {
+    background-position: -372px -54px;
+  }
+  #menu ul > li.design:before {
+    opacity: 0.01;
+    background-position: -157px -48px;
+    background-size: 510px;
+  }
+  #menu ul > li.design:after {
+    content: 'thoughts';
+    position: absolute;
+    font-family: TradeGothic;
+    font-size: 13px;
+    letter-spacing: -0.03em;
+    font-weight: bold;
+    width: 70px;
+    text-align: left;
+    top: -17px;
+    left: -65px;
+    background: url('../images/spritempd.png') -458px -67px no-repeat;
+    background-size: 533px;
+  }
+  #menu ul > li.technology:before {
+    opacity: 0.01;
+    background-position: -212px -51px;
+    background-size: 520px;
+  }
+  #menu ul > li.community:before {
+    opacity: 0.01;
+    background-position: -262px -50px;
+    background-size: 520px;
+  }
+  #menu ul > li.hover a,
+  #menu ul > li.active a {
+    -webkit-transform: translateY(28px);
+    -moz-transform: translateY(28px);
+    -ms-transform: translateY(28px);
+    -o-transform: translateY(28px);
+    transform: translateY(28px);
+  }
+  #menu ul > li.hover:before,
+  #menu ul > li.active:before {
+    opacity: 1;
+  }
+}
+[data-role="menu-indicator"] {
+  display: none;
+}
+@media only screen and (min-width: 1175px) {
+  #menu {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.125);
+  }
+  [data-role="menu-indicator"] {
+    -webkit-transition: -webkit-transform 0.4s;
+    -moz-transition: -moz-transform 0.4s;
+    -o-transition: -o-transform 0.4s;
+    transition: transform 0.4s;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
+    display: inline-block;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #dddddd;
+    top: 117px;
+    position: fixed;
+    left: 50%;
+    margin-left: -457px;
+    z-index: 2;
+  }
+  [data-role="menu-indicator"]:after {
+    position: absolute;
+    content: '';
+    display: block;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-top: 8px solid #ffffff;
+    margin: -10px 0 0 -8px;
+  }
+  .menu-hover {
+    position: absolute;
+    width: 30px;
+    height: 43px;
+    background: url('../images/spritempd.png') no-repeat -140px 0;
+    background-size: 533px;
+    margin: 40px 0 0 30px;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -backface-visibility: hidden;
+    -webkit-perspective: 1000;
+    -moz-perspective: 1000;
+    perspective: 1000;
+  }
+}
+@media only screen and (max-width: 1174px) {
+  #menu {
+    color: #fff;
+    background: #000;
+  }
+  #menu > ul {
+    font-size: 0;
+    margin: 0;
+    padding: 0;
+  }
+  #menu ul > li {
+    text-align: left;
+    padding: 0 30px;
+    display: inline-block;
+    height: 52px;
+    line-height: 53px;
+    border-bottom: 1px solid #333;
+    width: 100%;
+    color: white;
+  }
+  #menu ul > li a {
+    min-width: 300px;
+    text-decoration: none;
+    color: inherit;
+  }
+}
+@media only screen and (min-width: 1175px) and (max-width: 1324px) {
+  #menu {
+    border: 1px solid #fff;
+    border-width: 0 0 0 150px;
+    text-align: left !important;
+  }
+  [data-role="menu-indicator"] {
+    left: 0;
+    margin-left: 206px;
+  }
+}
