@@ -1,11 +1,743 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Drupal Sites: Launching with zero update hooks</title>
-		<meta http-equiv="REFRESH" content="0;url=/article/launching-with-zero-update-hooks">
-		<link rel="canonical" href="/article/launching-with-zero-update-hooks" />
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0">
+		
+			<title>Drupal Sites: Launching with zero update hooks | Myplanet Digital</title>
+		
+		<script>
+			 (new Image()).src = "/images/loading.gif";
+		</script>
+		
+			<meta name="description" content="... and 5 other reasons to use Drupal's custom_config module.">
+		
+		<meta name="generator" content="DocPad v6.64.0" />
+		<!--[if !IE]> -->
+		<link  rel="stylesheet" href="/styles/main.css" />
+		<!-- <![endif]-->
+
+		<!--[if (IE 8) | (IE 9)]>
+		<link rel="stylesheet" href="/styles/site-ie8.css">
+		<![endif]-->
+
+		<!--[if IE 8]>
+		<script src="/scripts/vendor/html5shiv.js"></script>
+		<script>
+			window.html5 = {
+				'elements': 'section article footer',
+				'shivCSS': false,
+				'shivMethods': false
+			}
+			window.isIE8 = true;
+		</script>
+		<![endif]-->
+		<link rel="icon" type="image/png" href="/favicon.png" />
 	</head>
-	<body>
-		This page has moved. You will be automatically redirected to its new location. If you aren't forwarded to the new page, <a href="/article/launching-with-zero-update-hooks">click here</a>.
+
+	<body class="article ">
+		<div id="wrap">
+			<h1 id="logo">
+				<a href="/">Myplanet</a>
+			</h1>
+			<div id="back">
+				<a href="/" data-attr="back">Back</a>
+			</div>
+			<div id="viewport">
+
+				<!--[if (!IE) | (gte IE 10)]> -->
+				<section id="main" style="transition: none; -webkit-transition: none; position: absolute;">
+
+					<div id="banner" class="">
+						<div class="banner-text">
+						
+						</div>
+					</div>
+
+					<div class="main-wrap" style="position: relative;">
+						
+						<script src="/scripts/vendor/isotope-beta2.pkgd.min.js"></script>
+						<script>
+						
+							window.initializeTiles = function(){
+						
+						    window.tiles = new Isotope( '.main-wrap', {
+  itemSelector: '.tile',
+  filter: '.visible',
+  masonry: {
+    columnWidth: '.grid-size'
+  },
+  transitionDuration: 0,
+  visibleStyle: {},
+  hiddenStyle: {}
+});
+
+var loadingGif = new Image();
+
+loadingGif.src = "/images/loading.gif";
+loadingGif.onload = function () {
+  if('ontouchstart' in window) {
+      var els = document.querySelectorAll('.tile'),
+          len = els.length;
+      while(len--) {
+          els[len].style.opacity = 1;
+      }
+  }
+};
+
+window.currentTag = function() {
+  return $('#menu').find('li.active').attr('class').split(' ')[0];
+};
+						
+							};
+						
+						</script>
+					</div>
+					<div class="loading-overlay-tiles" >
+						<div class="loading-spinner"></div>
+					</div>
+					<footer class="footer" id="contact">
+	<div class="contact-info">
+		<div class="email-us">
+			<h3>e-mail us</h3>
+			<p>hello@myplanet.io</p>
+		</div>
+		<div class="call-us">
+			<h3>call us</h3>
+			<p>1-866-232-7456</p>
+		</div>
+	</div>
+	<div class="additional-info">
+		<div class="contact">
+			<h3>Connect with us</h3>
+			<ul class="social-media-footer">
+				<li><a class="twitter" href="http://twitter.com/myplanetHQ" target="_blank">Twitter</a></li>
+				<li><a class="facebook" href="http://www.facebook.com/myplanetHQ" target="_blank">Facebook</a></li>
+				<li><a class="dribbble" href="http://dribbble.com/myplanet" target="_blank">Dribbble</a></li>
+				<li><a class="drupal" href="http://drupal.org/node/1121200" target="_blank">Drupal</a></li>
+				<li><a class="linkedin" href="http://www.linkedin.com/company/701891" target="_blank">Linkedin</a></li>
+			</ul>
+		</div>
+		<div class="address toronto">
+			<h3>Toronto</h3>
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+				<span>252 Adelaide St E</span>
+				<span>Toronto, Ontario</span>
+				<span>M5A 1N1</span>
+			</a>
+		</div>
+		<div class="address vancouver">
+			<h3>Vancouver</h3>
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+
+				<span>312-510 West Hastings</span>
+				<span>Vancouver, BC</span>
+				<span>V6B 1L8</span>
+			</a>
+		</div>
+		<div class="address chernihiv">
+			<h3>Chernihiv</h3>
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+				<span>21a Voiniv-Internatsionalistiv St</span>
+				<span>Chernihiv, Ukraine</span>
+				<span>14000</span>
+			</a>
+		</div>
+		<div class="address chicago">
+			<h3>Chicago</h3>
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+				<span>155 North Wacker Dr.</span>
+				<span>Chicago, IL</span>
+				<span>60606</span>
+			</a>
+		</div>
+	</div>
+</footer>
+
+				</section>
+
+				<article id="article" style="position: static; margin-left: 100%;">
+					<div id="article-inner"  class="reveal">
+						
+						
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+<div class="article-banner" style="background-image: url(/images/default-covers/3.jpg);" >
+	<img src="/images/default-covers/3.jpg" style="display:none; visibility:hidden;" />
+</div>
+<div class="article-title">
+	
+	<h1>
+		
+			
+			<span>Drupal Sites: </span><span>Launching With </span><span>Zero Update Hooks</span>
+		
+	</h1>
+	
+</div>
+
+
+
+
+<div class="article-body" data-tag="technology">
+	<div class="article-info">
+
+		
+
+
+		
+
+
+		
+
+		
+			<div class="author-info">
+
+				
+
+				
+					
+						<a class="author-name" href="/people/sebastian-lesch">Sebastian Lesch</a>
+					
+				
+
+
+				
+				
+
+			</div>
+		
+
+		
+		
+			<ul class="article-tags">
+				
+					<li><a href="/tags/technology">technology</a></li>
+				
+			</ul>
+		
+	</div>
+
+
+	
+
+	
+		<div class="article-content">
+			<h2 id="drupal-sites-launching-with-zero-update-hooks-and-5-other-reasons-to-use-drupal-s-custom_config-module-">Drupal Sites: Launching with zero update hooks... and 5 other reasons to use Drupal&#39;s custom_config module.</h2>
+<p>The <a href="http://www.smartcentres.com/">SmartCentres</a> project was built using an &quot;<a href="http://drupal.org/developing/distributions">installation profile</a>&quot; development strategy.</p>
+<p>For those who are not familiar with it, the brief summary mentions a cleaner, leaner codebase resulting in a more stable development process that is reproducible from team member to team member. Many <a href="http://drupal.org/">Drupal</a> teams are using this process and this is fantastic step forward.</p>
+<p>The <a href="https://github.com/sebsebseb123/custom_config">Custom Config module</a> can be found on <a href="https://github.com/sebsebseb123/custom_config">github</a> and aims to build on top of the &quot;installation profile&quot; development strategy.</p>
+<ol>
+<li><strong>A faster way to update.</strong>
+<em>hook_update_N</em> is a great place for database alters, data migration, or other larger tasks. In our workflow, however, we&#39;ve been using <em>hook_update_N</em> to execute single lines such as <em>module_enable(&#39;some_module&#39;)</em> or <em>variable_set(&#39;some_var&#39;, 123)</em>. This leads to install files being way larger and uglier than they should be. &quot;Run Install Hooks&quot;, and &quot;Run Post Install&quot; are introduced to replace the need for <em>hook_update_N</em>. Hitting the &quot;Run Install Hooks&quot; or &quot;Run Post Install&quot; callback pages will use the module&#39;s own <em>custom_config_module_implements</em> function to find hooks and install files only from our custom or features modules. In order for this to happen, custom and features modules must use the folder structure convention of modules/custom or modules/features. But, all other contrib install hooks are ignored, so we&#39;re free to safely hit the &quot;Run Post Install&quot; page without worry of contrib modules.</li>
+<li><strong>Helper functions.</strong>
+If you&#39;re creating or updating blocks, running queries, or adding terms, Custom Config is there to help. We&#39;ve got a small handful of hooks you can implement to do most of these setup tasks. Checkout custom_config.api.php to find out how to implement these.</li>
+<li><strong>The ever exciting post-install phase.</strong>
+Block modifications, queries, and terms are all executed after the entire site is built. Using <em>hook_init</em> and a custom variable, the module is able to tell if this is the first time a page is being hit after installing. This is important if you need to ensure that features modules are installed and have properly setup their respective blocks, vocabularies, or some other requirement is met. Also, using <em>hook_postinstall</em> you can run any commands after ensuring that the entire site is installed and configured.</li>
+<li><strong>A place for custom configuration.</strong>
+From time to time, a project requires a custom configuration form. The question eventually pops up, where does this page live? There&#39;s never a single good answer to this, <em>custom_config</em> tries to help by creating a menu item where custom configuration forms should live. Also, that page has two tabs by default &quot;Run Install Hooks&quot;, and &quot;Run Post Install&quot; which simply serve as callbacks</li>
+<li><strong>Drush integration.</strong>
+If you&#39;re into drush, and I don&#39;t know why you wouldn&#39;t be, then you&#39;ll be happy to hear that both callbacks to run the install and post-install hooks are available as drush commands: <em>drush cc-ri</em> and <em>drush cc-rpi</em></li>
+</ol>
+<p>So, the next time you&#39;re starting a project as an installation profile, give custom_config a look over, and think about how it might help you!</p>
+
+
+			
+			<div class="article-footer">
+				<div class="navlinks">
+  <a href="/article/how-we-work-part-1-making-the-case-for-bricolage" title="Previous Post: How We Work, Part 1: Making the Case for Bricolage" class="navlinks-prev">&laquo; How We Work, Part 1: Making the Case for Bricolage</a>
+  <a href="/article/practical-advice-for-the-openagile-framework" title="Next Post: Practical Advice for The OpenAgile Framework" class="navlinks-next">Practical Advice for The OpenAgile Framework &raquo;</a>
+</div>
+				<div class="footer-doodle technology"></div>
+			</div>
+		</div>
+	
+
+</div>
+
+						
+					</div>
+					<div class="loading-overlay" style="display:none;">
+						<div class="loading-spinner"></div>
+					</div>
+				</article>
+				<!-- <![endif]-->
+
+				<!--[if (IE 8) | (IE 9)]>
+				
+				<article id="article">
+					<div id="article-inner" >
+						
+
+
+
+
+	
+
+
+
+
+
+
+
+
+	
+	
+	
+	
+	
+
+
+
+
+
+
+
+
+
+<div class="article-banner" style="background-image: url(/images/default-covers/3.jpg);" >
+	<img src="/images/default-covers/3.jpg" style="display:none; visibility:hidden;" />
+</div>
+<div class="article-title">
+	
+	<h1>
+		
+			
+			<span>Drupal Sites: </span><span>Launching With </span><span>Zero Update Hooks</span>
+		
+	</h1>
+	
+</div>
+
+
+
+
+<div class="article-body" data-tag="technology">
+	<div class="article-info">
+
+		
+
+
+		
+
+
+		
+
+		
+			<div class="author-info">
+
+				
+
+				
+					
+						<a class="author-name" href="/people/sebastian-lesch">Sebastian Lesch</a>
+					
+				
+
+
+				
+				
+
+			</div>
+		
+
+		
+		
+			<ul class="article-tags">
+				
+					<li><a href="/tags/technology">technology</a></li>
+				
+			</ul>
+		
+	</div>
+
+
+	
+
+	
+		<div class="article-content">
+			<h2 id="drupal-sites-launching-with-zero-update-hooks-and-5-other-reasons-to-use-drupal-s-custom_config-module-">Drupal Sites: Launching with zero update hooks... and 5 other reasons to use Drupal&#39;s custom_config module.</h2>
+<p>The <a href="http://www.smartcentres.com/">SmartCentres</a> project was built using an &quot;<a href="http://drupal.org/developing/distributions">installation profile</a>&quot; development strategy.</p>
+<p>For those who are not familiar with it, the brief summary mentions a cleaner, leaner codebase resulting in a more stable development process that is reproducible from team member to team member. Many <a href="http://drupal.org/">Drupal</a> teams are using this process and this is fantastic step forward.</p>
+<p>The <a href="https://github.com/sebsebseb123/custom_config">Custom Config module</a> can be found on <a href="https://github.com/sebsebseb123/custom_config">github</a> and aims to build on top of the &quot;installation profile&quot; development strategy.</p>
+<ol>
+<li><strong>A faster way to update.</strong>
+<em>hook_update_N</em> is a great place for database alters, data migration, or other larger tasks. In our workflow, however, we&#39;ve been using <em>hook_update_N</em> to execute single lines such as <em>module_enable(&#39;some_module&#39;)</em> or <em>variable_set(&#39;some_var&#39;, 123)</em>. This leads to install files being way larger and uglier than they should be. &quot;Run Install Hooks&quot;, and &quot;Run Post Install&quot; are introduced to replace the need for <em>hook_update_N</em>. Hitting the &quot;Run Install Hooks&quot; or &quot;Run Post Install&quot; callback pages will use the module&#39;s own <em>custom_config_module_implements</em> function to find hooks and install files only from our custom or features modules. In order for this to happen, custom and features modules must use the folder structure convention of modules/custom or modules/features. But, all other contrib install hooks are ignored, so we&#39;re free to safely hit the &quot;Run Post Install&quot; page without worry of contrib modules.</li>
+<li><strong>Helper functions.</strong>
+If you&#39;re creating or updating blocks, running queries, or adding terms, Custom Config is there to help. We&#39;ve got a small handful of hooks you can implement to do most of these setup tasks. Checkout custom_config.api.php to find out how to implement these.</li>
+<li><strong>The ever exciting post-install phase.</strong>
+Block modifications, queries, and terms are all executed after the entire site is built. Using <em>hook_init</em> and a custom variable, the module is able to tell if this is the first time a page is being hit after installing. This is important if you need to ensure that features modules are installed and have properly setup their respective blocks, vocabularies, or some other requirement is met. Also, using <em>hook_postinstall</em> you can run any commands after ensuring that the entire site is installed and configured.</li>
+<li><strong>A place for custom configuration.</strong>
+From time to time, a project requires a custom configuration form. The question eventually pops up, where does this page live? There&#39;s never a single good answer to this, <em>custom_config</em> tries to help by creating a menu item where custom configuration forms should live. Also, that page has two tabs by default &quot;Run Install Hooks&quot;, and &quot;Run Post Install&quot; which simply serve as callbacks</li>
+<li><strong>Drush integration.</strong>
+If you&#39;re into drush, and I don&#39;t know why you wouldn&#39;t be, then you&#39;ll be happy to hear that both callbacks to run the install and post-install hooks are available as drush commands: <em>drush cc-ri</em> and <em>drush cc-rpi</em></li>
+</ol>
+<p>So, the next time you&#39;re starting a project as an installation profile, give custom_config a look over, and think about how it might help you!</p>
+
+
+			
+			<div class="article-footer">
+				<div class="navlinks">
+  <a href="/article/how-we-work-part-1-making-the-case-for-bricolage" title="Previous Post: How We Work, Part 1: Making the Case for Bricolage" class="navlinks-prev">&laquo; How We Work, Part 1: Making the Case for Bricolage</a>
+  <a href="/article/practical-advice-for-the-openagile-framework" title="Next Post: Practical Advice for The OpenAgile Framework" class="navlinks-next">Practical Advice for The OpenAgile Framework &raquo;</a>
+</div>
+				<div class="footer-doodle technology"></div>
+			</div>
+		</div>
+	
+
+</div>
+
+					</div>
+					<footer class="footer" id="contact">
+	<div class="contact-info">
+		<div class="email-us">
+			<h3>e-mail us</h3>
+			<p>hello@myplanet.io</p>
+		</div>
+		<div class="call-us">
+			<h3>call us</h3>
+			<p>1-866-232-7456</p>
+		</div>
+	</div>
+	<div class="additional-info">
+		<div class="contact">
+			<h3>Connect with us</h3>
+			<ul class="social-media-footer">
+				<li><a class="twitter" href="http://twitter.com/myplanetHQ" target="_blank">Twitter</a></li>
+				<li><a class="facebook" href="http://www.facebook.com/myplanetHQ" target="_blank">Facebook</a></li>
+				<li><a class="dribbble" href="http://dribbble.com/myplanet" target="_blank">Dribbble</a></li>
+				<li><a class="drupal" href="http://drupal.org/node/1121200" target="_blank">Drupal</a></li>
+				<li><a class="linkedin" href="http://www.linkedin.com/company/701891" target="_blank">Linkedin</a></li>
+			</ul>
+		</div>
+		<div class="address toronto">
+			<h3>Toronto</h3>
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+				<span>252 Adelaide St E</span>
+				<span>Toronto, Ontario</span>
+				<span>M5A 1N1</span>
+			</a>
+		</div>
+		<div class="address vancouver">
+			<h3>Vancouver</h3>
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+
+				<span>312-510 West Hastings</span>
+				<span>Vancouver, BC</span>
+				<span>V6B 1L8</span>
+			</a>
+		</div>
+		<div class="address chernihiv">
+			<h3>Chernihiv</h3>
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+				<span>21a Voiniv-Internatsionalistiv St</span>
+				<span>Chernihiv, Ukraine</span>
+				<span>14000</span>
+			</a>
+		</div>
+		<div class="address chicago">
+			<h3>Chicago</h3>
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+				<span>155 North Wacker Dr.</span>
+				<span>Chicago, IL</span>
+				<span>60606</span>
+			</a>
+		</div>
+	</div>
+</footer>
+
+				</article>
+				
+				<![endif]-->
+
+			</div>
+
+			<!-- MENU GOES HERE -->
+			
+
+
+
+	
+		
+		
+		
+		
+	
+
+	
+		
+		
+		
+		
+	
+
+	
+		
+		
+		
+		
+	
+
+	
+		
+		
+		
+		
+	
+
+	
+		
+		
+		
+		
+	
+
+	
+		
+		
+		
+		
+	
+
+	
+		
+		
+		
+		
+	
+
+	
+		
+		
+		
+		
+	
+
+
+<div id="menu">
+	<ul class="nav navbar-nav">
+		
+			
+
+				
+				
+
+				<li class="home">
+					<a  
+						href="/"
+						
+							data-banner="&lt;p&gt;Hello, we’re Myplanet. We empower organizations to create great web &amp; mobile products.&lt;/p&gt;"
+						
+						data-menu-colour="#f05a28"
+						data-menu-doodle="bannerdoodle.png"
+						data-tag="home"
+					>
+						<span>
+							Home
+						</span>
+					</a>
+				</li>
+			
+		
+			
+
+				
+				
+
+				<li class="company">
+					<a  
+						href="/tags/company"
+						
+							data-banner="&lt;p&gt;We provide UX &amp; technology solutions to build the right thing, fast.(We also do bar mitzvahs.)&lt;/p&gt;"
+						
+						data-menu-colour="#f05a28"
+						data-menu-doodle="banner-doodle-what-we-do.png"
+						data-tag="company"
+					>
+						<span>
+							What We Do
+						</span>
+					</a>
+				</li>
+			
+		
+			
+
+				
+				
+
+				<li class="people">
+					<a  
+						href="/tags/people"
+						
+							data-banner="&lt;p&gt;Tired of herding wild cats, we let them organize themselves. It worked pretty well. Meet our team.&lt;/p&gt;"
+						
+						data-menu-colour="#f05a28"
+						data-menu-doodle="banner-doodle-what-we-do.png"
+						data-tag="people"
+					>
+						<span>
+							People
+						</span>
+					</a>
+				</li>
+			
+		
+			
+
+				
+				
+
+				<li class="careers">
+					<a  
+						href="/tags/careers"
+						
+							data-banner="&lt;p&gt;Join our merry band of designers, technologists, business folk and shameless pug lovers.&lt;/p&gt;"
+						
+						data-menu-colour="#f05a28"
+						data-menu-doodle="banner-doodle-what-we-do.png"
+						data-tag="careers"
+					>
+						<span>
+							Careers
+						</span>
+					</a>
+				</li>
+			
+		
+			
+
+				
+				
+
+				<li class="contact">
+					<a  data-attr=contact-link
+						href="#contact"
+						
+							data-banner="&lt;p&gt;The &quot;why&quot; we build - in discovery, we seek to understand what problem we are solving and for whom.&lt;/p&gt;"
+						
+						data-menu-colour="#f16838"
+						data-menu-doodle="bannerdoodle.png"
+						data-tag="contact"
+					>
+						<span>
+							Contact
+						</span>
+					</a>
+				</li>
+			
+		
+			
+
+				
+				
+
+				<li class="design">
+					<a  
+						href="/tags/design"
+						
+							data-banner="&lt;p&gt;And now, our thoughts on design.&lt;/p&gt;"
+						
+						data-menu-colour="#5f5ca9"
+						data-menu-doodle="banner-doodle-design.png"
+						data-tag="design"
+					>
+						<span>
+							Design
+						</span>
+					</a>
+				</li>
+			
+		
+			
+
+				
+				
+
+				<li class="technology active">
+					<a  
+						href="/tags/technology"
+						
+							data-banner="&lt;p&gt;Some thoughts on technology.&lt;/p&gt;"
+						
+						data-menu-colour="#58c0a2"
+						data-menu-doodle="banner-doodle-design.png"
+						data-tag="technology"
+					>
+						<span>
+							Technology
+						</span>
+					</a>
+				</li>
+			
+		
+			
+
+				
+				
+
+				<li class="community">
+					<a  
+						href="/tags/community"
+						
+							data-banner="&lt;p&gt;More than just software, open source is a philosophy — one of openness and community.&lt;/p&gt;"
+						
+						data-menu-colour="#ea3d67"
+						data-menu-doodle="banner-doodle-design.png"
+						data-tag="community"
+					>
+						<span>
+							Community
+						</span>
+					</a>
+				</li>
+			
+		
+	</ul>
+</div>
+
+<!--[if (!IE) | (gte IE 10)]> -->
+<div id="menu-toggle"><div id="menu-button">Show Menu</div></div>
+<!-- <![endif]-->
+
+		</div>
+		<!--[if IE 8]>
+		<script src="/scripts/vendor/jquery-1.11.0.min.js"></script>
+		<script src="/scripts/menu-ie8.js"></script>
+		<![endif]-->
+		<!--[if (!IE) | (gte IE 9)]> -->
+		<script src="/scripts/vendor/jquery-2.1.0.min.js"></script>
+		<!-- <![endif]-->
+		<script defer="defer"  src="/scripts/pollyfill.js"></script><script defer="defer"  src="/scripts/vendor/scrollfix.js"></script><script defer="defer"  src="/scripts/variables.js"></script><script defer="defer"  src="/scripts/modules/menu.js"></script><script defer="defer"  src="/scripts/modules/tiles.js"></script><script defer="defer"  src="/scripts/modules/elevator.js"></script><script defer="defer"  src="/scripts/modules/banner.js"></script><script defer="defer"  src="/scripts/main.js"></script><script defer="defer"  src="/scripts/vendor/fastclick.js"></script><script defer="defer"  src="/scripts/vendor/history.min.js"></script><script defer="defer"  src="/scripts/init.js"></script><script defer="defer"  src="/scripts/vendor/prism.js"></script>
+		<!--[if (IE 8) | (IE 9)]>
+		<script src="/scripts/menu-ie8.js"></script>
+		<![endif]-->
 	</body>
 </html>
