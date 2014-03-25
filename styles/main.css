@@ -198,11 +198,11 @@ body.loaded #viewport #article {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  -webkit-transform: translate3d(-1px, 0, 0);
-  -moz-transform: translate3d(-1px, 0, 0);
-  -ms-transform: translate3d(-1px, 0, 0);
-  -o-transform: translate3d(-1px, 0, 0);
-  transform: translate3d(-1px, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
   -backface-visibility: hidden;
@@ -217,7 +217,6 @@ body.loaded #viewport #article {
   width: 100%;
   position: relative;
   padding: 0;
-  box-shadow: 1px 0 0 rgba(0, 0, 0, 0.01);
 }
 @media screen and (min-width: 1024px) {
   #viewport #main,
@@ -431,8 +430,8 @@ body.article #back {
     -moz-perspective: 1000;
     perspective: 1000;
     top: 11px;
-    height: 40px;
-    width: 40px;
+    height: 44px;
+    width: 44px;
     z-index: 3;
     font-size: 0;
     -webkit-tap-highlight-color: transparent;
@@ -446,26 +445,32 @@ body.article #back {
   }
   #menu-toggle #menu-button {
     position: relative;
-    top: 11px;
-    left: 11px;
+    top: 20px;
+    left: 12px;
     width: 20px;
-    height: 18px;
-    border: 4px solid #000;
-    border-width: 4px 0 4px 0;
-    background: transparent;
+    height: 4px;
+    background-color: #000;
   }
   #menu-toggle #menu-button:focus {
     outline: none;
   }
+  #menu-toggle #menu-button:before {
+    content: '';
+    position: absolute;
+    top: -7px;
+    left: 0;
+    width: 20px;
+    height: 4px;
+    background-color: #000;
+  }
   #menu-toggle #menu-button:after {
     content: '';
     position: absolute;
-    top: 50%;
-    margin-top: -2px;
+    top: 7px;
     left: 0;
-    right: 0;
+    width: 20px;
     height: 4px;
-    background: #000;
+    background-color: #000;
   }
 }
 #menu {
@@ -494,11 +499,6 @@ body.article #back {
   z-index: 1;
   bottom: -10px;
   border-left: 1px solid black;
-}
-@media screen and (max-width: 768px) {
-  .footer {
-    margin-top: -80px !important;
-  }
 }
 a[href^=tel] {
   color: inherit;
@@ -561,10 +561,6 @@ a[href^=tel] {
     height: 100%;
     width: 251px;
     pointer-events: auto;
-    margin-left: -1px;
-    border: 1px solid #fff;
-    margin-top: -1px;
-    border-bottom: 0;
   }
   #menu,
   #menu-toggle {
@@ -981,14 +977,31 @@ table {
   -moz-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 #article-inner.reveal .article-title {
   opacity: 1;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
   -webkit-backface-visibility: visible;
   -moz-backface-visibility: visible;
   -backface-visibility: visible;
@@ -1002,11 +1015,17 @@ table {
 }
 #article-inner.reveal .article-body {
   opacity: 1;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
   -webkit-backface-visibility: visible;
   -moz-backface-visibility: visible;
   -backface-visibility: visible;
@@ -1047,6 +1066,17 @@ table {
   height: 480px;
   background-repeat: no-repeat;
   background-position: center center;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -1153,9 +1183,10 @@ table {
   -moz-perspective: 1000;
   perspective: 1000;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1174px) {
   #article-inner .article-body {
-    padding: 40px 0 170px;
+    padding-top: 40px;
+    margin-bottom: -10px;
   }
 }
 #article-inner .article-body a {
@@ -1240,6 +1271,7 @@ table {
   display: inline-block;
 }
 #article-inner .article-body .article-info ul.article-tags li a {
+  text-transform: capitalize;
   margin: 0;
 }
 #article-inner .article-body .article-info ul.article-tags li:not(:last-of-type) a:after {
@@ -1394,7 +1426,7 @@ table {
     margin-top: 10px;
   }
 }
-#article-inner .article-body .article-content p.image-full {
+#article-inner .article-body .article-content div.image-full {
   margin: 40px 0 45px;
   max-width: 100%;
   padding: 0;
@@ -1630,17 +1662,13 @@ table {
   padding: 0;
   margin: 0;
   font-family: TradeGothic;
-  font-size: 2em;
+  font-size: 1.8em;
   line-height: 1.6;
   letter-spacing: -0.01em;
 }
 @media screen and (max-width: 1024px) {
   #article-inner .article-body .article-content blockquote {
     padding: 0 8.4%;
-    margin: 50px auto;
-  }
-  #article-inner .article-body .article-content blockquote p {
-    font-size: 2em;
   }
 }
 @media screen and (max-width: 560px) {
@@ -1648,7 +1676,7 @@ table {
     padding: 0 5%;
   }
   #article-inner .article-body .article-content blockquote p {
-    font-size: 1.8em;
+    font-size: 1.7em;
   }
 }
 @media screen and (max-width: 480px) {
@@ -1981,7 +2009,7 @@ table {
     background-size: 550px;
   }
   #menu ul > li.people:before {
-    background-position: -313px -54px;
+    background-position: -313px -52px;
     background-size: 525px;
   }
   #menu ul > li.careers:before {
@@ -2041,7 +2069,7 @@ table {
 }
 @media only screen and (min-width: 1175px) {
   #menu {
-    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.125);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.13);
   }
   [data-role="menu-indicator"] {
     -webkit-transition: -webkit-transform 0.4s;
@@ -2060,23 +2088,15 @@ table {
     -moz-perspective: 1000;
     perspective: 1000;
     display: inline-block;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 10px solid #dddddd;
+    width: 22px;
+    height: 10px;
+    background: url('../images/spritempd.png') no-repeat -283px -219px;
+    background-size: 495px;
     top: 117px;
     position: fixed;
     left: 50%;
     margin-left: -457px;
     z-index: 2;
-  }
-  [data-role="menu-indicator"]:after {
-    position: absolute;
-    content: '';
-    display: block;
-    border-left: 8px solid transparent;
-    border-right: 8px solid transparent;
-    border-top: 8px solid #ffffff;
-    margin: -10px 0 0 -8px;
   }
   .menu-hover {
     position: absolute;
@@ -2101,7 +2121,7 @@ table {
 @media only screen and (max-width: 1174px) {
   #menu {
     color: #fff;
-    background: #000;
+    background: #232323;
   }
   #menu > ul {
     font-size: 0;
@@ -2136,21 +2156,32 @@ table {
   }
 }
 #article-inner.reveal .profile-banner {
-  opacity: 1;
+  opacity: 0.99;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 #article-inner.reveal .profile-body {
-  opacity: 1;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none;
-  -webkit-backface-visibility: visible;
-  -moz-backface-visibility: visible;
-  -backface-visibility: visible;
-  -webkit-perspective: none;
-  -moz-perspective: none;
-  perspective: none;
+  opacity: 0.99;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 .profile-banner {
   text-align: center;
@@ -2205,6 +2236,11 @@ table {
 @media screen and (max-width: 1350px) {
   .profile-body {
     width: 100%;
+  }
+}
+@media screen and (max-width: 1174px) {
+  .profile-body {
+    margin-bottom: -10px;
   }
 }
 .profile-body .profile-content {
@@ -2629,7 +2665,7 @@ table {
   position: static;
 }
 #main .tile .content p.description {
-  font-size: 1.7em;
+  font-size: 1.5em;
   line-height: 1.3;
   padding-right: 40px;
   color: black;
@@ -2706,7 +2742,7 @@ table {
 }
 #main .tile .content ul.tags {
   margin: 0;
-  padding: 35px 0 0 73px;
+  padding: 35px 0 0 70px;
   position: absolute;
   top: 0;
   left: 0;
@@ -2807,7 +2843,7 @@ table {
 #main .tile.featured a.tile-title,
 #main .tile.hero a.tile-title {
   height: 100%;
-  padding: 72px 40px 0 83px;
+  padding: 72px 40px 0 90px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -2846,7 +2882,7 @@ table {
 }
 #main .tile.featured a.tile-title,
 #main .tile.hero a.tile-title {
-  padding: 72px 83px 0;
+  padding: 72px 83px 0 90px;
 }
 #main .tile.featured h2,
 #main .tile.hero h2 {
@@ -2952,17 +2988,14 @@ table {
   #main .tile .content ul.tags .tile-doodle {
     display: none;
   }
+  #main .tile.small {
+    height: 257px;
+  }
   #main .tile.medium,
   #main .tile.large,
   #main .tile.featured,
   #main .tile.hero {
     height: 400px;
-  }
-  #main .tile.medium h2,
-  #main .tile.large h2,
-  #main .tile.featured h2,
-  #main .tile.hero h2 {
-    font-size: 2.5em;
   }
   #main .tile.medium a.tile-image,
   #main .tile.large a.tile-image,
@@ -2975,6 +3008,7 @@ table {
   #main .tile.featured .tile-content,
   #main .tile.hero .tile-content {
     height: 62.5%;
+    width: 100%;
   }
 }
 .desktop-capable #main .tile .content .tags > li:hover a.tile-doodle:before {
@@ -2991,10 +3025,10 @@ table {
   transform: rotate(45deg) translate3d(-9px, -9px, 0);
 }
 #main .tile {
-  -webkit-transition: opacity 0.7s ease-in-out 0.125s;
-  -moz-transition: opacity 0.7s ease-in-out 0.125s;
-  -o-transition: opacity 0.7s ease-in-out 0.125s;
-  transition: opacity 0.7s ease-in-out 0.125s;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 .desktop-capable #main .tile {
   -webkit-transform: translateZ(0);
@@ -3035,10 +3069,10 @@ table {
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
   perspective: 1000;
-  -webkit-transition: 0.375s ease-out 0.159s, opacity 0.725s ease-in 0.16s;
-  -moz-transition: 0.375s ease-out 0.159s, opacity 0.725s ease-in 0.16s;
-  -o-transition: 0.375s ease-out 0.159s, opacity 0.725s ease-in 0.16s;
-  transition: 0.375s ease-out 0.159s, opacity 0.725s ease-in 0.16s;
+  -webkit-transition: 0.375s ease-out 0.159s, opacity 0.425s ease-in 0.16s;
+  -moz-transition: 0.375s ease-out 0.159s, opacity 0.425s ease-in 0.16s;
+  -o-transition: 0.375s ease-out 0.159s, opacity 0.425s ease-in 0.16s;
+  transition: 0.375s ease-out 0.159s, opacity 0.425s ease-in 0.16s;
 }
 .desktop-capable #main .tile.show {
   opacity: 0.99;
@@ -3083,6 +3117,17 @@ table {
   background-color: black;
   color: white;
   padding-top: 44px;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 @media screen and (max-width: 650px) {
   .footer {
@@ -3411,31 +3456,43 @@ table {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 557px;
-  -webkit-transition: background-color 0.7s;
-  -moz-transition: background-color 0.7s;
-  -o-transition: background-color 0.7s;
-  transition: background-color 0.7s;
+  background: #f05a28;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 #banner.home {
-  background-color: #f05a28;
+  background: #f05a28;
 }
 #banner.company {
-  background-color: #f05a28;
+  background: #f05a28;
 }
 #banner.people {
-  background-color: #f05a28;
+  background: #f05a28;
 }
 #banner.careers {
-  background-color: #f05a28;
+  background: #f05a28;
 }
 #banner.design {
-  background-color: #5f5ca9;
+  background: #5f5ca9;
 }
 #banner.technology {
-  background-color: #58c0a2;
+  background: #58c0a2;
 }
 #banner.community {
-  background-color: #ea3d67;
+  background: #ea3d67;
 }
 @media only screen and (max-width: 1174px) {
   #banner {
@@ -3487,10 +3544,10 @@ table {
   font-feature-settings: "kern", "liga", "case";
   /* No variation */
   -webkit-font-smoothing: antialiased;
-  -webkit-transition: opacity 0.7s ease-in-out 0.125s;
-  -moz-transition: opacity 0.7s ease-in-out 0.125s;
-  -o-transition: opacity 0.7s ease-in-out 0.125s;
-  transition: opacity 0.7s ease-in-out 0.125s;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 #banner .banner-text p {
   margin: 0;
@@ -3513,8 +3570,8 @@ table {
   display: block;
   position: absolute;
   width: 660px;
-  height: 500px;
-  top: 420px;
+  height: 127px;
+  top: 430px;
   left: -490px;
   background-image: url(../../images/Banner-Doodle-Bottom.png);
   background-size: 677px;

@@ -120,7 +120,7 @@
   position: static;
 }
 #main .tile .content p.description {
-  font-size: 1.7em;
+  font-size: 1.5em;
   line-height: 1.3;
   padding-right: 40px;
   color: black;
@@ -197,7 +197,7 @@
 }
 #main .tile .content ul.tags {
   margin: 0;
-  padding: 35px 0 0 73px;
+  padding: 35px 0 0 70px;
   position: absolute;
   top: 0;
   left: 0;
@@ -298,7 +298,7 @@
 #main .tile.featured a.tile-title,
 #main .tile.hero a.tile-title {
   height: 100%;
-  padding: 72px 40px 0 83px;
+  padding: 72px 40px 0 90px;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -337,7 +337,7 @@
 }
 #main .tile.featured a.tile-title,
 #main .tile.hero a.tile-title {
-  padding: 72px 83px 0;
+  padding: 72px 83px 0 90px;
 }
 #main .tile.featured h2,
 #main .tile.hero h2 {
@@ -443,17 +443,14 @@
   #main .tile .content ul.tags .tile-doodle {
     display: none;
   }
+  #main .tile.small {
+    height: 257px;
+  }
   #main .tile.medium,
   #main .tile.large,
   #main .tile.featured,
   #main .tile.hero {
     height: 400px;
-  }
-  #main .tile.medium h2,
-  #main .tile.large h2,
-  #main .tile.featured h2,
-  #main .tile.hero h2 {
-    font-size: 2.5em;
   }
   #main .tile.medium a.tile-image,
   #main .tile.large a.tile-image,
@@ -466,6 +463,7 @@
   #main .tile.featured .tile-content,
   #main .tile.hero .tile-content {
     height: 62.5%;
+    width: 100%;
   }
 }
 .desktop-capable #main .tile .content .tags > li:hover a.tile-doodle:before {
@@ -482,10 +480,10 @@
   transform: rotate(45deg) translate3d(-9px, -9px, 0);
 }
 #main .tile {
-  -webkit-transition: opacity 0.7s ease-in-out 0.125s;
-  -moz-transition: opacity 0.7s ease-in-out 0.125s;
-  -o-transition: opacity 0.7s ease-in-out 0.125s;
-  transition: opacity 0.7s ease-in-out 0.125s;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 .desktop-capable #main .tile {
   -webkit-transform: translateZ(0);
@@ -526,10 +524,10 @@
   -webkit-perspective: 1000;
   -moz-perspective: 1000;
   perspective: 1000;
-  -webkit-transition: 0.375s ease-out 0.159s, opacity 0.725s ease-in 0.16s;
-  -moz-transition: 0.375s ease-out 0.159s, opacity 0.725s ease-in 0.16s;
-  -o-transition: 0.375s ease-out 0.159s, opacity 0.725s ease-in 0.16s;
-  transition: 0.375s ease-out 0.159s, opacity 0.725s ease-in 0.16s;
+  -webkit-transition: 0.375s ease-out 0.159s, opacity 0.425s ease-in 0.16s;
+  -moz-transition: 0.375s ease-out 0.159s, opacity 0.425s ease-in 0.16s;
+  -o-transition: 0.375s ease-out 0.159s, opacity 0.425s ease-in 0.16s;
+  transition: 0.375s ease-out 0.159s, opacity 0.425s ease-in 0.16s;
 }
 .desktop-capable #main .tile.show {
   opacity: 0.99;

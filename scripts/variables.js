@@ -2,5 +2,5 @@
 	/**
 	 * Register any global-state variables.
 	 */
-	window.baseUrl = "/swat/";
+	window.baseUrl = "/";
 }());

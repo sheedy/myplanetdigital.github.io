@@ -11,16 +11,12 @@
     var me = $(this),
         tag = me.data('tag');
     bannerInfo[tag] = {
-      'bannerText' : me.data('banner'),
-      'bannerDoodle' : '../images/' + me.data('menu-doodle'),
+      'bannerText' : me.data('banner')
     };
-    // preload all the doodles
-    (new Image()).src = bannerInfo[tag].bannerDoodle;
   });
 
   function bannerUpdate(tag, immediate) {
-    var bannerText = bannerInfo[tag]['bannerText'],
-        newDoodle = bannerInfo[tag]['bannerDoodle'];
+    var bannerText = bannerInfo[tag]['bannerText'];
 
     if(window.responsiveState === 'mobile' && window.mobileMenuIsOpen) {
       immediate = true;

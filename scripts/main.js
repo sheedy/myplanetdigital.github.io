@@ -101,6 +101,7 @@
         window.setTimeout(function(){
             window.requestAnimationFrame(function () {
                 $articlein.html(data);
+                $articlein.removeClass('reveal');
                 window.requestAnimationFrame(function() {
                     isLoading = false;
                     $loadgif.hide();
@@ -172,8 +173,6 @@
                 if (!fromTiles) {
                     var tag = $(data).closest('.article-body').attr('data-tag') || $(data).closest('.profile-body').attr('data-tag'),
                         href = tag === 'home'? '/' : '/tags/' + tag;
-                    debugger;
-                    console.log(href);
                     $backlink.attr('href', href);
                     $window.trigger('article-to-article', [tag]);
                 }

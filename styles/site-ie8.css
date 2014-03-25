@@ -1,3 +1,4 @@
+@import "modules/navlinks.css";
 /**
  * @license
  * MyFonts Webfont Build ID 2716117, 2013-12-31T12:09:17-0500
@@ -335,6 +336,36 @@ body {
   padding-top: 1px;
   margin-top: -1px;
 }
+/**
+ * Masonry fixes.
+ */
+body #main .tile {
+  display: none;
+}
+body #main .main-wrap .tile.visible {
+  display: inline-block;
+}
+/**
+ * Hide the home menu tab.
+ */
+#menu ul > li.home {
+  display: none;
+}
+/**
+ * Footer underline
+ */
+footer a {
+  text-decoration: none;
+}
+footer a span {
+  text-decoration: none;
+}
+/**
+ * Article fixes
+ */
+div.image-full img {
+  width: 100%;
+}
 #viewport {
   width: 100%;
   height: 100%;
@@ -370,7 +401,7 @@ body {
   top: 9px;
   font-size: 0;
   left: 25px;
-  background: url('../images/spritempd-small.png') 3px -91px no-repeat transparent;
+  background: url('../images/sprite-ie.png') 3px -91px no-repeat transparent;
   z-index: 101;
 }
 body.width-mobile #logo {
@@ -448,7 +479,7 @@ body.article #viewport {
   left: 47px;
   width: 35px;
   height: 40px;
-  background: url('../images/spritempd-small.png') no-repeat 0 0;
+  background: url('../images/sprite-ie.png') no-repeat 0 0;
   zoom: 1;
 }
 #menu ul > li.company:before {
@@ -484,6 +515,9 @@ body.article #viewport {
 #menu ul > li.careers.active:before {
   background-position: -103px -40px;
 }
+#menu ul > li.contact {
+  margin-right: 20%;
+}
 #menu ul > li.contact:before {
   background-position: -414px 0;
 }
@@ -505,6 +539,20 @@ body.article #viewport {
 #menu ul > li.design.hover:before,
 #menu ul > li.design.active:before {
   background-position: -145px -40px;
+}
+#menu ul > li.design:after {
+  content: 'thoughts';
+  position: absolute;
+  font-family: TradeGothic;
+  font-size: 13px;
+  letter-spacing: -0.03em;
+  font-weight: bold;
+  width: 70px;
+  text-align: left;
+  top: -17px;
+  left: -65px;
+  background: url('../images/spritempd.png') -458px -67px no-repeat;
+  background-size: 533px;
 }
 #menu ul > li.technology:before {
   background-position: -189px 0;
@@ -572,15 +620,15 @@ body.article #viewport {
 #menu ul > li.technology.active:before {
   background-position: -184px -40px;
 }
-#menu ul > li.business:before {
+#menu ul > li.community:before {
   background-position: -229px 0;
 }
-#menu ul > li.business.hover a > span,
-#menu ul > li.business.active a > span {
+#menu ul > li.community.hover a > span,
+#menu ul > li.community.active a > span {
   color: #0085ff;
 }
-#menu ul > li.business.hover:before,
-#menu ul > li.business.active:before {
+#menu ul > li.community.hover:before,
+#menu ul > li.community.active:before {
   background-position: -229px -40px;
 }
 #menu ul > li.hover > a,
@@ -730,7 +778,7 @@ body.width-mobile #menu ul > li:after {
   display: block;
   height: 39px;
   width: 35px;
-  background-image: url(../images/spritempd-small.png);
+  background-image: url(../images/sprite-ie.png);
 }
 #main .tile .content a.tile-doodle:hover:before {
   top: 18px;
@@ -754,7 +802,7 @@ body.width-mobile #menu ul > li:after {
 #main .tile .content a.tile-doodle.technology:before {
   background-position: -184px -40px;
 }
-#main .tile .content a.tile-doodle.business:before {
+#main .tile .content a.tile-doodle.community:before {
   background-position: -224px -40px;
 }
 #main .tile.medium {
@@ -938,7 +986,7 @@ body.article #main {
   color: transparent;
   width: 23px;
   height: 23px;
-  background: url(../images/spritempd-small.png) 0 0 no-repeat;
+  background: url(../images/sprite-ie.png) 0 0 no-repeat;
   background-size: 533px;
 }
 .footer .contact ul.social-media-footer li a:after {
@@ -949,7 +997,7 @@ body.article #main {
   height: 23px;
   top: 0;
   left: 0;
-  background: url(../images/spritempd-small.png) 0 0 no-repeat;
+  background: url(../images/sprite-ie.png) 0 0 no-repeat;
   background-size: 533px;
   opacity: 0.01;
   -webkit-transition: opacity 0.3s;
@@ -1048,7 +1096,7 @@ body.article #main {
   position: absolute;
   width: 62px;
   height: 64px;
-  background: url(../images/spritempd-small.png) -462px -1px no-repeat;
+  background: url(../images/sprite-ie.png) -462px -1px no-repeat;
   background-size: 533px;
 }
 .footer .address.toronto {
@@ -1379,7 +1427,7 @@ body.article #main {
   height: 40px;
   left: 22px;
   top: 31px;
-  background: #ffffff url(../images/spritempd-small.png) 0 0 no-repeat;
+  background: #ffffff url(../images/sprite-ie.png) 0 0 no-repeat;
 }
 .profile-body .profile-content .article-footer .footer-doodle.company:before {
   background-position: -312px 0;
@@ -1399,7 +1447,7 @@ body.article #main {
 .profile-body .profile-content .article-footer .footer-doodle.development:before {
   background-position: -184px 0;
 }
-.profile-body .profile-content .article-footer .footer-doodle.business:before {
+.profile-body .profile-content .article-footer .footer-doodle.community:before {
   background-position: -224px 0;
 }
 #article-inner .article-banner {
@@ -1788,7 +1836,7 @@ body.article #main {
   left: 22px;
   top: 31px;
   background-color: #fff;
-  background-image: url(../images/spritempd-small.png);
+  background-image: url(../images/sprite-ie.png);
   background-repeat: no-repeat;
   background-position: -140px 0;
   zoom: 1;
@@ -1811,7 +1859,7 @@ body.article #main {
 #article-inner .article-body .article-content .article-footer .footer-doodle.development:before {
   background-position: -184px 0;
 }
-#article-inner .article-body .article-content .article-footer .footer-doodle.business:before {
+#article-inner .article-body .article-content .article-footer .footer-doodle.community:before {
   background-position: -224px 0;
 }
 #banner {

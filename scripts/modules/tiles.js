@@ -177,7 +177,7 @@
 			$wrap.on('transitionend webkitTransitionEnd', transitionEnd);
 			$window.on('article menu', removeAllLayers);
 			scrollData = data;
-			firstEventTimeout = window.setTimeout(initializePage, 750);
+			firstEventTimeout = window.setTimeout(initializePage, 350);
 		}
 	});
 

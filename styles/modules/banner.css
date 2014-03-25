@@ -7,31 +7,43 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   height: 557px;
-  -webkit-transition: background-color 0.7s;
-  -moz-transition: background-color 0.7s;
-  -o-transition: background-color 0.7s;
-  transition: background-color 0.7s;
+  background: #f05a28;
+  -webkit-transition: background 0.5s;
+  -moz-transition: background 0.5s;
+  -o-transition: background 0.5s;
+  transition: background 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 #banner.home {
-  background-color: #f05a28;
+  background: #f05a28;
 }
 #banner.company {
-  background-color: #f05a28;
+  background: #f05a28;
 }
 #banner.people {
-  background-color: #f05a28;
+  background: #f05a28;
 }
 #banner.careers {
-  background-color: #f05a28;
+  background: #f05a28;
 }
 #banner.design {
-  background-color: #5f5ca9;
+  background: #5f5ca9;
 }
 #banner.technology {
-  background-color: #58c0a2;
+  background: #58c0a2;
 }
 #banner.community {
-  background-color: #ea3d67;
+  background: #ea3d67;
 }
 @media only screen and (max-width: 1174px) {
   #banner {
@@ -83,10 +95,10 @@
   font-feature-settings: "kern", "liga", "case";
   /* No variation */
   -webkit-font-smoothing: antialiased;
-  -webkit-transition: opacity 0.7s ease-in-out 0.125s;
-  -moz-transition: opacity 0.7s ease-in-out 0.125s;
-  -o-transition: opacity 0.7s ease-in-out 0.125s;
-  transition: opacity 0.7s ease-in-out 0.125s;
+  -webkit-transition: opacity 0.4s ease-in-out;
+  -moz-transition: opacity 0.4s ease-in-out;
+  -o-transition: opacity 0.4s ease-in-out;
+  transition: opacity 0.4s ease-in-out;
 }
 #banner .banner-text p {
   margin: 0;
@@ -109,8 +121,8 @@
   display: block;
   position: absolute;
   width: 660px;
-  height: 500px;
-  top: 420px;
+  height: 127px;
+  top: 430px;
   left: -490px;
   background-image: url(../../images/Banner-Doodle-Bottom.png);
   background-size: 677px;

@@ -288,7 +288,7 @@
 					if (window.isTileView && window.curScrollTop <= DESKTOP_MENU_BREAKPOINT) {
 						return;
 					}
-					if(!enteredMenu && desktopMenuState === 'large-menu' && e.clientY > DESKTOP_MENU_BREAKPOINT && !window.isBusy) {
+					if(!enteredMenu && desktopMenuState === 'large-menu' && e.clientY > HEADER_HEIGHT && !window.isBusy) {
 						hideLargeMenu();
 					}
 				}, 0);
@@ -357,5 +357,9 @@
 			stickLargeMenu(curScrollTop, true);
 		}
 	});
-
+	$(document).one('mousemove', function(e) {
+		if (e.clientY <= HEADER_HEIGHT) {
+			enteredMenu = true;
+		}
+	});
 }());

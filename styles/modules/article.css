@@ -115,14 +115,31 @@ pre[class*="language-"] {
   -moz-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
 }
 #article-inner.reveal .article-title {
   opacity: 1;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
   -webkit-backface-visibility: visible;
   -moz-backface-visibility: visible;
   -backface-visibility: visible;
@@ -136,11 +153,17 @@ pre[class*="language-"] {
 }
 #article-inner.reveal .article-body {
   opacity: 1;
-  -webkit-transform: none;
-  -moz-transform: none;
-  -ms-transform: none;
-  -o-transform: none;
-  transform: none;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
   -webkit-backface-visibility: visible;
   -moz-backface-visibility: visible;
   -backface-visibility: visible;
@@ -181,6 +204,17 @@ pre[class*="language-"] {
   height: 480px;
   background-repeat: no-repeat;
   background-position: center center;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -backface-visibility: hidden;
+  -webkit-perspective: 1000;
+  -moz-perspective: 1000;
+  perspective: 1000;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -287,9 +321,10 @@ pre[class*="language-"] {
   -moz-perspective: 1000;
   perspective: 1000;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1174px) {
   #article-inner .article-body {
-    padding: 40px 0 170px;
+    padding-top: 40px;
+    margin-bottom: -10px;
   }
 }
 #article-inner .article-body a {
@@ -374,6 +409,7 @@ pre[class*="language-"] {
   display: inline-block;
 }
 #article-inner .article-body .article-info ul.article-tags li a {
+  text-transform: capitalize;
   margin: 0;
 }
 #article-inner .article-body .article-info ul.article-tags li:not(:last-of-type) a:after {
@@ -528,7 +564,7 @@ pre[class*="language-"] {
     margin-top: 10px;
   }
 }
-#article-inner .article-body .article-content p.image-full {
+#article-inner .article-body .article-content div.image-full {
   margin: 40px 0 45px;
   max-width: 100%;
   padding: 0;
@@ -764,17 +800,13 @@ pre[class*="language-"] {
   padding: 0;
   margin: 0;
   font-family: TradeGothic;
-  font-size: 2em;
+  font-size: 1.8em;
   line-height: 1.6;
   letter-spacing: -0.01em;
 }
 @media screen and (max-width: 1024px) {
   #article-inner .article-body .article-content blockquote {
     padding: 0 8.4%;
-    margin: 50px auto;
-  }
-  #article-inner .article-body .article-content blockquote p {
-    font-size: 2em;
   }
 }
 @media screen and (max-width: 560px) {
@@ -782,7 +814,7 @@ pre[class*="language-"] {
     padding: 0 5%;
   }
   #article-inner .article-body .article-content blockquote p {
-    font-size: 1.8em;
+    font-size: 1.7em;
   }
 }
 @media screen and (max-width: 480px) {
