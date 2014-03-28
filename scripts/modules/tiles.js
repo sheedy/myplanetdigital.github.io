@@ -177,8 +177,8 @@
 			$wrap.on('transitionend webkitTransitionEnd', transitionEnd);
 			$window.on('article menu', removeAllLayers);
 			scrollData = data;
-			firstEventTimeout = window.setTimeout(initializePage, 350);
 		}
+		firstEventTimeout = window.setTimeout(initializePage, 350);
 	});
 
 	$window.on('filter', function(e, tag, immediate, scroll) {

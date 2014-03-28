@@ -19,8 +19,8 @@
         $loadgif = $('.loading-overlay'),
         $loadgiftiles = $('.loading-overlay-tiles'),
         $anchors = $('a'),
-        $footer = $('.footer'),
-        $articleFooter,
+        $footer = $('#main .footer'),
+        $articleFooter = $('#article .footer'),
         $ajaxer = null,
         popped = false,
         fromTiles = false,
@@ -231,6 +231,7 @@
 
         if (isTagUrl) {
             filterTag = isTagUrl[1];
+            filterTag = removeTrailingSlash(filterTag);
         }
         if (pageUrl === window.baseUrl) {
             filterTag = 'home';
@@ -539,7 +540,7 @@
         top: window.pageYOffset,
         bottom: window.pageYOffset + window.pageHeight
     }]);
-    window.isWebkitMobileNotIOS =  window.hasTouchEvents && !window.isIOS; //meh
+    window.isWebkitMobileNotIOS =  window.hasTouchEvents && !window.isIOS;
 
 
     SPINNER_HEIGHT = window.isIOS ? 25 : SPINNER_HEIGHT;
@@ -578,7 +579,7 @@
         }
     });
 
-    $article.append($articleFooter = $footer.clone());
+    //$article.append($articleFooter = $footer.clone());
     window.currentTag = $('#menu').find('li.active').attr('class').split(' ')[0];
     $window.on('page-change', handlePageChange);
     $article.on('transitionend webkitTransitionEnd', handleTransitionEnd);

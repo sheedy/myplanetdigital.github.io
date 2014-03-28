@@ -21,8 +21,8 @@
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/2.jpg);" >
-	<img src="/swat/images/default-covers/2.jpg" style="display:none; visibility:hidden;" />
+<div class="article-banner" style="background-image: url(/swat/images/default-covers/1.jpg);" >
+	<img src="/swat/images/default-covers/1.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -69,19 +69,22 @@
 <style type="text/css">
 .article-404 {
 	margin-top: 6em;
-	margin-bottom: -12px;
+	margin-bottom: -10px;
 	background-image: url("/swat/images/404-doodle.png");
-	background-size: cover;
+	background-position: center 10px;
+	background-repeat: no-repeat;
+	background-size: 1380px;
 	width: 100%;
-	height: 537px;
+	height: 600px;
 }
 .article-404-text {
 	left: 50%;
-	top: 30%;
+	top: 36%;
 	position: relative;
 }
 .article-404-text h1 {
 	font-family: Plantin;
+	margin: 0 0 10px 0;
 }
 .article-404-text h2 a {
 	color: #f05a28;
@@ -90,28 +93,49 @@
 	font-family: Plantin;
 }
 .article-404-text h2 {
-	margin-top: -10px;
+	margin: 0;
 }
-
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1174px) {
 	.article-404 {
-		background-position: 20% 100px;
-		height: 480px;
-		margin-top: 2em;
+		margin-top: 0;
+		background-position: center 22px;
+		background-size: 1100px;
+		height: 530px;
 	}
 	.article-404-text {
-		top: 0;
+		top: 30%;
+	}
+}
+@media screen and (max-width: 900px) {
+	.article-404 {
+		background-position: 30% 150px;
+		background-size: 950px;
+	}
+	.article-404-text {
+		top: 8%;
 		left: 0;
-		letter-spacing: -3px;
-		padding: 11px 17px;
 		text-align: center;
+	}
+}
+@media screen and (max-width: 600px) {
+	.article-404 {
+		background-position: 17% 120px;
+		background-size: 900px;
+		height: 450px;
+	}
+	.article-404-text h1 {
+		font-size: 1.6em;
+	}
+}
+@media screen and (max-width: 400px) {
+	.article-404-text h1 {
+		font-size: 1.4em;
 	}
 }
 </style>
 
 			
 			<div class="article-footer">
-				
 				<div class="footer-doodle "></div>
 			</div>
 		</div>

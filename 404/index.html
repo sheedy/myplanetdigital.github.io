@@ -44,7 +44,7 @@
 			</div>
 			<div id="viewport">
 
-				<!--[if (!IE) | (gte IE 10)]> -->
+				
 				<section id="main" style="transition: none; -webkit-transition: none; position: absolute;">
 
 					<div id="banner" class="">
@@ -119,7 +119,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address toronto">
 			<h3>Toronto</h3>
-			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada" target="_blank">
 				<span>252 Adelaide St E</span>
 				<span>Toronto, Ontario</span>
 				<span>M5A 1N1</span>
@@ -127,7 +127,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address vancouver">
 			<h3>Vancouver</h3>
-			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada" target="_blank">
 
 				<span>312-510 West Hastings</span>
 				<span>Vancouver, BC</span>
@@ -136,7 +136,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chernihiv">
 			<h3>Chernihiv</h3>
-			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine" target="_blank">
 				<span>21a Voiniv-Internatsionalistiv St</span>
 				<span>Chernihiv, Ukraine</span>
 				<span>14000</span>
@@ -144,7 +144,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chicago">
 			<h3>Chicago</h3>
-			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL" target="_blank">
 				<span>155 North Wacker Dr.</span>
 				<span>Chicago, IL</span>
 				<span>60606</span>
@@ -168,19 +168,22 @@ window.currentTag = function() {
 <style type="text/css">
 .article-404 {
 	margin-top: 6em;
-	margin-bottom: -12px;
+	margin-bottom: -10px;
 	background-image: url("/swat/images/404-doodle.png");
-	background-size: cover;
+	background-position: center 10px;
+	background-repeat: no-repeat;
+	background-size: 1380px;
 	width: 100%;
-	height: 537px;
+	height: 600px;
 }
 .article-404-text {
 	left: 50%;
-	top: 30%;
+	top: 36%;
 	position: relative;
 }
 .article-404-text h1 {
 	font-family: Plantin;
+	margin: 0 0 10px 0;
 }
 .article-404-text h2 a {
 	color: #f05a28;
@@ -189,21 +192,43 @@ window.currentTag = function() {
 	font-family: Plantin;
 }
 .article-404-text h2 {
-	margin-top: -10px;
+	margin: 0;
 }
-
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 1174px) {
 	.article-404 {
-		background-position: 20% 100px;
-		height: 480px;
-		margin-top: 2em;
+		margin-top: 0;
+		background-position: center 22px;
+		background-size: 1100px;
+		height: 530px;
 	}
 	.article-404-text {
-		top: 0;
+		top: 30%;
+	}
+}
+@media screen and (max-width: 900px) {
+	.article-404 {
+		background-position: 30% 150px;
+		background-size: 950px;
+	}
+	.article-404-text {
+		top: 8%;
 		left: 0;
-		letter-spacing: -3px;
-		padding: 11px 17px;
 		text-align: center;
+	}
+}
+@media screen and (max-width: 600px) {
+	.article-404 {
+		background-position: 17% 120px;
+		background-size: 900px;
+		height: 450px;
+	}
+	.article-404-text h1 {
+		font-size: 1.6em;
+	}
+}
+@media screen and (max-width: 400px) {
+	.article-404-text h1 {
+		font-size: 1.4em;
 	}
 }
 </style>
@@ -212,64 +237,7 @@ window.currentTag = function() {
 					<div class="loading-overlay" style="display:none;">
 						<div class="loading-spinner"></div>
 					</div>
-				</article>
-				<!-- <![endif]-->
-
-				<!--[if (IE 8) | (IE 9)]>
-				
-				<article id="article">
-					<div id="article-inner" >
-						<div class="article-404">
-	<div class="article-404-text">
-		<h1>This page does not exist</h1>
-		<h2><em><a href="/swat/">Go home</a></em></h2>
-	</div>
-</div>
-
-<style type="text/css">
-.article-404 {
-	margin-top: 6em;
-	margin-bottom: -12px;
-	background-image: url("/swat/images/404-doodle.png");
-	background-size: cover;
-	width: 100%;
-	height: 537px;
-}
-.article-404-text {
-	left: 50%;
-	top: 30%;
-	position: relative;
-}
-.article-404-text h1 {
-	font-family: Plantin;
-}
-.article-404-text h2 a {
-	color: #f05a28;
-	text-decoration: none;
-	font-size: 1.5em;
-	font-family: Plantin;
-}
-.article-404-text h2 {
-	margin-top: -10px;
-}
-
-@media screen and (max-width: 720px) {
-	.article-404 {
-		background-position: 20% 100px;
-		height: 480px;
-		margin-top: 2em;
-	}
-	.article-404-text {
-		top: 0;
-		left: 0;
-		letter-spacing: -3px;
-		padding: 11px 17px;
-		text-align: center;
-	}
-}
-</style>
-					</div>
-					<footer class="footer" id="contact">
+                    <footer class="footer" id="contact">
 	<div class="contact-info">
 		<div class="email-us">
 			<h3>e-mail us</h3>
@@ -293,7 +261,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address toronto">
 			<h3>Toronto</h3>
-			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada" target="_blank">
 				<span>252 Adelaide St E</span>
 				<span>Toronto, Ontario</span>
 				<span>M5A 1N1</span>
@@ -301,7 +269,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address vancouver">
 			<h3>Vancouver</h3>
-			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada" target="_blank">
 
 				<span>312-510 West Hastings</span>
 				<span>Vancouver, BC</span>
@@ -310,7 +278,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chernihiv">
 			<h3>Chernihiv</h3>
-			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine" target="_blank">
 				<span>21a Voiniv-Internatsionalistiv St</span>
 				<span>Chernihiv, Ukraine</span>
 				<span>14000</span>
@@ -318,7 +286,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chicago">
 			<h3>Chicago</h3>
-			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL" target="_blank">
 				<span>155 North Wacker Dr.</span>
 				<span>Chicago, IL</span>
 				<span>60606</span>
@@ -328,9 +296,6 @@ window.currentTag = function() {
 </footer>
 
 				</article>
-				
-				<![endif]-->
-
 			</div>
 
 			<!-- MENU GOES HERE -->
@@ -416,6 +381,9 @@ window.currentTag = function() {
 						<span>
 							Home
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -438,6 +406,9 @@ window.currentTag = function() {
 						<span>
 							What We Do
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -460,6 +431,9 @@ window.currentTag = function() {
 						<span>
 							People
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -482,6 +456,9 @@ window.currentTag = function() {
 						<span>
 							Careers
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -504,6 +481,9 @@ window.currentTag = function() {
 						<span>
 							Contact
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -526,6 +506,9 @@ window.currentTag = function() {
 						<span>
 							Design
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -548,6 +531,9 @@ window.currentTag = function() {
 						<span>
 							Technology
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -570,6 +556,9 @@ window.currentTag = function() {
 						<span>
 							Community
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			

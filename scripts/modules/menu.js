@@ -10,6 +10,7 @@
 		$body = $('body'),
 		$wrap = $('#wrap'),
 		$menu = $('#menu'),
+		$banner = $('#banner'),
 		$menuGhost = $('<div data-role="menu-ghost"></div>'),
 		$logo = $('#logo'),
 		$viewport = $('#viewport'),
@@ -30,17 +31,19 @@
 		enteredMenu = false,
 		desktopMenuRafTimeout,
 		HEADER_HEIGHT = 127,
+		INDICATOR_WIDTH = 10,
+		LOGO_WIDTH = 81,
 		MENU_WIDTH = 250,
 		SCROLL_UP_THRESHOLD = 40,
 		MOUSE_MOVE_THRESHOLD = 50,
-		DESKTOP_MENU_BREAKPOINT =  440, //parseInt($viewport.css('padding-top').replace(/px/,''), 10) - $menu.outerHeight(true),
+		DESKTOP_MENU_BREAKPOINT =  $banner[0].offsetHeight - $menu.outerHeight(),
 		MOUSE_MOVE_THROTTLE_THRESHOLD = 25;
 
 	function setIndicator(item, transition) {
 		if ($(item).is('.home')) {
-			indicatorOffset = -150; //@fix: calculate properly
+			indicatorOffset = $logo[0].offsetLeft + LOGO_WIDTH / 2 - INDICATOR_WIDTH;
 		} else if(item) {
-			indicatorOffset = (item.offsetLeft - 14) - (window.responsiveState === 'full' ? $wrap[0].offsetLeft + $mainWrap[0].offsetLeft : 0);
+			indicatorOffset = item.offsetLeft + item.offsetWidth / 2 - INDICATOR_WIDTH;
 		}
 		$indicator.css({
 			transform: 'translate3d(' + indicatorOffset + 'px, ' + desktopMenuOffset + 'px, 0)',

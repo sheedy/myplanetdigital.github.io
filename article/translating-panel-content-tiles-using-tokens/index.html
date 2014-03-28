@@ -46,7 +46,7 @@
 			</div>
 			<div id="viewport">
 
-				<!--[if (!IE) | (gte IE 10)]> -->
+				
 				<section id="main" style="transition: none; -webkit-transition: none; position: absolute;">
 
 					<div id="banner" class="">
@@ -121,7 +121,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address toronto">
 			<h3>Toronto</h3>
-			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada" target="_blank">
 				<span>252 Adelaide St E</span>
 				<span>Toronto, Ontario</span>
 				<span>M5A 1N1</span>
@@ -129,7 +129,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address vancouver">
 			<h3>Vancouver</h3>
-			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada" target="_blank">
 
 				<span>312-510 West Hastings</span>
 				<span>Vancouver, BC</span>
@@ -138,7 +138,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chernihiv">
 			<h3>Chernihiv</h3>
-			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine" target="_blank">
 				<span>21a Voiniv-Internatsionalistiv St</span>
 				<span>Chernihiv, Ukraine</span>
 				<span>14000</span>
@@ -146,7 +146,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chicago">
 			<h3>Chicago</h3>
-			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL" target="_blank">
 				<span>155 North Wacker Dr.</span>
 				<span>Chicago, IL</span>
 				<span>60606</span>
@@ -188,8 +188,8 @@ window.currentTag = function() {
 
 
 
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/4.jpg);" >
-	<img src="/swat/images/default-covers/4.jpg" style="display:none; visibility:hidden;" />
+<div class="article-banner" style="background-image: url(/swat/images/default-covers/3.jpg);" >
+	<img src="/swat/images/default-covers/3.jpg" style="display:none; visibility:hidden;" />
 </div>
 <div class="article-title">
 	
@@ -311,10 +311,6 @@ return array(
 
 			
 			<div class="article-footer">
-				<div class="navlinks">
-  <a href="/article/drupalcamp-toronto-2013" title="Previous Post: DrupalCamp Toronto 2013" class="navlinks-prev">&laquo; DrupalCamp Toronto 2013</a>
-  <a href="/people/jennifer-leavey" title="Next Post: Jennifer Leavey" class="navlinks-next">Jennifer Leavey &raquo;</a>
-</div>
 				<div class="footer-doodle technology"></div>
 			</div>
 		</div>
@@ -327,177 +323,7 @@ return array(
 					<div class="loading-overlay" style="display:none;">
 						<div class="loading-spinner"></div>
 					</div>
-				</article>
-				<!-- <![endif]-->
-
-				<!--[if (IE 8) | (IE 9)]>
-				
-				<article id="article">
-					<div id="article-inner" >
-						
-
-
-
-
-	
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/4.jpg);" >
-	<img src="/swat/images/default-covers/4.jpg" style="display:none; visibility:hidden;" />
-</div>
-<div class="article-title">
-	
-	<h1>
-		
-			
-			<span>Translating Panel</span><span>Content Titles</span><span>Using Tokens</span>
-		
-	</h1>
-	
-</div>
-
-
-
-
-<div class="article-body" data-tag="technology">
-	<div class="article-info">
-
-		
-
-
-		
-			<div class="author-picture">
-				
-					<a href="/swat/people/jeremy-lichtman">
-						<img src="/swat/associated-files/people/jeremy-lichtman/avatar.jpg" alt="Author Picture" />
-					</a>
-				
-			</div>
-		
-
-
-		
-
-		
-			<div class="author-info">
-
-				
-
-				
-					
-						<a class="author-name" href="/swat/people/jeremy-lichtman">Jeremy Lichtman</a>
-					
-				
-
-
-				
-				
-
-			</div>
-		
-
-		
-		
-			<ul class="article-tags">
-				
-					<li><a href="/swat/tags/technology">technology</a></li>
-				
-			</ul>
-		
-	</div>
-
-
-	
-
-	
-		<div class="article-content">
-			<h2 id="we-recently-encountered-a-specific-situation-with-a-drupal-site-that-had-to-be-retro-fitted-for-translation-">We recently encountered a specific situation with a Drupal site that had to be retro-fitted for translation.</h2>
-<p>The titles of content items within a panel page are not translatable.</p>
-<p>There is an issue in the queue for panels, but it has been open for two years now, and it is unlikely to be resolved any time soon. There are also many somewhat hackish work-arounds - i.e. using blocks with the title inserted as content instead - but we found a cleaner way to do this using tokens, which panels do provide support for.</p>
-<p>If you&#39;ve ever coded a custom block, the methodology for creating tokens will look familiar. In a custom module, you first implement hook_token_info(), which lets Drupal know about the list of tokens that your module will provide, and then implement hook_tokens(), which actually outputs the content of the code.</p>
-<pre><code class="lang-php">function test_token_info() {
-    $type = array(
-        &#39;name&#39; =&gt; t(&#39;Test Tokens&#39;),
-        &#39;description&#39; =&gt; t(&#39;Tokens for i18n experiment.&#39;)
-    );
-
-$test[&#39;test_panel_translation_title&#39;] = array(
-    &#39;name&#39; =&gt; t(&quot;Test title translation&quot;),
-    &#39;description&#39; =&gt; t(&#39;Translatable version of panel content title&#39;),
-);
-
-return array(
-        &#39;types&#39; =&gt; array(&#39;test&#39; =&gt; $type),
-        &#39;tokens&#39; =&gt; array(&#39;test&#39; =&gt; $test),
-    );
-}
-</code></pre>
-<p>The code, above, lets Drupal know what this module produces in the way of tokens. The $type array contains information that will be displayed about the module itself, and the $test array contains information about the token itself. You can add many tokens into the $test array, of course (and name the array appropriately for your module as well).</p>
-<pre><code class="lang-php">    /**
-      * Implements hook_tokens().
-      */
-
-    function test_tokens($type, $tokens, array $data = array(), array $options = array()){
-        return array(
-            &#39;test_panel_translation_title&#39; =&gt; t(&#39;My title is now translatable&#39;),
-        );
-    }
-</code></pre>
-<p>The code, above, actually produces the contents of the token. Note that we have wrapped our text in t(), so it is translatable.</p>
-<p>You&#39;ll obviously need to enable your module (in addition to the <a href="https://drupal.org/project/token">token module</a>) and clear your cache.</p>
-<p>Now let&#39;s see how we can use the new token inside of panels.</p>
-<p><img src="/associated-files/article/translating-panel-content-tiles-using-tokens/body_1.jpg" alt=""></p>
-<p>As you can see, we need to first add something into your panel that lets it know that you are going to be using tokens. After you add in tokens, you&#39;ll see your new tokens listed.</p>
-<p><img src="/associated-files/article/translating-panel-content-tiles-using-tokens/body_2.jpg" alt=""></p>
-<p><img src="/associated-files/article/translating-panel-content-tiles-using-tokens/body_3.jpg" alt=""></p>
-<p><img src="/associated-files/article/translating-panel-content-tiles-using-tokens/body_4.jpg" alt=""></p>
-<p>Now we can actually change our content title to a token.</p>
-<p><img src="/associated-files/article/translating-panel-content-tiles-using-tokens/body_5.jpg" alt=""></p>
-<p>The token appears in the list of available substitutions, so you don&#39;t need to remember it.</p>
-<p><img src="/associated-files/article/translating-panel-content-tiles-using-tokens/body_6.jpg" alt=""></p>
-<p>ou&#39;ll need to select the &quot;Use context keywords&quot; option so that panels knows that it needs to make substitutions on tokens in this content item.</p>
-<p>Aside: We can also use tokens inside of content itself.</p>
-<p><img src="/associated-files/article/translating-panel-content-tiles-using-tokens/body_7.jpg" alt=""></p>
-<p>If you are exporting your panel to code (i.e. with features), the token will appear in the actual code as well.</p>
-<p><img src="/associated-files/article/translating-panel-content-tiles-using-tokens/body_8.jpg" alt=""></p>
-<p>As you can see, using tokens is a simple method, producing clean, easy to document code, for translating items in Drupal that are otherwise hard to make translatable.</p>
-
-
-			
-			<div class="article-footer">
-				<div class="navlinks">
-  <a href="/article/drupalcamp-toronto-2013" title="Previous Post: DrupalCamp Toronto 2013" class="navlinks-prev">&laquo; DrupalCamp Toronto 2013</a>
-  <a href="/people/jennifer-leavey" title="Next Post: Jennifer Leavey" class="navlinks-next">Jennifer Leavey &raquo;</a>
-</div>
-				<div class="footer-doodle technology"></div>
-			</div>
-		</div>
-	
-
-</div>
-
-					</div>
-					<footer class="footer" id="contact">
+                    <footer class="footer" id="contact">
 	<div class="contact-info">
 		<div class="email-us">
 			<h3>e-mail us</h3>
@@ -521,7 +347,7 @@ return array(
 		</div>
 		<div class="address toronto">
 			<h3>Toronto</h3>
-			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada" target="_blank">
 				<span>252 Adelaide St E</span>
 				<span>Toronto, Ontario</span>
 				<span>M5A 1N1</span>
@@ -529,7 +355,7 @@ return array(
 		</div>
 		<div class="address vancouver">
 			<h3>Vancouver</h3>
-			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada" target="_blank">
 
 				<span>312-510 West Hastings</span>
 				<span>Vancouver, BC</span>
@@ -538,7 +364,7 @@ return array(
 		</div>
 		<div class="address chernihiv">
 			<h3>Chernihiv</h3>
-			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine" target="_blank">
 				<span>21a Voiniv-Internatsionalistiv St</span>
 				<span>Chernihiv, Ukraine</span>
 				<span>14000</span>
@@ -546,7 +372,7 @@ return array(
 		</div>
 		<div class="address chicago">
 			<h3>Chicago</h3>
-			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL" target="_blank">
 				<span>155 North Wacker Dr.</span>
 				<span>Chicago, IL</span>
 				<span>60606</span>
@@ -556,9 +382,6 @@ return array(
 </footer>
 
 				</article>
-				
-				<![endif]-->
-
 			</div>
 
 			<!-- MENU GOES HERE -->
@@ -644,6 +467,9 @@ return array(
 						<span>
 							Home
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -666,6 +492,9 @@ return array(
 						<span>
 							What We Do
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -688,6 +517,9 @@ return array(
 						<span>
 							People
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -710,6 +542,9 @@ return array(
 						<span>
 							Careers
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -732,6 +567,9 @@ return array(
 						<span>
 							Contact
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -754,6 +592,9 @@ return array(
 						<span>
 							Design
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -776,6 +617,9 @@ return array(
 						<span>
 							Technology
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -798,6 +642,9 @@ return array(
 						<span>
 							Community
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			

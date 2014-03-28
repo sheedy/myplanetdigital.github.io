@@ -46,7 +46,7 @@
 			</div>
 			<div id="viewport">
 
-				<!--[if (!IE) | (gte IE 10)]> -->
+				
 				<section id="main" style="transition: none; -webkit-transition: none; position: absolute;">
 
 					<div id="banner" class="">
@@ -121,7 +121,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address toronto">
 			<h3>Toronto</h3>
-			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada" target="_blank">
 				<span>252 Adelaide St E</span>
 				<span>Toronto, Ontario</span>
 				<span>M5A 1N1</span>
@@ -129,7 +129,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address vancouver">
 			<h3>Vancouver</h3>
-			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada" target="_blank">
 
 				<span>312-510 West Hastings</span>
 				<span>Vancouver, BC</span>
@@ -138,7 +138,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chernihiv">
 			<h3>Chernihiv</h3>
-			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine" target="_blank">
 				<span>21a Voiniv-Internatsionalistiv St</span>
 				<span>Chernihiv, Ukraine</span>
 				<span>14000</span>
@@ -146,7 +146,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chicago">
 			<h3>Chicago</h3>
-			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL" target="_blank">
 				<span>155 North Wacker Dr.</span>
 				<span>Chicago, IL</span>
 				<span>60606</span>
@@ -273,10 +273,6 @@ window.currentTag = function() {
 
 			
 			<div class="article-footer">
-				<div class="navlinks">
-  <a href="/people/andrew-semuschak" title="Previous Post: Andrew Semuschak" class="navlinks-prev">&laquo; Andrew Semuschak</a>
-  <a href="/article/long-road-lean-ux" title="Next Post: The Long Road to Lean UX" class="navlinks-next">The Long Road to Lean UX &raquo;</a>
-</div>
 				<div class="footer-doodle technology"></div>
 			</div>
 		</div>
@@ -289,139 +285,7 @@ window.currentTag = function() {
 					<div class="loading-overlay" style="display:none;">
 						<div class="loading-spinner"></div>
 					</div>
-				</article>
-				<!-- <![endif]-->
-
-				<!--[if (IE 8) | (IE 9)]>
-				
-				<article id="article">
-					<div id="article-inner" >
-						
-
-
-
-
-	
-
-
-
-
-
-
-
-
-	
-	
-	
-	
-	
-
-
-
-
-
-
-
-
-
-<div class="article-banner" style="background-image: url(/swat/images/default-covers/6.jpg);" >
-	<img src="/swat/images/default-covers/6.jpg" style="display:none; visibility:hidden;" />
-</div>
-<div class="article-title">
-	
-	<h1>
-		
-			
-			<span>UX Review: Drupal's </span><span>Panels & Page </span><span>Manager Modules</span>
-		
-	</h1>
-	
-</div>
-
-
-
-
-<div class="article-body" data-tag="technology">
-	<div class="article-info">
-
-		
-
-
-		
-
-
-		
-
-		
-			<div class="author-info">
-
-				
-
-				
-					
-						<a class="author-name" href="/swat/people/"></a>
-					
-				
-
-
-				
-				
-
-			</div>
-		
-
-		
-		
-			<ul class="article-tags">
-				
-					<li><a href="/swat/tags/technology">technology</a></li>
-				
-			</ul>
-		
-	</div>
-
-
-	
-
-	
-		<div class="article-content">
-			<h2 id="recent-discussions-about-architectural-shifts-in-the-drupal-core-have-cast-a-strong-light-on-the-panels-and-page-manager-modules-which-are-seen-as-a-model-for-the-way-forward-all-the-more-reason-to-take-a-good-look-at-the-usability-issues-and-ways-to-improve-their-overall-ux-">Recent discussions about architectural shifts in the Drupal core have cast a strong light on the Panels and Page Manager modules which are seen as a model for the way forward. All the more reason to take a good look at the usability issues and ways to improve their overall UX...</h2>
-<p>Over the last several months Myplanet has been carrying out an extensive UX review of Panels and Page Manager which are two important contributed modules in the Drupal landscape. Interestingly, as we carried out this review the Drupal community has been engaged in some important discussions about how to use Panels and Page Manager as a model for a new paradigm of site building and content management in Drupal’s core. We’re offering this UX review as a contribution to that discussion. </p>
-<h3 id="our-goals">Our Goals</h3>
-<p>The aim of this UX review is to notate key usability issues that may hamper users of the Page Manager system and various Panels components. The issues are placed in the context of how they might affect two distinct user groups: site builders and content managers.</p>
-<p>The material for this document is derived from my expertise as a UX designer/developer and not through usability tests. I gave consideration to both the ‘subjective’ factors that I experienced while using the system as well as the ‘objective’ conditions determined by an examination of the code itself.</p>
-<p>My intent was to quickly identify key issues, some of which might be the focus of subsequent usability tests and some of which might be relevant to discussion about ‘Core Context UX’ for Drupal.</p>
-<h3 id="criteria">Criteria</h3>
-<p>I examined the system from the point of view of these key dimensions of usability:</p>
-<ul>
-<li>General identification and interrelation of UI components as they relate to underlying data models and functional objects</li>
-<li>Layout structure and visual presentation</li>
-<li>Navigational topology</li>
-<li>Interaction strategy</li>
-<li>In-line textual help such as prompts and labels</li>
-<li>Terminology used</li>
-<li>Appropriateness of tasks for each target user group in key usage contexts</li>
-<li>General workflow</li>
-<li>Alternative Designs</li>
-</ul>
-<p>I’ve also included a section at the end of the document to present some possible alternative UX strategies for Page Manager, Panel Page Management and In Place Editing. These suggestions may or may not be directly useful in the context of ‘fixing’ the usability obstacles of these modules. But I do believe that the underlying principles behind these alternative designs will be relevant to envisioning a UX strategy for Drupal’s new architectural paradigm.</p>
-
-
-			
-			<div class="article-footer">
-				<div class="navlinks">
-  <a href="/people/andrew-semuschak" title="Previous Post: Andrew Semuschak" class="navlinks-prev">&laquo; Andrew Semuschak</a>
-  <a href="/article/long-road-lean-ux" title="Next Post: The Long Road to Lean UX" class="navlinks-next">The Long Road to Lean UX &raquo;</a>
-</div>
-				<div class="footer-doodle technology"></div>
-			</div>
-		</div>
-	
-
-</div>
-
-					</div>
-					<footer class="footer" id="contact">
+                    <footer class="footer" id="contact">
 	<div class="contact-info">
 		<div class="email-us">
 			<h3>e-mail us</h3>
@@ -445,7 +309,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address toronto">
 			<h3>Toronto</h3>
-			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada">
+			<a data-long-lat="43.65163,-79.37104" href="http://maps.google.com/?q=252 Adelaide St E, Toronto, ON, Canada" target="_blank">
 				<span>252 Adelaide St E</span>
 				<span>Toronto, Ontario</span>
 				<span>M5A 1N1</span>
@@ -453,7 +317,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address vancouver">
 			<h3>Vancouver</h3>
-			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada">
+			<a data-long-lat="49.28411,-123.11223" href="http://maps.google.com/?q=312-510 West Hastings, Vancouver, BC, Canada" target="_blank">
 
 				<span>312-510 West Hastings</span>
 				<span>Vancouver, BC</span>
@@ -462,7 +326,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chernihiv">
 			<h3>Chernihiv</h3>
-			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine">
+			<a data-long-lat="51.497299,31.311979" href="http://maps.google.com/?q=21a Voiniv-Internatsionalistiv St, Chernihiv, Ukraine" target="_blank">
 				<span>21a Voiniv-Internatsionalistiv St</span>
 				<span>Chernihiv, Ukraine</span>
 				<span>14000</span>
@@ -470,7 +334,7 @@ window.currentTag = function() {
 		</div>
 		<div class="address chicago">
 			<h3>Chicago</h3>
-			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL">
+			<a data-long-lat="41.881567,-87.633187" href="http://maps.google.com/?q=155 North Wacker Dr. Chicago, IL" target="_blank">
 				<span>155 North Wacker Dr.</span>
 				<span>Chicago, IL</span>
 				<span>60606</span>
@@ -480,9 +344,6 @@ window.currentTag = function() {
 </footer>
 
 				</article>
-				
-				<![endif]-->
-
 			</div>
 
 			<!-- MENU GOES HERE -->
@@ -568,6 +429,9 @@ window.currentTag = function() {
 						<span>
 							Home
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -590,6 +454,9 @@ window.currentTag = function() {
 						<span>
 							What We Do
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -612,6 +479,9 @@ window.currentTag = function() {
 						<span>
 							People
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -634,6 +504,9 @@ window.currentTag = function() {
 						<span>
 							Careers
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -656,6 +529,9 @@ window.currentTag = function() {
 						<span>
 							Contact
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -678,6 +554,9 @@ window.currentTag = function() {
 						<span>
 							Design
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -700,6 +579,9 @@ window.currentTag = function() {
 						<span>
 							Technology
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
@@ -722,6 +604,9 @@ window.currentTag = function() {
 						<span>
 							Community
 						</span>
+						<!--[if (IE 8) | (IE 9)]>
+						<div class="menu-doodle"></div>
+						<!-- <![endif]-->
 					</a>
 				</li>
 			
