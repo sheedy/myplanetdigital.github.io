@@ -20,7 +20,7 @@
 		$hiddenTiles;
 
 	function initializePage() {
-		if(!window.isTileView) {
+		if(!window.isTileView || window.hasTouchEvents) {
 			return;
 		}
 
@@ -171,7 +171,7 @@
 
 	//only attach events if the device is capable of showing desktop
 	$window.on('deviceCapabilities', function (e, data) {
-		if(data.desktopCapable) {
+		if(data.desktopCapable || !data.hasTouchEvents) {
 			$window.on('pageScroll', handleScroll);
 			$window.on('after-scrolling', window.requestAnimationFrame.bind(null, removeLayers));
 			$wrap.on('transitionend webkitTransitionEnd', transitionEnd);
@@ -188,14 +188,16 @@
 		      immediate = true;
 		    }
 			window.tiles.items.map(function (tile) {
+				if(immediate) {
+	          window.scroll(0, 0);
+	          return;
+				}
+
 				var $tile = $(tile.element).removeClass('reveal revealed show hidden').css({
 					opacity: immediate ? 1 : 0.01,
 					transition: 'none'
 				});
 
-				if(immediate) {
-					return;
-				}
 
 				window.setTimeout(function() {
 					if(first){

@@ -43,7 +43,7 @@
 		if ($(item).is('.home')) {
 			indicatorOffset = $logo[0].offsetLeft + LOGO_WIDTH / 2 - INDICATOR_WIDTH;
 		} else if(item) {
-			indicatorOffset = item.offsetLeft + item.offsetWidth / 2 - INDICATOR_WIDTH;
+			indicatorOffset = $(item).offset().left + item.offsetWidth / 2 - INDICATOR_WIDTH;
 		}
 		$indicator.css({
 			transform: 'translate3d(' + indicatorOffset + 'px, ' + desktopMenuOffset + 'px, 0)',
@@ -81,6 +81,9 @@
 					return setIndicator($active[0]);
 				});
 			}
+            $window.smartresize(function(){
+                setIndicator($active[0])
+            });
 		}
 		onPageLoad();
 	}

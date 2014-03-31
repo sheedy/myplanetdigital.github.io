@@ -33,6 +33,8 @@
         tileScrollTop = 0,
         RELATIVE_URL_REGEX = /^(?:\/\/|[^\/]+)*\//,
         pageUrl = '/' + document.location.href.replace(RELATIVE_URL_REGEX, ''),
+        pageTitle,
+        linkTag,
         lastArticleUrl = '',
         doArticleAjax,
         doTileAjax,
@@ -172,7 +174,7 @@
                 }, 1000);
                 if (!fromTiles) {
                     var tag = $(data).closest('.article-body').attr('data-tag') || $(data).closest('.profile-body').attr('data-tag'),
-                        href = tag === 'home'? '/' : '/tags/' + tag;
+                        href = tag === 'home'? window.baseUrl : '/tags/' + tag;
                     $backlink.attr('href', href);
                     $window.trigger('article-to-article', [tag]);
                 }
@@ -563,6 +565,7 @@
     //handle push/pop state
     $body.on('click', 'a', function(e) {
         var url = $(this).attr('href');
+
         if(!isExternalUrl(url)) {
             if(e.currentTarget.getAttribute('data-attr') === 'contact-link') {
                 $window.trigger('scroll-to', [window.isTileView ? $footer.offset().top - 90 : $articleFooter.offset().top - 90]);
@@ -572,7 +575,15 @@
                 $window.trigger('same-page');
             } else {
                 pageUrl = url;
+                /*pageTitle = 'Myplanet Digital';
                 linkClickedTime = new Date();
+                if (url.match(ARTICLE_REGEX)) {
+                    pageTitle = $('a[href="' + url + '"].tile-title').find('h2').text() + ' | Myplanet Digital';
+                }
+                else if (url.match(TAG_REGEX)) {
+                    linkTag = $(this).attr('data-tag');
+                    pageTitle = (linkTag !== 'home')? linkTag.charAt(0).toUpperCase() + linkTag.slice(1) + ' | Myplanet Digital' : 'Myplanet Digital';
+                }*/
                 History.pushState(null, null, pageUrl);
             }
             return false;
@@ -623,7 +634,7 @@
             $articlein.addClass('reveal');
             $back.addClass('reveal');
             // set link to return to primary tag on landing on article
-            $backlink.attr('href', window.currentTag === 'home'? '/': '/tags/' + window.currentTag);
+            $backlink.attr('href', window.currentTag === 'home'? window.baseUrl : '/tags/' + window.currentTag);
             articleScrollTop = window.curScrollTop;
         } else {
             tileScrollTop = window.curScrollTop;
